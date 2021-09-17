@@ -13,10 +13,8 @@ class _HomeState extends State<Home> {
           appBar: AppBar(
             backgroundColor: Colors.red,
           ),
-
           body: Center(
-              child: Column(children: <Widget>[
-                
+              child: Column(children: <Widget>[      
             Container(
               margin: const EdgeInsets.only(top: 130),
               child: Text(              

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:qr_code_dart_scan/qr_code_dart_scan.dart';
+
 
 class PaymentQR extends StatefulWidget {
   @override
@@ -8,32 +8,68 @@ class PaymentQR extends StatefulWidget {
 }
 
 class _PaymentQRState extends State<PaymentQR> {
-  String qrString = "Not Scanned";
+    Result? currentResult;
 
-
-
-  @override
+ @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-     future: scanQR(),
-      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-       return Container();
-      },
+    return Scaffold(    
+      body: Stack(
+        children: [
+          Column(
+            children: <Widget>[
+              Expanded(
+                flex: 5,
+                child: Stack(
+                  children: [
+                    QRCodeDartScanView(  
+                      scanInvertedQRCode: true,
+                      onCapture: (Result result) {
+                        setState(() {
+                          currentResult = result;
+                        });
+                      },
+                    ),
+                    Center(
+                      child: Container(
+                        width: 300,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.red,
+                            width: 4,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
+                        ),      
+                      ),
+                    )
+                  ],            
+                ),
+              ),              
+            ],      
+          ),
+          
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              margin: EdgeInsets.all(40),
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Text: ${currentResult?.text ?? 'Not found'}'),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
-
-  Future<void> scanQR() async {
-    try {
-      FlutterBarcodeScanner.scanBarcode("#2A99CF", "Cancel", false, ScanMode.QR)
-          .then((value) {
-        setState(() {
-          qrString = value;
-        });
-      });
-    } catch (e) {
-      setState(() {
-        qrString = "Unable to read the QR";
-      });
-    }
-  }
 }
+ 
+

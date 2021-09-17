@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../MainPage/Home.dart';
+import '../PaymentPage/PaymentQR.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -8,13 +9,14 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+
   int currentTab = 0; // to keep track of active tab index
 
   final List<Widget> screens = [
     Home(),
   ]; // to store nested tabs
 
-  Widget currentScreen = Home(); // Our first view in viewport
+  Widget currentScreen = Home(); // First View
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,8 @@ class _MainPageState extends State<MainPage> {
       body: Center(
         child: currentScreen,
       ),
+      // QR Code Scanner
       floatingActionButton: FloatingActionButton(
-
         child: Icon(Icons.qr_code_scanner),
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
@@ -31,13 +33,13 @@ class _MainPageState extends State<MainPage> {
 
         onPressed: () {
           setState(() {
-            currentScreen =
-                Home(); // if user taps on this dashboard tab will be active
+            currentScreen = PaymentQR(); // if user taps on this QR Scanner tab will be active
             currentTab = 0;
           });    
         }, 
       ),
 
+      // Center
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
@@ -47,15 +49,16 @@ class _MainPageState extends State<MainPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
+              // Left Tab
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  // Payment
                   MaterialButton(
                     minWidth: 75,
                     onPressed: () {
                       setState(() {
-                        currentScreen =
-                            Home(); // if user taps on this dashboard tab will be active
+                        currentScreen = Home(); // if user taps on this dashboard tab will be active
                         currentTab = 1;
                       });
                     },
@@ -69,12 +72,12 @@ class _MainPageState extends State<MainPage> {
                       ],
                     ),
                   ),
+                  // Payment History
                   MaterialButton(
                     minWidth: 75,
                     onPressed: () {
                       setState(() {
-                        currentScreen =
-                             Home(); // if user taps on this dashboard tab will be active
+                        currentScreen = Home(); // if user taps on this dashboard tab will be active
                         currentTab = 2;
                       });
                     },
@@ -82,7 +85,7 @@ class _MainPageState extends State<MainPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
-                          Icons.chat,
+                          Icons.history,
                           color: currentTab == 2 ? Colors.red : Colors.black,
                         ),
                       ],
@@ -90,17 +93,16 @@ class _MainPageState extends State<MainPage> {
                   )
                 ],
               ),
-
-              // Right Tab bar icons
+              // Right Tab
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  // Loaned Products
                   MaterialButton(
                     minWidth: 75,
                     onPressed: () {
                       setState(() {
-                        currentScreen =
-                            Home(); // if user taps on this dashboard tab will be active
+                        currentScreen = Home(); // if user taps on this dashboard tab will be active
                         currentTab = 3;
                       });
                     },
@@ -108,20 +110,18 @@ class _MainPageState extends State<MainPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
-                          Icons.dashboard,
+                          Icons.shopping_basket,
                           color: currentTab == 3 ? Colors.red : Colors.black,
                         ),
                       ],
                     ),
                   ),
-
                   // Settings
                   MaterialButton(
                     minWidth: 75,
                     onPressed: () {
-                      setState(() {
-                        currentScreen =
-                            Home(); // if user taps on this settings tab will be active
+                      setState(() {                    
+                        currentScreen = Home(); // if user taps on this settings tab will be active
                         currentTab = 4;
                       });
                     },

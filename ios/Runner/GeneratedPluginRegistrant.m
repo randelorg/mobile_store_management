@@ -6,10 +6,10 @@
 
 #import "GeneratedPluginRegistrant.h"
 
-#if __has_include(<flutter_barcode_scanner/SwiftFlutterBarcodeScannerPlugin.h>)
-#import <flutter_barcode_scanner/SwiftFlutterBarcodeScannerPlugin.h>
+#if __has_include(<camera/CameraPlugin.h>)
+#import <camera/CameraPlugin.h>
 #else
-@import flutter_barcode_scanner;
+@import camera;
 #endif
 
 #if __has_include(<path_provider/FLTPathProviderPlugin.h>)
@@ -21,7 +21,7 @@
 @implementation GeneratedPluginRegistrant
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
-  [SwiftFlutterBarcodeScannerPlugin registerWithRegistrar:[registry registrarForPlugin:@"SwiftFlutterBarcodeScannerPlugin"]];
+  [CameraPlugin registerWithRegistrar:[registry registrarForPlugin:@"CameraPlugin"]];
   [FLTPathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPathProviderPlugin"]];
 }
 
