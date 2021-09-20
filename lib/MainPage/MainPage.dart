@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../MainPage/Home.dart';
 import '../PaymentPage/PaymentQR.dart';
+import '../PaymentPage/PaymentInput.dart';
+import '../HistoryPage/PaymentHistory.dart';
+import '../HistoryPage/LoanedProducts.dart';
+import '../SettingsPage/Settings.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -13,14 +17,21 @@ class _MainPageState extends State<MainPage> {
   int currentTab = 0; // to keep track of active tab index
 
   final List<Widget> screens = [
-    Home(),
+    PaymentQR(),
+    PaymentInput(),
+    PaymentHistory(),
+    LoanedProducts(),
+    Settings(),
   ]; // to store nested tabs
 
   Widget currentScreen = Home(); // First View
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+      backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: currentScreen,
       ),
@@ -58,7 +69,7 @@ class _MainPageState extends State<MainPage> {
                     minWidth: 75,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Home(); // if user taps on this dashboard tab will be active
+                        currentScreen = PaymentInput(); // if user taps on this payment tab will be active
                         currentTab = 1;
                       });
                     },
@@ -77,7 +88,7 @@ class _MainPageState extends State<MainPage> {
                     minWidth: 75,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Home(); // if user taps on this dashboard tab will be active
+                        currentScreen = PaymentHistory(); // if user taps on this payment history tab will be active
                         currentTab = 2;
                       });
                     },
@@ -102,7 +113,7 @@ class _MainPageState extends State<MainPage> {
                     minWidth: 75,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Home(); // if user taps on this dashboard tab will be active
+                        currentScreen = LoanedProducts(); // if user taps on this loaned products tab will be active
                         currentTab = 3;
                       });
                     },
@@ -121,7 +132,7 @@ class _MainPageState extends State<MainPage> {
                     minWidth: 75,
                     onPressed: () {
                       setState(() {                    
-                        currentScreen = Home(); // if user taps on this settings tab will be active
+                        currentScreen = Settings(); // if user taps on this settings tab will be active
                         currentTab = 4;
                       });
                     },

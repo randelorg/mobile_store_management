@@ -28,8 +28,8 @@
 20        android:debuggable="true"
 21        android:icon="@mipmap/ic_launcher"
 21-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:5:9-43
-22        android:label="mobile_store_management" >
-22-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:4:9-48
+22        android:label="Dellrains Store Management System" >
+22-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:4:9-58
 23        <activity
 23-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:6:9-34:20
 24            android:name="com.example.mobile_store_management.MainActivity"

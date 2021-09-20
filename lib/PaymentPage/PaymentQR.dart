@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code_dart_scan/qr_code_dart_scan.dart';
 
-
 class PaymentQR extends StatefulWidget {
   @override
   _PaymentQRState createState() => _PaymentQRState();
@@ -12,7 +11,8 @@ class _PaymentQRState extends State<PaymentQR> {
 
  @override
   Widget build(BuildContext context) {
-    return Scaffold(    
+    return Scaffold(  
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           Column(
@@ -44,8 +44,8 @@ class _PaymentQRState extends State<PaymentQR> {
                     )
                   ],            
                 ),
-              ),              
-            ],      
+              ), 
+            ],
           ),
           
           Align(
@@ -71,5 +71,5 @@ class _PaymentQRState extends State<PaymentQR> {
     );
   }
 }
- 
+
 

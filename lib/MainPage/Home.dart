@@ -8,11 +8,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp( 
       home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.red,
-          ),
+          backgroundColor: Colors.white,
+          
           body: Center(
               child: Column(children: <Widget>[      
             Container(
@@ -26,10 +25,10 @@ class _HomeState extends State<Home> {
                   textAlign: TextAlign.center,
               ),
             ),
-
-            Container(
+            
+            Container( 
               child: Text(        
-                "₱ 60,000",
+                "60,000",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 25,

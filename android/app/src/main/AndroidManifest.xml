@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mobile_store_management">
    <application
-        android:label="mobile_store_management"
+        android:label="Dellrains Store Management System"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -10,7 +10,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(child: Text('Payment Test')),
+        body: Center(child: Text('Settings Test')),
       ),
     );
   }
