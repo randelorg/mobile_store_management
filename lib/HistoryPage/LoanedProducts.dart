@@ -10,9 +10,12 @@ class _LoanedProductsState extends State<LoanedProducts> {
 
   Widget build(BuildContext context) {
     return MaterialApp( 
-        home: Scaffold(      
-          body: ListView(children: <Widget>[  
-            Container(            
+        home: Scaffold(    
+          backgroundColor: Colors.white,
+          resizeToAvoidBottomInset: false,
+          body: Center(         
+            child: ListView(children: <Widget>[
+             Container(            
                margin: const EdgeInsets.only(top: 100, bottom: 50),
                child: Text(    
                 "Loaned Products",
@@ -24,7 +27,7 @@ class _LoanedProductsState extends State<LoanedProducts> {
                 ),
               ),
 
-            DataTable(  
+              DataTable(  
               columns: [  
                 DataColumn(label: Text(  
                     'PRODID', 
@@ -59,14 +62,11 @@ class _LoanedProductsState extends State<LoanedProducts> {
                   DataCell(Text('Camel Air Circulator Fan')),  
                   DataCell(Text('25/06/21')), 
                   DataCell(Text('Monthly')),  
-                ]),  
-              
+                ]),
               ],  
-            ),  
-          ])  
-      ),  
-    );  
-  }  
-}  
-     
- 
+            ), 
+          ]))),
+    );
+  }
+}
+        

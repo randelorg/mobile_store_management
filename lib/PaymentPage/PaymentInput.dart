@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'package:mobile_store_management/MainPage/MainPage.dart';
+
 
 class PaymentInput extends StatefulWidget {
   @override
@@ -9,22 +11,20 @@ class PaymentInput extends StatefulWidget {
 
 class _PaymentInputState extends State<PaymentInput> {
 
-
-    TextEditingController dateinput = TextEditingController(); 
-  //text editing controller for text field
+  TextEditingController dateinput = TextEditingController(); 
   
   @override
   void initState() {
-    dateinput.text = ""; //set the initial value of text field
+    dateinput.text = ""; 
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
-
           body: Center(
             child: Column(children: <Widget>[
              Container(            
@@ -38,10 +38,10 @@ class _PaymentInputState extends State<PaymentInput> {
                   textAlign: TextAlign.center,
                 ),
               ),
+              
 
              // Input Borrowers Name
              Padding(             
-              //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.symmetric(horizontal: 35),
               child: TextField(    
                 decoration: InputDecoration(
@@ -51,12 +51,16 @@ class _PaymentInputState extends State<PaymentInput> {
               ),
             ),
 
-          
+
+
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 
 
                 children: <Widget>[
+             
+                  
 
                   Container(
                     
@@ -71,8 +75,6 @@ class _PaymentInputState extends State<PaymentInput> {
                     ),  
                     
                   ),
-
-                  
 
                   Container(                   
                     child: Text(   
@@ -94,19 +96,10 @@ class _PaymentInputState extends State<PaymentInput> {
 
 
                
-               
-             
-                  
-              
-              
-            
-              
-           
-            
+
 
             // Input Amount Paid
             Padding(
-              //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.symmetric(horizontal: 35),
               child: TextField(
                 decoration: InputDecoration(

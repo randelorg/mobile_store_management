@@ -10,10 +10,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return MaterialApp( 
       home: Scaffold(
-          backgroundColor: Colors.white,
-          
-          body: Center(
-              child: Column(children: <Widget>[      
+          backgroundColor: Colors.white,        
+          body: Center(     
+            child: Column(children: <Widget>[      
             Container(
               margin: const EdgeInsets.only(top: 130),
               child: Text(              

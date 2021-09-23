@@ -8,10 +8,13 @@ class PaymentHistory extends StatefulWidget {
 class _PaymentHistoryState extends State<PaymentHistory> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( 
-        home: Scaffold(     
-          body: ListView(children: <Widget>[  
-            Container(            
+    return MaterialApp(
+      home: Scaffold(    
+          backgroundColor: Colors.white,
+          resizeToAvoidBottomInset: false,
+          body: Center(         
+            child: ListView(children: <Widget>[
+             Container(            
                margin: const EdgeInsets.only(top: 100, bottom: 50),
                child: Text(    
                 "Payment History",
@@ -22,14 +25,14 @@ class _PaymentHistoryState extends State<PaymentHistory> {
                   textAlign: TextAlign.center,
                 ),
               ),
- 
-            DataTable(  
+              
+              DataTable(  
               columns: [  
                 DataColumn(label: Text(  
                     'LOANID',
                     textAlign: TextAlign.center,                             
                     style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)  
-                )),  
+                )),
                 DataColumn(label: Text(  
                     'AMOUNT PAID',
                     textAlign: TextAlign.center,  
@@ -39,7 +42,7 @@ class _PaymentHistoryState extends State<PaymentHistory> {
                     'DATE',
                     textAlign: TextAlign.center,  
                     style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)  
-                )),  
+                )),
               ],              
               rows: [  
                 DataRow(cells: [  
@@ -51,13 +54,11 @@ class _PaymentHistoryState extends State<PaymentHistory> {
                   DataCell(Text('2')),  
                   DataCell(Text('₱ 5,000')),  
                   DataCell(Text('25/09/21')),    
-                ]),  
+                ]),
               ],  
-            ),  
-          ])  
-      ),  
-    );  
-  }  
-}  
-     
- 
+            ),
+          ]))),
+    );
+  }
+}
+         

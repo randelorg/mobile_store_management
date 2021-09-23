@@ -18,20 +18,17 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 50.0),
+              padding: const EdgeInsets.only(top: 75),
               child: Center(
                 child: Container(
-                    margin: EdgeInsets.only(bottom: 30),
-                    width: 300,
+                    margin: EdgeInsets.only(bottom: 50),
+                    width: 275,
                     height: 250,
-                    /*decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(50.0)),*/
                     child: Image.asset('assets/images/login-logo.jpg')),
               ),
             ),
+            // Input Username
             Padding(
-              //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.symmetric(horizontal: 35),
               child: TextField(
                 decoration: InputDecoration(
@@ -40,10 +37,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+             // Input Password
             Padding(
-              // padding: const EdgeInsets.only(
-              //     left: 15, right: 15.0, top: 15, bottom: 0
-              // ),
               padding: EdgeInsets.only(left: 35, right: 35, top: 15, bottom: 0),
               child: TextField(
                 obscureText: _isHidden,
@@ -57,10 +52,11 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+            // Login Button
             Container(
-              margin: EdgeInsets.all(30),
+              margin: EdgeInsets.all(75),
               height: 50,
-              width: 250,
+              width: 175,
               decoration: BoxDecoration(
                   color: Colors.red.shade400, 
                   borderRadius: BorderRadius.circular(20)
@@ -70,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                   Navigator.push(
                       context, MaterialPageRoute(builder: (_) => MainPage())); //this is how we ascend to the next page
                 },
-                child: Text(
+                child: Text(                
                   'Login',
                   style: TextStyle(
                     color: Colors.white, 
