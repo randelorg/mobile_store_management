@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../SettingsPage/ServedBorrowers.dart';
+import '../SettingsPage/MyProfile.dart';
+import '../LoginPage/Login.dart';
 
 
 class Settings extends StatefulWidget {
@@ -18,22 +21,22 @@ class _SettingsState extends State<Settings> {
         padding: EdgeInsets.only(left: 15, right: 15, top: 75),
         child: ListView(  
           children: <Widget>[
-            Center(         
+            Center(                    
               child: Stack(
                 children: <Widget>[
-                  CircleAvatar(               
+                  CircleAvatar(
+                    backgroundColor: Colors.redAccent,               
                     radius: 70,
-                    child: ClipOval(child: Image.asset('assets/images/login-logo.jpg', height: 150, width: 150, fit: BoxFit.cover,),),
-                    
-                  ),          
-                ],     
-              ),   
+                    //child: ClipOval(child: Image.asset('assets/images/login-logo.jpg', height: 150, width: 150, fit: BoxFit.cover,),),            
+                  ),
+                ],
+              ),
             ),
             Container(
               margin: const EdgeInsets.only(top: 50),
               child : Text(
-                "Settings",
-                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w800),
+                "Settings",           
+                 style: TextStyle(color: Colors.blue, fontSize: 25, fontWeight: FontWeight.w800),
               ),
             ),
             ExpansionTile(
@@ -51,12 +54,15 @@ class _SettingsState extends State<Settings> {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500
-                    ),               
+                    ),
                   ),
+                  onTap: () {                
+                    Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => ServedBorrowers()));
+                  },
                 ),
               ],
             ),
-
             ExpansionTile(
               title: Text(
                 "Account",
@@ -74,7 +80,12 @@ class _SettingsState extends State<Settings> {
                       fontWeight: FontWeight.w500
                     ),
                   ),
-                ),
+                  onTap: () { 
+                    showDialog(context: context,
+                    builder: (BuildContext context) {
+                      return MyProfile();
+                    });
+              },),
                 ListTile(
                   title: Text(
                     'Logout',
@@ -83,10 +94,13 @@ class _SettingsState extends State<Settings> {
                       fontWeight: FontWeight.w500
                     ),
                   ),
-                  onTap: () { /* react to the tile being tapped */ }
+                  onTap: () {
+                    Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => Login()));
+                  },             
                 )
               ],
-            ),     
+            ),
           ],
         ),
       ),

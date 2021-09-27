@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:mobile_store_management/MainPage/MainPage.dart';
-
-
 class PaymentInput extends StatefulWidget {
   @override
   _PaymentInputState createState() => _PaymentInputState();
@@ -27,6 +24,7 @@ class _PaymentInputState extends State<PaymentInput> {
         resizeToAvoidBottomInset: false,
           body: Center(
             child: Column(children: <Widget>[
+              
              Container(            
                margin: const EdgeInsets.only(top: 100, bottom: 50),
                child: Text(    
@@ -36,10 +34,10 @@ class _PaymentInputState extends State<PaymentInput> {
                   fontSize: 30,
                   fontWeight: FontWeight.w800),
                   textAlign: TextAlign.center,
-                ),
+                ), 
               ),
-              
 
+            
              // Input Borrowers Name
              Padding(             
               padding: EdgeInsets.symmetric(horizontal: 35),
@@ -51,46 +49,11 @@ class _PaymentInputState extends State<PaymentInput> {
               ),
             ),
 
+         
 
 
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                
 
-                children: <Widget>[
-             
-                  
-
-                  Container(
-                    
-                    
-                    child: Text(   
-                    "Amount to be Paid",  
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400),
-                      textAlign: TextAlign.left,   
-                    ),  
-                    
-                  ),
-
-                  Container(                   
-                    child: Text(   
-                    "Amount to be Paid",  
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400),
-                      textAlign: TextAlign.left,   
-                    )
-                  ),  
-                  
-
-                ],
-                
-              ),  
                 
                
 
@@ -150,8 +113,7 @@ class _PaymentInputState extends State<PaymentInput> {
               ),
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(
-                     context, MaterialPageRoute(builder: (_) => MainPage())); //this is how we ascend to the next page
+                   //this is how we ascend to the next page
                 },
                 child: Text(
                   'Pay',

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:mobile_store_management/MainPage/MainPage.dart';
-
 
 class MakePayment extends StatefulWidget {
   @override
@@ -40,13 +38,65 @@ class _MakePaymentState extends State<MakePayment> {
                 ),
               ),
 
-            
+
+              Row( 
+                children: [   
+                  Padding(
+                    padding: EdgeInsets.only(left: 50, right: 60),
+                    child: Text(         
+                      'Borrowers Name',   
+                      softWrap: true,
+                      style: TextStyle(
+                        fontSize: 12,              
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(  
+                      'Michael Jude Jacinto',
+                      softWrap: true,  
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        ),
+                    ),
+                  ),
+                ]
+              ),
+
+              Row(       
+                children: [   
+                  Padding(
+                    padding: EdgeInsets.only(left: 50, right: 60),
+                    child: Text(         
+                      'Ampunt to be Paid',   
+                      softWrap: true,
+                      style: TextStyle(
+                        fontSize: 12,              
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Text(  
+                      '100,000',
+                      softWrap: true,  
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        ),
+                    ),
+                  ),
+                ]
+              ),
+      
             // Input Amount Paid
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 35),
               child: TextField(
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    border: OutlineInputBorder(                  
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
                     hintText: 'Amount Paid',
                 ),
               ),
@@ -58,8 +108,10 @@ class _MakePaymentState extends State<MakePayment> {
               child: TextField(
                 controller: dateinput,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Date Today',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    hintText: 'Date Today (',
                 ),
                 readOnly: true, 
                 onTap: () async {          
@@ -93,8 +145,8 @@ class _MakePaymentState extends State<MakePayment> {
               ),
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(
-                     context, MaterialPageRoute(builder: (_) => MainPage())); //this is how we ascend to the next page
+                 
+                    
                 },
                 child: Text(
                   'Pay',
