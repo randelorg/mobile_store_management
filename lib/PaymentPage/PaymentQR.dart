@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_store_management/LoginPage/Login.dart';
+import 'package:mobile_store_management/PaymentPage/MakePayment.dart';
 import 'package:qr_code_dart_scan/qr_code_dart_scan.dart';
 
 class PaymentQR extends StatefulWidget {
@@ -7,11 +9,11 @@ class PaymentQR extends StatefulWidget {
 }
 
 class _PaymentQRState extends State<PaymentQR> {
-    Result? currentResult;
+  Result? currentResult;
 
- @override
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(  
+    return Scaffold(   
       backgroundColor: Colors.white,
       body: Stack(
         children: [
@@ -21,11 +23,11 @@ class _PaymentQRState extends State<PaymentQR> {
                 flex: 5,
                 child: Stack(
                   children: [
-                    QRCodeDartScanView(  
+                    QRCodeDartScanView(
                       scanInvertedQRCode: true,
                       onCapture: (Result result) {
                         setState(() {
-                          currentResult = result;
+                    
                         });
                       },
                     ),
@@ -39,15 +41,14 @@ class _PaymentQRState extends State<PaymentQR> {
                             width: 4,
                           ),
                           borderRadius: BorderRadius.circular(12),
-                        ),      
+                        ),
                       ),
                     )
-                  ],            
+                  ],
                 ),
-              ), 
+              ),
             ],
           ),
-          
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -71,5 +72,3 @@ class _PaymentQRState extends State<PaymentQR> {
     );
   }
 }
-
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../MainPage/Home.dart';
 import '../PaymentPage/PaymentQR.dart';
@@ -28,16 +29,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(  
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
       body: Center(
         child: currentScreen,
       ),
+      
       // QR Code Scanner
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.qr_code_scanner),
-        backgroundColor: Colors.red,
+        backgroundColor: HexColor("#EA1C24"),
         foregroundColor: Colors.white,
         hoverColor: Colors.black,
 

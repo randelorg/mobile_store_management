@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'LoginPage/Login.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -22,3 +21,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+

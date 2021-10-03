@@ -122,8 +122,20 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///C:/src/flutter/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "google_fonts",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/google_fonts-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "hexcolor",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/hexcolor-2.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -148,6 +160,12 @@
     {
       "name": "intl",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "js",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -332,7 +350,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-09-20T01:18:05.960796Z",
+  "generated": "2021-10-03T05:11:38.110267Z",
   "generator": "pub",
   "generatorVersion": "2.14.0"
 }

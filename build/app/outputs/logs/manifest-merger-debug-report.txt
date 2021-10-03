@@ -7,6 +7,7 @@ INJECTED from C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src
 MERGED from C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:1:1-41:12
 MERGED from [:camera] C:\Users\Jacinto\Downloads\mobile_store_management\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-10:12
 MERGED from [:path_provider] C:\Users\Jacinto\Downloads\mobile_store_management\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:hexcolor] C:\Users\Jacinto\Downloads\mobile_store_management\build\hexcolor\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\2fd9120a6da4df3dbabdd40f6a2d8995\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.0.0] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\68dbf8ea01a1dbd974fc87b5753550f0\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\eb26273f8f7192460456ce62b9bdf9ef\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -99,6 +100,8 @@ MERGED from [:camera] C:\Users\Jacinto\Downloads\mobile_store_management\build\c
 MERGED from [:camera] C:\Users\Jacinto\Downloads\mobile_store_management\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] C:\Users\Jacinto\Downloads\mobile_store_management\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] C:\Users\Jacinto\Downloads\mobile_store_management\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:hexcolor] C:\Users\Jacinto\Downloads\mobile_store_management\build\hexcolor\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:hexcolor] C:\Users\Jacinto\Downloads\mobile_store_management\build\hexcolor\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\2fd9120a6da4df3dbabdd40f6a2d8995\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\2fd9120a6da4df3dbabdd40f6a2d8995\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.0.0] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\68dbf8ea01a1dbd974fc87b5753550f0\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41

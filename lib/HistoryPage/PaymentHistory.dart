@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+
 
 class PaymentHistory extends StatefulWidget {
   @override
@@ -8,57 +10,55 @@ class PaymentHistory extends StatefulWidget {
 class _PaymentHistoryState extends State<PaymentHistory> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp( 
       home: Scaffold(    
-          backgroundColor: Colors.white,
-          resizeToAvoidBottomInset: false,
-          body: Center(         
-            child: ListView(children: <Widget>[
-             Container(            
-               margin: const EdgeInsets.only(top: 100, bottom: 50),
-               child: Text(    
-                "Payment History",
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w800),
-                  textAlign: TextAlign.center,
-                ),
+        backgroundColor: Colors.white,
+        body:Column(
+          children:<Widget>[
+            Container(
+              margin: const EdgeInsets.only(top: 100),
+              child:Row(                       
+                children: [            
+                  Padding(
+                    padding: EdgeInsets.only(left: 25, right: 35),
+                    child: IconButton(    
+                      icon: Icon(                                
+                        Icons.arrow_back,
+                        size: 30,
+                        
+                      ),
+                      onPressed: () { 
+                                   
+                      },
+                    ),
+                  ),
+                  Text(         
+                    "Payment History",                 
+                    style: TextStyle(  
+                    fontFamily: 'Cairo_Bold', 
+                    color: HexColor("#155293"),                 
+                    fontSize: 30,  
+                   ),
+                  ),
+                ],
               ),
-              
-              DataTable(  
-              columns: [  
-                DataColumn(label: Text(  
-                    'LOANID',
-                    textAlign: TextAlign.center,                             
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)  
-                )),
-                DataColumn(label: Text(  
-                    'AMOUNT PAID',
-                    textAlign: TextAlign.center,  
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)  
-                )),  
-                DataColumn(label: Text(  
-                    'DATE',
-                    textAlign: TextAlign.center,  
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)  
-                )),
-              ],              
-              rows: [  
-                DataRow(cells: [  
-                  DataCell(Text('1')),  
-                  DataCell(Text('₱ 3,000')),  
-                  DataCell(Text('20/09/21')),  
-                ]),  
-                DataRow(cells: [  
-                  DataCell(Text('2')),  
-                  DataCell(Text('₱ 5,000')),  
-                  DataCell(Text('25/09/21')),    
-                ]),
-              ],  
             ),
-          ]))),
+             
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  
+
+
+
+
+                ],
+              ),
+            ), 
+          ],
+        ),
+      ),
     );
-  }
-}
+  }  
+}  
          

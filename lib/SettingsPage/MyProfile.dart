@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:hexcolor/hexcolor.dart';
 
 class MyProfile extends StatefulWidget {
   @override
@@ -10,18 +10,18 @@ class MyProfile extends StatefulWidget {
 class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) { 
-    return Dialog( 
+    return Dialog(   
       backgroundColor: Colors.white,
-      
+    
       shape: RoundedRectangleBorder(
-        
         borderRadius: BorderRadius.circular(20)
       ),
+      
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
           Container(
-            height: 330,
+            height: 390,
               child: Column(
                 children: [                     
                   Align(
@@ -37,113 +37,97 @@ class _MyProfileState extends State<MyProfile> {
                     ),
                   ),
                 
-                  Container(
+                  Container(           
                     margin: const EdgeInsets.only(top: 130, bottom: 5, right: 200),
                     child: Text(
                       "My Profile",
-                       style: TextStyle(color: Colors.blue, fontSize: 25, fontWeight: FontWeight.w800), 
+                      style: TextStyle(color: HexColor("#155293"), fontFamily: 'Cairo_Bold', fontSize: 25), 
                     ),
                   ),
 
-                  Row(            
-                      children: [                    
+                  Card(
+                    elevation: 2,
+                    child: Row ( 
+                      children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 30, right: 60),
-                          child: Text(                         
-                            'Collector ID',                      
-                            softWrap: true,
-                            style: TextStyle(                             
-                              fontSize: 12,                             
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(                       
-                            '1234',
-                             softWrap: true,                            
-                             style: TextStyle(
+                          padding: EdgeInsets.only(left: 30, right: 57),
+                          child: Text('Collector ID',
+                          style: TextStyle(
+                            color: Colors.grey[700],
+                            fontFamily: 'Cairo_SemiBold',                        
+                            fontSize: 12,   
+                          ))),
+                          Text('1234',
+                          softWrap: true,
+                          style: TextStyle(
                               fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
+                              fontFamily: 'Cairo_SemiBold'
+                          )),
                       ],
-                   ),
+                    )),
 
-                   Row(            
-                      children: [                    
+                  Card(
+                    elevation: 2,
+                    child: Row ( 
+                      children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 30, right: 70),
-                          child: Text(                         
-                            'Full Name',                      
-                            softWrap: true,
-                            style: TextStyle(                             
-                              fontSize: 12,                             
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(                       
-                            'Randel Reyes',
-                             softWrap: true,                            
-                             style: TextStyle(
+                          padding: EdgeInsets.only(left: 30, right: 65),
+                          child: Text('Full Name',
+                          style: TextStyle(
+                            color: Colors.grey[700],
+                            fontFamily: 'Cairo_SemiBold',
+                            fontSize: 12,   
+                          ))),
+                          Text('Randel Reyes',
+                          softWrap: true,
+                          style: TextStyle(
                               fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
+                              fontFamily: 'Cairo_SemiBold'
+                          )),
                       ],
-                   ),
+                   )),
 
-                   Row(            
-                      children: [                    
+                   Card(
+                    elevation: 2,
+                    child: Row ( 
+                      children: [
                         Padding(
                           padding: EdgeInsets.only(left: 30, right: 39),
-                          child: Text(                         
-                            'Mobile Number',                      
-                            softWrap: true,
-                            style: TextStyle(                             
-                              fontSize: 12,                             
-                            ),
-                          ),
-                        ),
-                        Expanded(                     
-                          child: Text(                                         
-                            '09696969691',
-                             softWrap: true,                            
-                             style: TextStyle(
+                          child: Text('Mobile Number',
+                          style: TextStyle(
+                            color: Colors.grey[700],
+                            fontFamily: 'Cairo_SemiBold',
+                            fontSize: 12,   
+                          ))),
+                          Text('09696969691',
+                          softWrap: true,
+                          style: TextStyle(
                               fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
+                              fontFamily: 'Cairo_SemiBold'
+                          )),
                       ],
-                   ),
+                   )),
 
-                   Row(            
-                      children: [                    
+                   Card(
+                    elevation: 2,          
+                    child: Row ( 
+                      children: [
                         Padding(
                           padding: EdgeInsets.only(left: 30, right: 41),
-                          child: Text(                         
-                            'Home Address',                      
-                            softWrap: true,
-                            style: TextStyle(                             
-                              fontSize: 12,                             
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(                       
-                            'Mabolo, Naga City',
-                             softWrap: true,                            
-                             style: TextStyle(
+                          child: Text('Home Address',
+                          style: TextStyle(
+                            color: Colors.grey[700],
+                            fontFamily: 'Cairo_SemiBold',
+                            fontSize: 12,   
+                          ))),
+                          Text('Mabolo, Naga City',
+                          softWrap: true,
+                          style: TextStyle(
                               fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
+                              fontFamily: 'Cairo_SemiBold'
+                          )),
                       ],
-                   ),
+                   )),
                 ],
               ),
           ),

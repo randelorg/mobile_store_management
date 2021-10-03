@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../MainPage/BottomNavBar.dart';
 
@@ -12,63 +13,79 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(  
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Column(
+      resizeToAvoidBottomInset: false,      
+      body: Column(
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 75),
               child: Center(
                 child: Container(
                     margin: EdgeInsets.only(bottom: 50),
-                    width: 275,
-                    height: 250,
-                    child: Image.asset('assets/images/login-logo.jpg')),
+                    width: 275, height: 250,
+                    child: Image.asset('assets/images/logo.jpg')),
               ),
             ),
+            
             // Input Username
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 35),
+            Container(  
+	            padding: EdgeInsets.only(left: 35, right: 35),
               child: TextField(
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Username',
-                ),
-              ),
-            ),
-             // Input Password
-            Padding(
-              padding: EdgeInsets.only(left: 35, right: 35, top: 15, bottom: 0),
-              child: TextField(
+                 hintText: 'Username',
+	                prefixIcon: Icon(Icons.person_rounded, color: Colors.red),          
+	                enabledBorder: OutlineInputBorder(  
+		                borderRadius: BorderRadius.all(Radius.circular(8)),
+		                borderSide: BorderSide(color: Colors.red, width: 2),
+                  ),
+                  focusedBorder:  OutlineInputBorder(        
+		                borderRadius: BorderRadius.all(Radius.circular(8)),
+		                borderSide: BorderSide(color: Colors.black, width: 2),
+                  ),
+                )),
+             ),
+             
+            // Input Password
+            Container(    
+	            padding: EdgeInsets.only(left: 35, right: 35, top: 10),
+              child: TextField(        
                 obscureText: _isHidden,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Password',
-                    suffix: InkWell(
-                      onTap: _togglePasswordView,
-                      child: Icon( Icons.visibility),
+                  hintText: 'Password',
+	                prefixIcon: Icon(Icons.vpn_key_rounded, color: Colors.red),  
+                  suffix: InkWell(
+                    onTap: _togglePasswordView,
+                    child: Icon(Icons.visibility),
+                  ),   
+	                enabledBorder: OutlineInputBorder(       
+		                borderRadius: BorderRadius.all(Radius.circular(8)),
+		                borderSide: BorderSide(color: Colors.red, width: 2),
+                  ),  
+                  focusedBorder:  OutlineInputBorder(
+		                borderRadius: BorderRadius.all(Radius.circular(8)),
+		                borderSide: BorderSide(color: Colors.black, width: 2),
                   ),
-                ),
-              ),
-            ),
+                )),
+             ),
+            
             // Login Button
-            Container(
-              margin: EdgeInsets.all(75),
-              height: 50,
-              width: 175,
-              decoration: BoxDecoration(
-                  color: Colors.red.shade400, 
-                  borderRadius: BorderRadius.circular(20)
+            Container(       
+              margin: EdgeInsets.only(left: 35, right: 35, top: 100),
+              height: 60, width: 175,
+              decoration: BoxDecoration(         
+                color: HexColor("#EA1C24"),
+                borderRadius: BorderRadius.circular(80)
               ),
               child: TextButton(
                 onPressed: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => BottomNavBar()));
+                    context, MaterialPageRoute(builder: (_) => BottomNavBar()));
                 },
-                child: Text(                
-                  'Login',
+                child: Text(                        
+                  'Login',       
                   style: TextStyle(
+                    fontFamily: 'Cairo_Bold',
                     color: Colors.white, 
                     fontSize: 25,
                   ),
@@ -80,7 +97,6 @@ class _LoginState extends State<Login> {
             ),
           ],
         ),
-      ),
     );
   }
 
