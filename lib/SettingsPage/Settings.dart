@@ -44,7 +44,7 @@ class _SettingsState extends State<Settings> {
                     backgroundColor: Colors.redAccent,               
                     radius: 70,
                     //child: ClipOval(child: Image.asset('assets/images/logo.jpg', height: 150, width: 150, fit: BoxFit.cover,),),            
-                  ),
+                  ), 
                 ],
               ),
             ),

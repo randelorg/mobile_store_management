@@ -58,10 +58,17 @@ class _PaymentInputState extends State<PaymentInput> {
             Container(         
               padding: EdgeInsets.only(left: 35, right: 35, top: 50),
               child: TextField(
-                keyboardType: TextInputType.name,         
+                keyboardType: TextInputType.name,                   
                 decoration: InputDecoration(         
                   hintText: 'Borrowers Name',
                   prefixIcon: Icon(Icons.person_rounded, color: Colors.red),
+                  suffixIcon: IconButton(
+                    iconSize:25,                  
+                    icon: Icon(Icons.search,color: Colors.grey),
+                    onPressed: (){
+                                     
+                    },
+                  ),
                   enabledBorder: OutlineInputBorder(     
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                     borderSide: BorderSide(color: Colors.red, width: 2),
@@ -69,8 +76,8 @@ class _PaymentInputState extends State<PaymentInput> {
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                     borderSide: BorderSide(color: Colors.black, width: 2),
-                  ),
-                )),
+                  ),        
+                )),    
             ),
            
             Container(
@@ -100,10 +107,10 @@ class _PaymentInputState extends State<PaymentInput> {
             // Input Amount Paid
             Container(      
               padding: EdgeInsets.only(left: 35, right: 35, top: 50),
-              child: TextField(    
+              child: TextField(                        
                 keyboardType: TextInputType.number,     
-                decoration: InputDecoration(           
-                  hintText: 'Amount Paid',             
+                decoration: InputDecoration(                      
+                  hintText: 'Amount Paid',           
                   prefixIcon: Icon(Icons.payment, color: Colors.red),            
                   enabledBorder: OutlineInputBorder(            
                     borderRadius: BorderRadius.all(Radius.circular(8)),
