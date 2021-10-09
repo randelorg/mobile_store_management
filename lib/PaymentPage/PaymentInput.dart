@@ -9,6 +9,7 @@ class PaymentInput extends StatefulWidget {
 }
 
 class _PaymentInputState extends State<PaymentInput> {
+
   TextEditingController dateinput = TextEditingController();
 
   @override
@@ -24,36 +25,21 @@ class _PaymentInputState extends State<PaymentInput> {
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
         body: Center(
-          child: Column(children: <Widget>[
-            Container(
-              margin: const EdgeInsets.only(top: 100),
-              child:Row(                         
-                children: [             
-                  Padding(         
-                    padding: EdgeInsets.only(left: 25, right: 40),
-                    child: IconButton(    
-                      icon: Icon(                                   
-                        Icons.arrow_back,
-                        size: 30,
-                        
-                      ),
-                      onPressed: () { 
-                                   
-                      },
-                    ),
-                  ),
-                  Text(                
-                    "Make Payment",                 
-                    style: TextStyle(  
-                    fontFamily: 'Cairo_Bold', 
+          child: Column(       
+            children: <Widget>[   
+              // Display Page Title
+              Container(     
+                margin: const EdgeInsets.only(left: 40, right:40, top: 100),
+                child: Text(  
+                  "Make Payment",          
+                  style: TextStyle(         
+                    fontFamily: 'Cairo_Bold',
                     color: HexColor("#155293"),                 
-                    fontSize: 30,  
-                   ),
+                    fontSize: 30,
                   ),
-                ],
+                ),
               ),
-            ),
-        
+                
             // Input Borrowers Name
             Container(         
               padding: EdgeInsets.only(left: 35, right: 35, top: 50),
@@ -76,14 +62,40 @@ class _PaymentInputState extends State<PaymentInput> {
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                     borderSide: BorderSide(color: Colors.black, width: 2),
-                  ),        
-                )),    
+                  ),
+                )),
             ),
-           
+
+            // Display Borrowers Name
+            Container(          
+                height: 45, width: 350,                                            
+                child:Card(  
+                  elevation: 3,                                         
+                  child: Row (           
+                    children: [            
+                      Padding(                    
+                        padding: EdgeInsets.only(left: 15, right: 30),
+                         child: Text('Borrowers Name',                    
+                         textAlign: TextAlign.center,                   
+                         style: TextStyle(
+                          color: Colors.grey[700],                     
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,    
+                        ))),
+                        Text('Michael Jude Jacinto',
+                        textAlign: TextAlign.center,
+                        softWrap: true,  
+                        style: TextStyle(                               
+                          fontSize: 14,
+                          fontFamily: 'Cairo_SemiBold'
+                        ))]),
+                )),
+
+            // Display Amount to be Paid
             Container(
                 height: 45, width: 350,
                 child: Card(
-                  elevation: 2,
+                  elevation: 3,
                   child: Row(children: [
                     Padding(
                         padding: EdgeInsets.only(left: 15, right: 3),
@@ -152,12 +164,12 @@ class _PaymentInputState extends State<PaymentInput> {
                       return Theme(
                         data: Theme.of(context).copyWith(
                           colorScheme: ColorScheme.light(
-                            primary: Colors.red, // header background color
-                            onPrimary: Colors.white, // header text color 
+                            primary: Colors.red, // Background Color
+                            onPrimary: Colors.white, // Text Color 
                           ),
                           textButtonTheme: TextButtonThemeData(
                             style: TextButton.styleFrom(                         
-                              primary: Colors.black, // button text color
+                              primary: Colors.black, // Button Text Color
                             ),
                           ),
                         ),

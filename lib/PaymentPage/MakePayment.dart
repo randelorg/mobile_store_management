@@ -27,31 +27,16 @@ class _MakePaymentState extends State<MakePayment> {
         body: Center(    
           child: Column(   
             children: <Widget>[ 
+              // Display Page Title
               Container(             
-                margin: const EdgeInsets.only(top: 100, bottom: 60),
-                child:Row(  
-                  children: [     
-                    Padding(       
-                      padding: EdgeInsets.only(left: 25, right: 40),         
-                      child: IconButton(     
-                        icon: Icon(             
-                          Icons.arrow_back,
-                          size: 30,                     
-                        ),
-                        onPressed: (){
-
-                        },
-                      ),
+                margin: const EdgeInsets.only(left: 40, right:40, top: 100, bottom: 60),
+                child:Text(               
+                  "Make Payment",      
+                    style: TextStyle(                                                  
+                      fontFamily: 'Cairo_Bold',
+                      color: HexColor("#155293"),
+                      fontSize: 30,
                     ),
-                    Text(                  
-                      "Make Payment",
-                      style: TextStyle(                               
-                        fontFamily: 'Cairo_Bold',
-                        color: HexColor("#155293"),
-                        fontSize: 30,
-                      ),
-                    ),
-                  ],
                 ),
               ),
        
@@ -59,7 +44,7 @@ class _MakePaymentState extends State<MakePayment> {
               Container(          
                 height: 45, width: 350,                                            
                 child:Card(  
-                  elevation: 2,                                         
+                  elevation: 3,                                         
                   child: Row (           
                     children: [            
                       Padding(                    
@@ -84,7 +69,7 @@ class _MakePaymentState extends State<MakePayment> {
                 Container(           
                   height: 45, width: 350,
                   child:Card(      
-                    elevation: 2,
+                    elevation: 3,
                     child: Row (                 
                       children: [        
                         Padding(        
@@ -153,12 +138,12 @@ class _MakePaymentState extends State<MakePayment> {
                           return Theme(                      
                             data: Theme.of(context).copyWith(                                                 
                               colorScheme: ColorScheme.light(
-                              primary: Colors.red, // header background color
-                              onPrimary: Colors.white, // header text color
+                              primary: Colors.red, // Background Color
+                              onPrimary: Colors.white, // Text Color
                               ),
                               textButtonTheme: TextButtonThemeData(
                                 style: TextButton.styleFrom(              
-                                  primary: Colors.black, // button text color
+                                  primary: Colors.black, // Button Text Color
                                 ),
                               )
                             ),
@@ -188,7 +173,7 @@ class _MakePaymentState extends State<MakePayment> {
                    decoration: BoxDecoration(
                     color: HexColor("#155293"),
                     borderRadius: BorderRadius.circular(80)),
-                    child: TextButton( 
+                    child: TextButton(                
                       onPressed: () {
 
                       },

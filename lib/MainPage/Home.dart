@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import '../PaymentPage/PaymentQR.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -14,19 +16,21 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white, 
         body: Center(
           child: Column(   
-            children: <Widget>[                  
+            children: <Widget>[
+              // Display Amount Collected Text
               Container(    
                 margin: const EdgeInsets.only(top: 145),
                 child: Text(
-                  "COLLECTED AMOUNT",            
+                  "COLLECTED AMOUNT",                 
+                  textAlign: TextAlign.center,            
                   style: TextStyle( 
                     color: Colors.black,
                     fontSize: 15,
                     fontFamily: 'Cairo_SemiBold'),
-                    textAlign: TextAlign.center,
                   ),
               ),
 
+              // Display Amount Collected
               Container(   
                 height: 65, width: 245,             
                 child:Card(
@@ -56,12 +60,58 @@ class _HomeState extends State<Home> {
                         ))]),
                         margin: EdgeInsets.only(left: 40, right: 40), 
                 )),
+
+                // Display Make Payment
+                Container(
+                  margin: const EdgeInsets.only(left: 40, right: 40, top: 230),
+                  child:Text(          
+                    "Make Payment", 
+                    style: TextStyle(                                                         
+                      fontFamily: 'Cairo_Bold',
+                      color: HexColor("#155293"),
+                      fontSize: 30,
+                    ),
+                  ),
+                ),
+
+                // Display Instruction
+                Container(          
+                  margin: const EdgeInsets.only(left: 40, right: 40),
+                  child:Text(  
+                    "Find the QR Code of the\nBorrower to Make the Payment",         
+                    textAlign: TextAlign.center,
+                    style: TextStyle(                                                              
+                      fontFamily: 'Cairo_SemiBold',
+                      color: Colors.black,
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+
+                // QR Scanner Button
+                Container(      
+                  margin: EdgeInsets.only(left: 35, right: 35, top: 6),                
+                  height: 60, width: 175,
+                  decoration: BoxDecoration(    
+                    color: HexColor("#155293"),
+                    borderRadius: BorderRadius.circular(80)
+                  ),
+                  child:TextButton.icon(
+                    icon: Icon(Icons.qr_code_scanner, color: Colors.white,),
+                    label: Text('SCAN QR CODE',
+                    style: TextStyle(
+                      fontFamily: 'Cairo_Bold',
+                      color: Colors.white,
+                      fontSize: 15,
+                    )),
+                    onPressed: () {
+                      Navigator.push(  
+                        context, MaterialPageRoute(builder: (_) => PaymentQR()));
+                    },
+                  ),
+                ),
             ]))),
     );
   }
 }
-                        
-        
-
-
-        
+    

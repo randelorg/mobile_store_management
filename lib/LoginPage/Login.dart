@@ -13,11 +13,12 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(  
+    return Scaffold(     
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,      
       body: Column(
           children: <Widget>[
+            // Display Logo
             Padding(
               padding: const EdgeInsets.only(top: 75),
               child: Center(
@@ -29,9 +30,9 @@ class _LoginState extends State<Login> {
             ),
             
             // Input Username
-            Container(  
+            Container(       
 	            padding: EdgeInsets.only(left: 35, right: 35),
-              child: TextField(
+              child: TextField(      
                 decoration: InputDecoration(
                  hintText: 'Username',
 	                prefixIcon: Icon(Icons.person_rounded, color: Colors.red),          
@@ -72,14 +73,14 @@ class _LoginState extends State<Login> {
             // Login Button
             Container(       
               margin: EdgeInsets.only(left: 35, right: 35, top: 100),
-              height: 60, width: 175,
+              height: 60, width: 175,         
               decoration: BoxDecoration(         
                 color: HexColor("#EA1C24"),
                 borderRadius: BorderRadius.circular(80)
               ),
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.push(             
                     context, MaterialPageRoute(builder: (_) => BottomNavBar()));
                 },
                 child: Text(                        

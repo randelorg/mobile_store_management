@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'dart:collection';
 
 import '../MainPage/Home.dart';
-import '../PaymentPage/PaymentQR.dart';
 import '../PaymentPage/PaymentInput.dart';
 import '../HistoryPage/PaymentHistory.dart';
 import '../HistoryPage/LoanedProducts.dart';
@@ -14,145 +13,69 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-
-  int currentTab = 0; // to keep track of active tab index
-
-  final List<Widget> screens = [
-    PaymentQR(),
-    PaymentInput(),
-    PaymentHistory(),
-    LoanedProducts(),
-    Settings(),
-  ]; // to store nested tabs
-
-  Widget currentScreen = Home(); // First View
+  
+  ListQueue<int> navigationQueue = ListQueue();
+  int screenIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(  
-      backgroundColor: Colors.white,
-      resizeToAvoidBottomInset: false,
-      body: Center(
-        child: currentScreen,
-      ),
-      
-      // QR Code Scanner
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.qr_code_scanner),
-        backgroundColor: HexColor("#EA1C24"),
-        foregroundColor: Colors.white,
-        hoverColor: Colors.black,
+    return WillPopScope(   
+      // This method will be called on press of the back button
+      onWillPop: () async {
+        if (navigationQueue.isEmpty) return true;
+        setState(() {
+          navigationQueue.removeLast();
+          int position = navigationQueue.isEmpty ? 0 : navigationQueue.last;
+          screenIndex = position;
+        });
+        return false;
+      },
 
-        onPressed: () {
-          setState(() {
-            currentScreen = PaymentQR(); // if user taps on this QR Scanner tab will be active
-            currentTab = 0;
-          });    
-        }, 
-      ),
+      child: Scaffold(     
+        resizeToAvoidBottomInset: false,
+        body: (getBody(screenIndex)),
+        bottomNavigationBar: BottomNavigationBar(         
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          backgroundColor: Colors.white,
+          selectedItemColor: Colors.red,
+          unselectedItemColor: Colors.black,         
+          type: BottomNavigationBarType.fixed,   
 
-      // Center
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 10,
-        child: Container(
-          height: 60,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              // Left Tab
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  // Payment
-                  MaterialButton(
-                    minWidth: 75,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = PaymentInput(); // if user taps on this payment tab will be active
-                        currentTab = 1;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.payment,
-                          color: currentTab == 1 ? Colors.red : Colors.black,
-                        ),
-                      ],
-                    ),
-                  ),
-                  // Payment History
-                  MaterialButton(
-                    minWidth: 75,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = PaymentHistory(); // if user taps on this payment history tab will be active
-                        currentTab = 2;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.history,
-                          color: currentTab == 2 ? Colors.red : Colors.black,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              // Right Tab
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  // Loaned Products
-                  MaterialButton(
-                    minWidth: 75,
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = LoanedProducts(); // if user taps on this loaned products tab will be active
-                        currentTab = 3;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.shopping_basket,
-                          color: currentTab == 3 ? Colors.red : Colors.black,
-                        ),
-                      ],
-                    ),
-                  ),
-                  // Settings
-                  MaterialButton(
-                    minWidth: 75,
-                    onPressed: () {
-                      setState(() {                    
-                        currentScreen = Settings(); // if user taps on this settings tab will be active
-                        currentTab = 4;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.settings,
-                          color: currentTab == 4 ? Colors.red : Colors.black,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
+          currentIndex: this.screenIndex,
+
+          onTap: (value) {   
+            navigationQueue.addLast(screenIndex);
+            setState(() => screenIndex = value);
+            print(value);
+          },
+
+          // Display Bottom Navigation Bar
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.payment), label: 'PaymentInput'),
+            BottomNavigationBarItem(icon: Icon(Icons.history), label: 'PaymentHistory'),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_basket), label: 'LoanedProducts'),
+            BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+          ],
         ),
       ),
     );
+  }
+  
+  Widget getBody(int index) {
+    switch (index) {
+      case 0:
+        return Home(); // Return Home
+      case 1:
+        return PaymentInput(); // Return Payment Input 
+      case 2:
+        return PaymentHistory(); // Return Payment History  
+      case 3:
+        return LoanedProducts(); // Return Loaned Products
+      case 4:
+      return Settings(); // Return Settings           
+    }
+    return widget;
   }
 }

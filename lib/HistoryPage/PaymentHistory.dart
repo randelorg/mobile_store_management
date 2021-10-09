@@ -14,36 +14,21 @@ class _PaymentHistoryState extends State<PaymentHistory> {
       home: Scaffold(    
         backgroundColor: Colors.white,
         body:Column(
-          children:<Widget>[
+          children:<Widget>[     
+            // Display Page Title
             Container(
-              margin: const EdgeInsets.only(top: 100),
-              child:Row(                       
-                children: [            
-                  Padding(
-                    padding: EdgeInsets.only(left: 25, right: 35),
-                    child: IconButton(    
-                      icon: Icon(                                
-                        Icons.arrow_back,
-                        size: 30,
-                        
-                      ),
-                      onPressed: () { 
-                                   
-                      },
-                    ),
-                  ),
-                  Text(         
-                    "Payment History",                 
-                    style: TextStyle(  
-                    fontFamily: 'Cairo_Bold', 
-                    color: HexColor("#155293"),                 
-                    fontSize: 30,  
-                   ),
-                  ),
-                ],
+              margin: const EdgeInsets.only(left: 40, right:40, top: 100),
+              child:Text(       
+                "Payment History",
+                style: TextStyle(     
+                  fontFamily: 'Cairo_Bold',         
+                  color: HexColor("#155293"),
+                  fontSize: 30,
+                ),
               ),
             ),
-             
+
+            // Display Data Table
             Expanded(
               child: Padding(
                 padding: EdgeInsets.all(5),
@@ -97,5 +82,4 @@ class _PaymentHistoryState extends State<PaymentHistory> {
       ),
     );
   }  
-}  
-         
+} 

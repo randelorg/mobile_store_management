@@ -15,32 +15,20 @@ class _LoanedProductsState extends State<LoanedProducts> {
         backgroundColor: Colors.white,
         body: Column(
           children: <Widget>[
+            // Display Page Title
             Container(
-              margin: const EdgeInsets.only(top: 100),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 25, right: 35),
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_back,
-                        size: 30,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
-                  Text(
-                    "Loaned Products",
-                    style: TextStyle(
-                      fontFamily: 'Cairo_Bold',
-                      color: HexColor("#155293"),
-                      fontSize: 30,
-                    ),
-                  ),
-                ],
+              margin: const EdgeInsets.only(left: 40, right:40, top: 100),
+              child: Text(    
+                "Loaned Products",
+                 style: TextStyle(          
+                   fontFamily: 'Cairo_Bold',
+                    color: HexColor("#155293"),
+                    fontSize: 30,      
+                 ),
               ),
             ),
 
+            // Display Data Table
             Expanded(
               child: Padding(
                 padding: EdgeInsets.all(5),
@@ -78,7 +66,7 @@ class _LoanedProductsState extends State<LoanedProducts> {
                               fontSize: 11, fontFamily: 'Cairo_SemiBold')),
                     ),
                   ],
-                  
+              
                   rows: [
                     DataRow(cells: [
                       DataCell(Text('1')),

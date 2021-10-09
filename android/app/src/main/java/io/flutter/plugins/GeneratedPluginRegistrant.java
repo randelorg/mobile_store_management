@@ -16,11 +16,6 @@ public final class GeneratedPluginRegistrant {
   private static final String TAG = "GeneratedPluginRegistrant";
   public static void registerWith(@NonNull FlutterEngine flutterEngine) {
     try {
-      flutterEngine.getPlugins().add(new io.flutter.plugins.camera.CameraPlugin());
-    } catch(Exception e) {
-      Log.e(TAG, "Error registering plugin camera, io.flutter.plugins.camera.CameraPlugin", e);
-    }
-    try {
       flutterEngine.getPlugins().add(new com.ggichure.github.hexcolor.HexcolorPlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin hexcolor, com.ggichure.github.hexcolor.HexcolorPlugin", e);
