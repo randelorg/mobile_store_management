@@ -72,7 +72,7 @@ class _LoginState extends State<Login> {
             
             // Login Button
             Container(       
-              margin: EdgeInsets.only(left: 35, right: 35, top: 100),
+              margin: EdgeInsets.only(left: 35, right: 35, top: 94),
               height: 60, width: 175,         
               decoration: BoxDecoration(         
                 color: HexColor("#EA1C24"),

@@ -1,7 +1,8 @@
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import '../PaymentPage/PaymentQR.dart';
+import '../PaymentPage/MakePayment.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -9,6 +10,23 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  Future _scanQR() async {
+
+    ScanResult qrScanResult = await BarcodeScanner.scan();
+    String qrResult = qrScanResult.rawContent;
+
+    if (qrResult == "") {
+
+    } else {   
+      Navigator.of(context).push(   
+        MaterialPageRoute(      
+          builder: (context) => MakePayment(qrResult),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp( 
@@ -104,10 +122,7 @@ class _HomeState extends State<Home> {
                       color: Colors.white,
                       fontSize: 15,
                     )),
-                    onPressed: () {
-                      Navigator.push(  
-                        context, MaterialPageRoute(builder: (_) => PaymentQR()));
-                    },
+                    onPressed: _scanQR
                   ),
                 ),
             ]))),
