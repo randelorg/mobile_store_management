@@ -1,5 +1,5 @@
-import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../PaymentPage/MakePayment.dart';
@@ -12,7 +12,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   Future _scanQR() async {
-
     ScanResult qrScanResult = await BarcodeScanner.scan();
     String qrResult = qrScanResult.rawContent;
 

@@ -6,8 +6,6 @@ INJECTED from C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src
 INJECTED from C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:1:1-44:12
 MERGED from C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:1:1-44:12
 MERGED from [:barcode_scan2] C:\Users\Jacinto\Downloads\mobile_store_management\build\barcode_scan2\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-13:12
-MERGED from [:camera] C:\Users\Jacinto\Downloads\mobile_store_management\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-10:12
-MERGED from [:flutter_plugin_android_lifecycle] C:\Users\Jacinto\Downloads\mobile_store_management\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider] C:\Users\Jacinto\Downloads\mobile_store_management\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:hexcolor] C:\Users\Jacinto\Downloads\mobile_store_management\build\hexcolor\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\ef3c407ab245da4935c321076ba42e32\material-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -69,8 +67,6 @@ uses-permission#android.permission.CAMERA
 ADDED from C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:4:4-64
 MERGED from [:barcode_scan2] C:\Users\Jacinto\Downloads\mobile_store_management\build\barcode_scan2\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-65
 MERGED from [:barcode_scan2] C:\Users\Jacinto\Downloads\mobile_store_management\build\barcode_scan2\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-65
-MERGED from [:camera] C:\Users\Jacinto\Downloads\mobile_store_management\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-65
-MERGED from [:camera] C:\Users\Jacinto\Downloads\mobile_store_management\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-65
 	android:name
 		ADDED from C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:4:21-61
 application
@@ -141,10 +137,6 @@ INJECTED from C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src
 INJECTED from C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml
 MERGED from [:barcode_scan2] C:\Users\Jacinto\Downloads\mobile_store_management\build\barcode_scan2\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:barcode_scan2] C:\Users\Jacinto\Downloads\mobile_store_management\build\barcode_scan2\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:camera] C:\Users\Jacinto\Downloads\mobile_store_management\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:camera] C:\Users\Jacinto\Downloads\mobile_store_management\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:flutter_plugin_android_lifecycle] C:\Users\Jacinto\Downloads\mobile_store_management\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:flutter_plugin_android_lifecycle] C:\Users\Jacinto\Downloads\mobile_store_management\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] C:\Users\Jacinto\Downloads\mobile_store_management\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] C:\Users\Jacinto\Downloads\mobile_store_management\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:hexcolor] C:\Users\Jacinto\Downloads\mobile_store_management\build\hexcolor\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
@@ -241,7 +233,3 @@ activity#de.mintware.barcode_scan.BarcodeScannerActivity
 ADDED from [:barcode_scan2] C:\Users\Jacinto\Downloads\mobile_store_management\build\barcode_scan2\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-84
 	android:name
 		ADDED from [:barcode_scan2] C:\Users\Jacinto\Downloads\mobile_store_management\build\barcode_scan2\intermediates\library_manifest\debug\AndroidManifest.xml:10:19-81
-uses-permission#android.permission.RECORD_AUDIO
-ADDED from [:camera] C:\Users\Jacinto\Downloads\mobile_store_management\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-71
-	android:name
-		ADDED from [:camera] C:\Users\Jacinto\Downloads\mobile_store_management\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-68
