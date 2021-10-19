@@ -48,6 +48,7 @@ class _MyProfileState extends State<MyProfile> {
                   // Display Collector ID
                   Card(
                     elevation: 3,
+                    shadowColor: Colors.black,
                     child: Row(
                       children: [
                         Padding(
@@ -69,6 +70,7 @@ class _MyProfileState extends State<MyProfile> {
                   // Display Full Name
                   Card(
                     elevation: 3,
+                    shadowColor: Colors.black,                  
                     child: Row(
                       children: [
                         Padding(
@@ -90,6 +92,7 @@ class _MyProfileState extends State<MyProfile> {
                   // Display Mobile Number
                   Card(
                     elevation: 3,
+                    shadowColor: Colors.black,
                     child: Row(
                       children: [
                         Padding(                      
@@ -111,6 +114,7 @@ class _MyProfileState extends State<MyProfile> {
                   // Display Home Address
                   Card(
                     elevation: 3,
+                    shadowColor: Colors.black,
                     child: Row(
                       children: [
                         Padding(

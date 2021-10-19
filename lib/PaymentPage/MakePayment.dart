@@ -50,6 +50,7 @@ class _MakePaymentState extends State<MakePayment> {
                 width: 350,
                 child: Card(
                   elevation: 3,
+                  shadowColor: Colors.black,
                   child: Row(children: [
                     Padding(
                         padding: EdgeInsets.only(left: 15, right: 30),
@@ -74,6 +75,7 @@ class _MakePaymentState extends State<MakePayment> {
                 width: 350,
                 child: Card(
                   elevation: 3,
+                  shadowColor: Colors.black,
                   child: Row(children: [
                     Padding(
                         padding: EdgeInsets.only(left: 15, right: 3),

@@ -51,7 +51,8 @@ class _HomeState extends State<Home> {
               Container(   
                 height: 65, width: 245,             
                 child:Card(
-                  elevation: 2,  
+                  elevation: 3,
+                  shadowColor: Colors.black,  
                   shape:RoundedRectangleBorder(             
                     borderRadius: const BorderRadius.all(const Radius.circular(80)),
                   ),

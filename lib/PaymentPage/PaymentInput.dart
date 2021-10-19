@@ -70,7 +70,8 @@ class _PaymentInputState extends State<PaymentInput> {
             Container(          
                 height: 45, width: 350,                                            
                 child:Card(  
-                  elevation: 3,                                         
+                  elevation: 3,
+                  shadowColor: Colors.black,                                         
                   child: Row (           
                     children: [            
                       Padding(                    
@@ -96,6 +97,7 @@ class _PaymentInputState extends State<PaymentInput> {
                 height: 45, width: 350,
                 child: Card(
                   elevation: 3,
+                  shadowColor: Colors.black,
                   child: Row(children: [
                     Padding(
                         padding: EdgeInsets.only(left: 15, right: 3),
