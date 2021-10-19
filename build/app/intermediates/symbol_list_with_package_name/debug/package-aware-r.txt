@@ -1,4 +1,5 @@
 com.example.mobile_store_management
+<<<<<<< HEAD
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -332,6 +333,10 @@ attr firstBaselineToTopHeight
 attr floatingActionButtonStyle
 attr font
 attr fontFamily
+=======
+attr alpha
+attr font
+>>>>>>> main
 attr fontProviderAuthority
 attr fontProviderCerts
 attr fontProviderFetchStrategy
@@ -341,6 +346,7 @@ attr fontProviderQuery
 attr fontStyle
 attr fontVariationSettings
 attr fontWeight
+<<<<<<< HEAD
 attr foregroundInsidePadding
 attr gapBetweenBars
 attr goIcon
@@ -950,6 +956,13 @@ dimen appcompat_dialog_background_inset
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
+=======
+attr ttcIndex
+color notification_action_color_filter
+color notification_icon_bg_color
+color ripple_material_light
+color secondary_text_default_material_light
+>>>>>>> main
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -957,6 +970,7 @@ dimen compat_button_padding_vertical_material
 dimen compat_control_corner_material
 dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
+<<<<<<< HEAD
 dimen default_dimension
 dimen design_appbar_elevation
 dimen design_bottom_navigation_active_item_max_width
@@ -1169,6 +1183,8 @@ dimen mtrl_textinput_end_icon_margin_start
 dimen mtrl_textinput_outline_box_expanded_padding
 dimen mtrl_textinput_start_icon_margin_end
 dimen mtrl_toolbar_default_height
+=======
+>>>>>>> main
 dimen notification_action_icon_size
 dimen notification_action_text_size
 dimen notification_big_circle_margin
@@ -1184,6 +1200,7 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+<<<<<<< HEAD
 dimen subtitle_corner_radius
 dimen subtitle_outline_width
 dimen subtitle_shadow_offset
@@ -1322,6 +1339,9 @@ drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+=======
+drawable launch_background
+>>>>>>> main
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1334,6 +1354,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+<<<<<<< HEAD
 drawable splash
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -1348,6 +1369,8 @@ id SHIFT
 id SYM
 id TOP_END
 id TOP_START
+=======
+>>>>>>> main
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -1381,6 +1404,7 @@ id accessibility_custom_action_6
 id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
+<<<<<<< HEAD
 id action0
 id action_bar
 id action_bar_activity_content
@@ -1517,10 +1541,29 @@ id navigation_header_container
 id never
 id noScroll
 id none
+=======
+id action_container
+id action_divider
+id action_image
+id action_text
+id actions
+id async
+id blocking
+id chronometer
+id dialog_button
+id forever
+id icon
+id icon_group
+id info
+id italic
+id line1
+id line3
+>>>>>>> main
 id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+<<<<<<< HEAD
 id off
 id on
 id outline
@@ -1580,6 +1623,10 @@ id stretch
 id submenuarrow
 id submit_area
 id tabMode
+=======
+id right_icon
+id right_side
+>>>>>>> main
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -1588,6 +1635,7 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+<<<<<<< HEAD
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
 id text
@@ -2611,3 +2659,33 @@ xml standalone_badge
 xml standalone_badge_gravity_bottom_end
 xml standalone_badge_gravity_bottom_start
 xml standalone_badge_gravity_top_start
+=======
+id text
+id text2
+id time
+id title
+integer status_bar_notification_info_maxnum
+layout custom_dialog
+layout notification_action
+layout notification_action_tombstone
+layout notification_template_custom_big
+layout notification_template_icon_group
+layout notification_template_part_chronometer
+layout notification_template_part_time
+mipmap ic_launcher
+string status_bar_notification_info_overflow
+style LaunchTheme
+style NormalTheme
+style TextAppearance_Compat_Notification
+style TextAppearance_Compat_Notification_Info
+style TextAppearance_Compat_Notification_Line2
+style TextAppearance_Compat_Notification_Time
+style TextAppearance_Compat_Notification_Title
+style Widget_Compat_NotificationActionContainer
+style Widget_Compat_NotificationActionText
+styleable ColorStateListItem android_color android_alpha alpha
+styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery
+styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex
+styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
+styleable GradientColorItem android_color android_offset
+>>>>>>> main

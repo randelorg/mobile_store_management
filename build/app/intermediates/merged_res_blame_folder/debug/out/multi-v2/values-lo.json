@@ -1,16 +1,24 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\Jacinto\\Downloads\\mobile_store_management\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lo\\values-lo.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Jacinto\\.gradle\\caches\\transforms-2\\files-2.1\\2e94107f30f39be366a17347c2bf100b\\core-1.1.0\\res\\values-lo\\values-lo.xml",
+=======
+            "outputFile": "E:\\mobile_store_management\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lo\\values-lo.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Randel Reyes\\.gradle\\caches\\transforms-2\\files-2.1\\2e94107f30f39be366a17347c2bf100b\\core-1.1.0\\res\\values-lo\\values-lo.xml",
+>>>>>>> main
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
                         "endColumns": "100",
                         "endOffsets": "151"
+<<<<<<< HEAD
                     },
                     "to": {
                         "startLines": "30",
@@ -28,6 +36,8 @@
                         "startOffsets": "105,208,311,424,509,613,724,802,880,971,1063,1155,1249,1350,1443,1538,1634,1725,1816,1896,2003,2107,2205,2308,2412,2516,2673,2772",
                         "endColumns": "102,102,112,84,103,110,77,77,90,91,91,93,100,92,94,95,90,90,79,106,103,97,102,103,103,156,98,80",
                         "endOffsets": "203,306,419,504,608,719,797,875,966,1058,1150,1244,1345,1438,1533,1629,1720,1811,1891,1998,2102,2200,2303,2407,2511,2668,2767,2848"
+=======
+>>>>>>> main
                     }
                 }
             ]

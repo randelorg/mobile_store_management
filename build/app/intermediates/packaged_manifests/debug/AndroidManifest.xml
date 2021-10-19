@@ -5,20 +5,31 @@
     android:versionName="1.0.0" >
 
     <uses-sdk
+<<<<<<< HEAD
         android:minSdkVersion="21"
+=======
+        android:minSdkVersion="16"
+>>>>>>> main
         android:targetSdkVersion="30" />
     <!--
          Flutter needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET" />
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.CAMERA" />
+=======
+>>>>>>> main
 
     <application
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
+<<<<<<< HEAD
         android:label="Dellrains Store Management System" >
+=======
+        android:label="mobile_store_management" >
+>>>>>>> main
         <activity
             android:name="com.example.mobile_store_management.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -60,8 +71,11 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+<<<<<<< HEAD
 
         <activity android:name="de.mintware.barcode_scan.BarcodeScannerActivity" />
+=======
+>>>>>>> main
     </application>
 
 </manifest>

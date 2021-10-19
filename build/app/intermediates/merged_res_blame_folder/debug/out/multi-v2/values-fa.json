@@ -1,16 +1,24 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\Jacinto\\Downloads\\mobile_store_management\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fa\\values-fa.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Jacinto\\.gradle\\caches\\transforms-2\\files-2.1\\2e94107f30f39be366a17347c2bf100b\\core-1.1.0\\res\\values-fa\\values-fa.xml",
+=======
+            "outputFile": "E:\\mobile_store_management\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fa\\values-fa.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Randel Reyes\\.gradle\\caches\\transforms-2\\files-2.1\\2e94107f30f39be366a17347c2bf100b\\core-1.1.0\\res\\values-fa\\values-fa.xml",
+>>>>>>> main
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
                         "endColumns": "100",
                         "endOffsets": "151"
+<<<<<<< HEAD
                     },
                     "to": {
                         "startLines": "30",
@@ -28,6 +36,8 @@
                         "startOffsets": "105,215,316,427,511,612,727,807,885,978,1072,1164,1258,1361,1456,1553,1647,1740,1830,1911,2019,2123,2221,2327,2432,2537,2694,2795",
                         "endColumns": "109,100,110,83,100,114,79,77,92,93,91,93,102,94,96,93,92,89,80,107,103,97,105,104,104,156,100,80",
                         "endOffsets": "210,311,422,506,607,722,802,880,973,1067,1159,1253,1356,1451,1548,1642,1735,1825,1906,2014,2118,2216,2322,2427,2532,2689,2790,2871"
+=======
+>>>>>>> main
                     }
                 }
             ]

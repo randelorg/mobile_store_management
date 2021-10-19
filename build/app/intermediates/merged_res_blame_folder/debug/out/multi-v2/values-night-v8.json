@@ -1,6 +1,7 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\Jacinto\\Downloads\\mobile_store_management\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
@@ -54,6 +55,27 @@
                         "startOffsets": "580,650,734,818,914,1016,1118,3074",
                         "endColumns": "69,83,83,95,101,101,93,88",
                         "endOffsets": "645,729,813,909,1011,1113,1207,3158"
+=======
+            "outputFile": "E:\\mobile_store_management\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "E:\\mobile_store_management\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "175,829",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "471,995"
+                    },
+                    "to": {
+                        "startLines": "2,7",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,352",
+                        "endLines": "6,9",
+                        "endColumns": "12,12",
+                        "endOffsets": "347,516"
+>>>>>>> main
                     }
                 }
             ]

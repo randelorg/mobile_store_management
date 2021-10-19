@@ -1,6 +1,7 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\Jacinto\\Downloads\\mobile_store_management\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sr\\values-sr.xml",
             "map": [
                 {
@@ -15,12 +16,19 @@
                 },
                 {
                     "source": "C:\\Users\\Jacinto\\.gradle\\caches\\transforms-2\\files-2.1\\2e94107f30f39be366a17347c2bf100b\\core-1.1.0\\res\\values-sr\\values-sr.xml",
+=======
+            "outputFile": "E:\\mobile_store_management\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sr\\values-sr.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Randel Reyes\\.gradle\\caches\\transforms-2\\files-2.1\\2e94107f30f39be366a17347c2bf100b\\core-1.1.0\\res\\values-sr\\values-sr.xml",
+>>>>>>> main
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
                         "endColumns": "100",
                         "endOffsets": "151"
+<<<<<<< HEAD
                     },
                     "to": {
                         "startLines": "30",
@@ -28,6 +36,8 @@
                         "startOffsets": "2919",
                         "endColumns": "100",
                         "endOffsets": "3015"
+=======
+>>>>>>> main
                     }
                 }
             ]

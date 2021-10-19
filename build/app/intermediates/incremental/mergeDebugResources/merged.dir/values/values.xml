@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
     <attr name="appBarLayoutStyle"/>
     <attr format="reference" name="badgeStyle"/>
@@ -283,6 +284,13 @@
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
+=======
+<resources>
+    <color name="notification_action_color_filter">#ffffffff</color>
+    <color name="notification_icon_bg_color">#ff9e9e9e</color>
+    <color name="ripple_material_light">#1f000000</color>
+    <color name="secondary_text_default_material_light">#8a000000</color>
+>>>>>>> main
     <dimen name="compat_button_inset_horizontal_material">4dp</dimen>
     <dimen name="compat_button_inset_vertical_material">6dp</dimen>
     <dimen name="compat_button_padding_horizontal_material">8dp</dimen>
@@ -290,6 +298,7 @@
     <dimen name="compat_control_corner_material">2dp</dimen>
     <dimen name="compat_notification_large_icon_max_height">320dp</dimen>
     <dimen name="compat_notification_large_icon_max_width">320dp</dimen>
+<<<<<<< HEAD
     <dimen name="default_dimension">100dp</dimen>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_bottom_navigation_active_item_max_width">168dp</dimen>
@@ -502,6 +511,8 @@
     <dimen name="mtrl_textinput_outline_box_expanded_padding">16dp</dimen>
     <dimen name="mtrl_textinput_start_icon_margin_end">4dp</dimen>
     <dimen name="mtrl_toolbar_default_height">56dp</dimen>
+=======
+>>>>>>> main
     <dimen name="notification_action_icon_size">32dp</dimen>
     <dimen name="notification_action_text_size">13sp</dimen>
     <dimen name="notification_big_circle_margin">12dp</dimen>
@@ -517,6 +528,7 @@
     <dimen name="notification_subtext_size">13sp</dimen>
     <dimen name="notification_top_pad">10dp</dimen>
     <dimen name="notification_top_pad_large_text">5dp</dimen>
+<<<<<<< HEAD
     <dimen name="subtitle_corner_radius">2dp</dimen>
     <dimen name="subtitle_outline_width">2dp</dimen>
     <dimen name="subtitle_shadow_offset">2dp</dimen>
@@ -530,6 +542,8 @@
     <dimen name="tooltip_vertical_padding">6.5dp</dimen>
     <dimen name="tooltip_y_offset_non_touch">0dp</dimen>
     <dimen name="tooltip_y_offset_touch">16dp</dimen>
+=======
+>>>>>>> main
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
     <item name="accessibility_action_clickable_span" type="id"/>
@@ -565,6 +579,7 @@
     <item name="accessibility_custom_action_7" type="id"/>
     <item name="accessibility_custom_action_8" type="id"/>
     <item name="accessibility_custom_action_9" type="id"/>
+<<<<<<< HEAD
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
@@ -586,6 +601,10 @@
     <item name="snackbar_action" type="id"/>
     <item name="snackbar_text" type="id"/>
     <item name="split_action_bar" type="id"/>
+=======
+    <item name="line1" type="id"/>
+    <item name="line3" type="id"/>
+>>>>>>> main
     <item name="tag_accessibility_actions" type="id"/>
     <item name="tag_accessibility_clickable_spans" type="id"/>
     <item name="tag_accessibility_heading" type="id"/>
@@ -596,6 +615,7 @@
     <item name="tag_unhandled_key_listeners" type="id"/>
     <item name="text" type="id"/>
     <item name="text2" type="id"/>
+<<<<<<< HEAD
     <item name="textinput_counter" type="id"/>
     <item name="textinput_error" type="id"/>
     <item name="textinput_helper_text" type="id"/>
@@ -2564,10 +2584,16 @@
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
     <style name="EmptyTheme"/>
+=======
+    <item name="title" type="id"/>
+    <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="status_bar_notification_info_overflow">999+</string>
+>>>>>>> main
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <!-- Show a splash screen on the activity. Automatically removed when
              Flutter draws its first frame -->
         <item name="android:windowBackground">@drawable/launch_background</item>
+<<<<<<< HEAD
         <item name="android:windowFullscreen">false</item>
     </style>
     <style name="MaterialAlertDialog.MaterialComponents" parent="AlertDialog.AppCompat">
@@ -3009,19 +3035,30 @@
     <style name="TextAppearance.AppCompat.Widget.PopupMenu.Small" parent="Base.TextAppearance.AppCompat.Widget.PopupMenu.Small"/>
     <style name="TextAppearance.AppCompat.Widget.Switch" parent="Base.TextAppearance.AppCompat.Widget.Switch"/>
     <style name="TextAppearance.AppCompat.Widget.TextView.SpinnerItem" parent="Base.TextAppearance.AppCompat.Widget.TextView.SpinnerItem"/>
+=======
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+>>>>>>> main
     <style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.StatusBar.EventContent"/>
     <style name="TextAppearance.Compat.Notification.Info">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
+<<<<<<< HEAD
     <style name="TextAppearance.Compat.Notification.Info.Media"/>
     <style name="TextAppearance.Compat.Notification.Line2" parent="TextAppearance.Compat.Notification.Info"/>
     <style name="TextAppearance.Compat.Notification.Line2.Media" parent="TextAppearance.Compat.Notification.Info.Media"/>
     <style name="TextAppearance.Compat.Notification.Media"/>
+=======
+    <style name="TextAppearance.Compat.Notification.Line2" parent="TextAppearance.Compat.Notification.Info"/>
+>>>>>>> main
     <style name="TextAppearance.Compat.Notification.Time">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
+<<<<<<< HEAD
     <style name="TextAppearance.Compat.Notification.Time.Media"/>
     <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title"/>
     <style name="TextAppearance.Compat.Notification.Title.Media"/>
@@ -5434,6 +5471,11 @@
          be between 0.0 and 1.0. -->
     <attr format="float" name="layout_collapseParallaxMultiplier"/>
   </declare-styleable>
+=======
+    <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title"/>
+    <style name="Widget.Compat.NotificationActionContainer" parent=""/>
+    <style name="Widget.Compat.NotificationActionText" parent=""/>
+>>>>>>> main
     <declare-styleable name="ColorStateListItem">
         <!-- Base color for this state. -->
         <attr name="android:color"/>
@@ -5441,6 +5483,7 @@
         <attr format="float" name="alpha"/>
         <attr name="android:alpha"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="CompoundButton">
         <attr name="android:button"/>
         <!-- Compat attr to load backported drawable types -->
@@ -5658,6 +5701,8 @@
     <!-- Vertical Spacing between two lines of items being laid out. -->
     <attr format="dimension" name="lineSpacing"/>
   </declare-styleable>
+=======
+>>>>>>> main
     <declare-styleable name="FontFamily">
         <!-- The authority of the Font Provider to be used for the request. -->
         <attr format="string" name="fontProviderAuthority"/>
@@ -5733,11 +5778,14 @@
         <attr name="android:fontVariationSettings"/>
         <attr name="android:ttcIndex"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="ForegroundLinearLayout">
     <attr name="android:foreground"/>
     <attr name="android:foregroundGravity"/>
     <attr format="boolean" name="foregroundInsidePadding"/>
   </declare-styleable>
+=======
+>>>>>>> main
     <declare-styleable name="GradientColor">
         <!-- Start color of the gradient. -->
         <attr name="android:startColor"/>
@@ -5782,6 +5830,7 @@
         <!-- The current color for the offset inside the gradient. -->
         <attr name="android:color"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="LinearLayoutCompat">
         <!-- Should the layout be a column or a row?  Use "horizontal"
              for a row, "vertical" for a column.  The default is
@@ -6954,4 +7003,6 @@
         <attr name="android:inflatedId"/>
         <attr name="android:id"/>
     </declare-styleable>
+=======
+>>>>>>> main
 </resources>
