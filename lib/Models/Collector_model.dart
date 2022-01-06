@@ -1,11 +1,14 @@
 import 'Person_model.dart';
 
 class CollectorModel extends PersonModel {
-
   String? collectorId;
+  String? role;
   String? username;
   String? password;
   List<dynamic>? userImage;
+
+  get getRole => this.role;
+  set setRole(String role) => this.role = role;
 
   get getCollectorId => this.collectorId;
   set setCollectorId(collectorId) => this.collectorId = collectorId;
@@ -23,6 +26,7 @@ class CollectorModel extends PersonModel {
 
   CollectorModel.full(
       String collectorId,
+      String role,
       String username,
       String password,
       String firstname,
@@ -32,6 +36,7 @@ class CollectorModel extends PersonModel {
       List<dynamic> userImage)
       : super.partial(firstname, lastname, mobileNumber, homeAddress) {
     this.collectorId = collectorId;
+    this.role = role;
     this.username = username;
     this.password = password;
     this.userImage = userImage;
@@ -39,6 +44,7 @@ class CollectorModel extends PersonModel {
 
   CollectorModel.fullJson(
       {this.collectorId,
+      this.role,
       this.username,
       this.password,
       personId,
@@ -48,6 +54,7 @@ class CollectorModel extends PersonModel {
       homeAddress,
       this.userImage})
       : super.full(personId, firstname, lastname, mobileNumber, homeAddress) {
+    this.role = role;
     this.username = username;
     this.password = password;
     this.userImage = userImage;
@@ -66,11 +73,12 @@ class CollectorModel extends PersonModel {
   factory CollectorModel.fromJson(Map<String, dynamic> json) {
     return CollectorModel.fullJson(
       collectorId: json["EmployeeID"] as String,
+      role: json["Role"] as String,
       username: json["Username"] as String,
-      password: json["Password"] as String,
       personId: json["PersonID"] as int,
       firstname: json["Firstname"] as String,
       lastname: json["Lastname"] as String,
+      password: json["Password"] as String,
       mobileNumber: json["MobileNumber"] as String,
       homeAddress: json["HomeAddress"] as String,
       userImage: json["UserImage"]["data"] as List<dynamic>,
