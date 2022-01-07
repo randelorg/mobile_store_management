@@ -9,11 +9,14 @@ import 'package:mobile_store_management/Models/Collector_model.dart';
 
 class LoginOperation implements ILogin {
   var hash = Hashing();
-  // var admin = AdminModel.empty();
 
   @override
   void logout() {
-    // TODO: implement logout
+    Session.removeValues(); //remove the values from the session
+    //clear the lists
+    Mapping.collectorList.clear();
+    Mapping.adminList.clear();
+    Mapping.borrowerList.clear();
   }
 
   @override
@@ -62,6 +65,8 @@ class LoginOperation implements ILogin {
   }
 
   Future<bool> _users(http.Response response, String role) async {
+    //set the user role
+    Mapping.userRole = role;
     try {
       switch (role.replaceAll(' ', '')) {
         case 'Administrator':

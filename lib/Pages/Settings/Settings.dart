@@ -7,15 +7,29 @@ import '../Settings/ServedBorrowers.dart';
 import '../Settings/MyProfile.dart';
 import '../Settings/Logout.dart';
 
-
 class Settings extends StatefulWidget {
   @override
   _SettingsState createState() => _SettingsState();
 }
 
-final List<int> bufferInt2 = Mapping.adminList[0].getUserImage.cast<int>();
-
 class _SettingsState extends State<Settings> {
+  List<int> picture = [];
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+      if (Mapping.userRole == 'Collector') {
+        picture = Mapping.collectorList[0].getUserImage.cast<int>();
+      } else {
+        //if user is admin
+        picture = Mapping.adminList[0].getUserImage.cast<int>();
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,15 +42,13 @@ class _SettingsState extends State<Settings> {
             // Display Profile Picture
             Center(
               child: Stack(
-                children: <Widget>[            
-                  CircleAvatar(                 
-                    radius: 70,                   
-                    child: ClipOval(                  
-                      child:Image.memory(Uint8List.fromList(bufferInt2),
-                      fit: BoxFit.fill,
-                      height: 200, width: 200
-                      ),    
-                  )),
+                children: <Widget>[
+                  CircleAvatar(
+                      radius: 70,
+                      child: ClipOval(
+                        child: Image.memory(Uint8List.fromList(picture),
+                            fit: BoxFit.fill, height: 200, width: 200),
+                      )),
                 ],
               ),
             ),
@@ -79,10 +91,11 @@ class _SettingsState extends State<Settings> {
                   ),
                   onTap: () {
                     showDialog(
-                        context: context,
-                        builder: (BuildContext context) {                      
-                          return ServedBorrowers();
-                        });
+                      context: context,
+                      builder: (BuildContext context) {
+                        return ServedBorrowers();
+                      },
+                    );
                   },
                 ),
               ],
@@ -108,7 +121,8 @@ class _SettingsState extends State<Settings> {
                   ),
                   title: Text(
                     'View Profile',
-                    style: TextStyle(fontSize: 15, fontFamily: 'Cairo_SemiBold'),               
+                    style:
+                        TextStyle(fontSize: 15, fontFamily: 'Cairo_SemiBold'),
                   ),
                   onTap: () {
                     showDialog(
@@ -125,7 +139,8 @@ class _SettingsState extends State<Settings> {
                   ),
                   title: Text(
                     'Log Out',
-                    style: TextStyle(fontSize: 15, fontFamily: 'Cairo_SemiBold'),
+                    style:
+                        TextStyle(fontSize: 15, fontFamily: 'Cairo_SemiBold'),
                   ),
                   onTap: () {
                     showDialog(
@@ -143,4 +158,3 @@ class _SettingsState extends State<Settings> {
     );
   }
 }
-
