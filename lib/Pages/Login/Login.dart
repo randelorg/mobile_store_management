@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mobile_store_management/Backend/Operations/Login_operation.dart';
 
-import '../Main/BottomNavBar.dart';
-
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -44,24 +42,26 @@ class _LoginState extends State<Login> {
               ),
             ),
           ),
+
+          // Drop Menu
           Padding(
-            padding: EdgeInsets.only(bottom: 20),
+            padding: EdgeInsets.only(bottom: 10),
             child: Container(
-              width: 300,
+              width: 340,
+              height: 55,
               decoration: BoxDecoration(
                 color: Colors.blueGrey[50],
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(08),
                 border: Border.all(
-                  color: Colors.blueGrey.shade50,
+                  color: Colors.red.shade50,
                   style: BorderStyle.solid,
-                  width: 0.80,
                 ),
               ),
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<String>(
                   isExpanded: true,
                   value: administrator,
-                  icon: const Icon(Icons.arrow_downward),
+                  icon: const Icon(Icons.arrow_drop_down),
                   iconSize: 24,
                   elevation: 16,
                   style: TextStyle(color: Colors.blue.shade700),
@@ -87,6 +87,7 @@ class _LoginState extends State<Login> {
               ),
             ),
           ),
+
           // Input Username
           Container(
             padding: EdgeInsets.only(left: 35, right: 35),
@@ -132,7 +133,7 @@ class _LoginState extends State<Login> {
 
           // Login Button
           Container(
-            margin: EdgeInsets.only(left: 35, right: 35, top: 94),
+            margin: EdgeInsets.only(left: 35, right: 35, top: 85),
             height: 60,
             width: 175,
             decoration: BoxDecoration(
@@ -154,29 +155,14 @@ class _LoginState extends State<Login> {
                     .then((value) {
                   setState(() {
                     if (value) {
-                      Navigator.pushNamed(context, 'home');
+                      Navigator.pushNamed(context, '/home');
                     } else {
-                      AlertDialog(
-                        title: Text('Login Failed'),
-                        content:
-                            Text('Please check your username and password'),
-                        actions: <Widget>[
-                          TextButton(
-                            child: Text('OK'),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                          )
-                        ],
-                      );
+                      print("eror");
                     }
                   });
                 });
               },
             ),
-          ),
-          SizedBox(
-            height: 130,
           ),
         ],
       ),

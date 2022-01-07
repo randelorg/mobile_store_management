@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'dart:typed_data';
+
+import '../../Backend/Utility/Mapping.dart';
 
 class MyProfile extends StatefulWidget {
+  
   @override
   _MyProfileState createState() => _MyProfileState();
 }
+
+final List<int> bufferInt2 = Mapping.adminList[0].getUserImage.cast<int>();
 
 class _MyProfileState extends State<MyProfile> {
   @override
@@ -12,7 +18,7 @@ class _MyProfileState extends State<MyProfile> {
     return Dialog(
         backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        insetPadding: EdgeInsets.only(left: 20, right: 20, top: 180, bottom: 200),
+        insetPadding: EdgeInsets.only(left: 20, right: 20, top: 180, bottom: 180),
         child: Stack( 
           alignment: Alignment.topCenter,
           children: [    
@@ -45,15 +51,37 @@ class _MyProfileState extends State<MyProfile> {
                     ),
                   ),
               
-                  // Display Collector ID
+                  // Display ID
                   Card(
                     elevation: 3,
                     shadowColor: Colors.black,
                     child: Row(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 40, right: 57),
-                          child: Text('Collector ID',                 
+                          padding: EdgeInsets.only(left: 40, right: 102),
+                          child: Text('ID',                 
+                          style: TextStyle(                           
+                            color: Colors.grey[700],
+                            fontFamily: 'Cairo_SemiBold',
+                            fontSize: 12,
+                          ))),
+                          Text('1234',
+                          softWrap: true,                      
+                          style: TextStyle(                    
+                            fontSize: 14, fontFamily: 'Cairo_SemiBold')),
+                      ],
+                    ),
+                  ),
+
+                  // Display Role
+                  Card(
+                    elevation: 3,
+                    shadowColor: Colors.black,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 40, right: 92),
+                          child: Text('Role',                 
                           style: TextStyle(                           
                             color: Colors.grey[700],
                             fontFamily: 'Cairo_SemiBold',
@@ -137,12 +165,16 @@ class _MyProfileState extends State<MyProfile> {
             ),
 
             // Display Profile Picture
-            Positioned(     
+            Positioned(                
               top: 50,
-              child: CircleAvatar(
-                backgroundColor: Colors.redAccent,
-                radius: 70,
-                //child: ClipOval(child: Image.asset('assets/images/login-logo.jpg', height: 150, width: 150, fit: BoxFit.cover,),),
+              child: CircleAvatar(         
+                radius: 70,              
+                child: ClipOval(      
+                  child:Image.memory(Uint8List.fromList(bufferInt2),
+                  fit: BoxFit.fill,
+                  height: 200, width: 200
+                  ),
+                ),
               )),
           ],
         ));

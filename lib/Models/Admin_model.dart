@@ -7,19 +7,15 @@ class AdminModel extends PersonModel {
   List<dynamic>? userImage;
 
   get getAdminId => this.adminId;
-
   set setAdminId(adminId) => this.adminId = adminId;
 
   get getUsername => this.username;
-
   set setUsername(username) => this.username = username;
 
   get getPassword => this.password;
-
   set setPassword(password) => this.password = password;
 
   get getUserImage => this.userImage;
-
   set setUserImage(userImage) => this.userImage = userImage;
 
   AdminModel.empty() : super.empty();

@@ -7,11 +7,11 @@ class CollectorModel extends PersonModel {
   String? password;
   List<dynamic>? userImage;
 
-  get getRole => this.role;
-  set setRole(String role) => this.role = role;
-
   get getCollectorId => this.collectorId;
   set setCollectorId(collectorId) => this.collectorId = collectorId;
+  
+  get getRole => this.role;
+  set setRole(String role) => this.role = role;
 
   get getUsername => this.username;
   set setUsername(username) => this.username = username;
@@ -28,7 +28,7 @@ class CollectorModel extends PersonModel {
       String collectorId,
       String role,
       String username,
-      String password,
+      //String password,
       String firstname,
       String lastname,
       String mobileNumber,
@@ -38,7 +38,7 @@ class CollectorModel extends PersonModel {
     this.collectorId = collectorId;
     this.role = role;
     this.username = username;
-    this.password = password;
+    //this.password = password;
     this.userImage = userImage;
   }
 
@@ -46,7 +46,7 @@ class CollectorModel extends PersonModel {
       {this.collectorId,
       this.role,
       this.username,
-      this.password,
+     //this.password,
       personId,
       firstname,
       lastname,
@@ -56,7 +56,7 @@ class CollectorModel extends PersonModel {
       : super.full(personId, firstname, lastname, mobileNumber, homeAddress) {
     this.role = role;
     this.username = username;
-    this.password = password;
+    //this.password = password;
     this.userImage = userImage;
   }
 
@@ -78,7 +78,7 @@ class CollectorModel extends PersonModel {
       personId: json["PersonID"] as int,
       firstname: json["Firstname"] as String,
       lastname: json["Lastname"] as String,
-      password: json["Password"] as String,
+      //password: json["Password"] as String,
       mobileNumber: json["MobileNumber"] as String,
       homeAddress: json["HomeAddress"] as String,
       userImage: json["UserImage"]["data"] as List<dynamic>,

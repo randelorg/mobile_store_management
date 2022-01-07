@@ -37,7 +37,7 @@ class LoginOperation implements ILogin {
     }
 
     final response = await http.post(
-      Uri.parse('http://localhost:8090/api/login'),
+      Uri.parse('http://10.0.2.2:8090/api/login'),
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -58,7 +58,6 @@ class LoginOperation implements ILogin {
     } catch (e) {
       print(e.toString());
     }
-
     return true;
   }
 
@@ -70,7 +69,6 @@ class LoginOperation implements ILogin {
               jsonDecode(response.body)[0] as Map<String, dynamic>;
 
           var admin = AdminModel.fromJson(adminMap);
-
           Mapping.adminList.add(
             AdminModel.full(
               admin.getAdminId,
@@ -85,22 +83,18 @@ class LoginOperation implements ILogin {
           );
 
           await setSession(admin.toString(), true, role);
-
           break;
+
         case 'Collector':
           Map<String, dynamic> empMap =
               jsonDecode(response.body)[0] as Map<String, dynamic>;
 
-          print(empMap);
           var emp = CollectorModel.fromJson(empMap);
-          Mapping.collectorList.add(emp);
-
           Mapping.collectorList.add(
             CollectorModel.full(
               emp.getCollectorId,
               emp.getRole,
               emp.getUsername,
-              emp.getPassword,
               emp.getFirstname,
               emp.getLastname,
               emp.getMobileNumber,
@@ -108,7 +102,6 @@ class LoginOperation implements ILogin {
               emp.getUserImage,
             ),
           );
-
           await setSession(emp.toString(), true, role);
           break;
         default:
@@ -117,7 +110,6 @@ class LoginOperation implements ILogin {
       print(e.toString());
       return false;
     }
-
     return true;
   }
 

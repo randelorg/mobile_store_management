@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'dart:typed_data';
 
+import '../../Backend/Utility/Mapping.dart';
 import '../Settings/ServedBorrowers.dart';
 import '../Settings/MyProfile.dart';
 import '../Settings/Logout.dart';
+
 
 class Settings extends StatefulWidget {
   @override
   _SettingsState createState() => _SettingsState();
 }
+
+final List<int> bufferInt2 = Mapping.adminList[0].getUserImage.cast<int>();
 
 class _SettingsState extends State<Settings> {
   @override
@@ -23,12 +28,15 @@ class _SettingsState extends State<Settings> {
             // Display Profile Picture
             Center(
               child: Stack(
-                children: <Widget>[
-                  CircleAvatar(
-                    backgroundColor: Colors.redAccent,
-                    radius: 70,
-                    //child: ClipOval(child: Image.asset('assets/images/logo.jpg', height: 150, width: 150, fit: BoxFit.cover,),),
-                  ),
+                children: <Widget>[            
+                  CircleAvatar(                 
+                    radius: 70,                   
+                    child: ClipOval(                  
+                      child:Image.memory(Uint8List.fromList(bufferInt2),
+                      fit: BoxFit.fill,
+                      height: 200, width: 200
+                      ),    
+                  )),
                 ],
               ),
             ),
