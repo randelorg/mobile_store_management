@@ -1,6 +1,7 @@
 import 'Person_model.dart';
 
 class AdminModel extends PersonModel {
+  
   String? adminId;
   String? username;
   String? password;

@@ -3,8 +3,8 @@ import 'dart:collection';
 
 import '../Main/Home.dart';
 import '../Payment/PaymentInput.dart';
-import '../History/PaymentHistory.dart';
-import '../History/LoanedProducts.dart';
+import '../History/Payment.dart';
+import '../History/LoanedProduct.dart';
 import '../Settings/Settings.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -55,7 +55,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.payment), label: 'PaymentInput'),
             BottomNavigationBarItem(icon: Icon(Icons.history), label: 'PaymentHistory'),
-            BottomNavigationBarItem(icon: Icon(Icons.shopping_basket), label: 'LoanedProducts'),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_basket), label: 'LoanedProductHistory'),
             BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
           ],
         ),
@@ -70,9 +70,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
       case 1:
         return PaymentInput(); // Return Payment Input 
       case 2:
-        return PaymentHistory(); // Return Payment History  
+        return Payment(); // Return Payment History  
       case 3:
-        return LoanedProducts(); // Return Loaned Products
+        return LoanedProduct(); // Return Loaned Product History
       case 4:
       return Settings(); // Return Settings           
     }

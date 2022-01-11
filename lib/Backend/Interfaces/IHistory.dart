@@ -1,4 +1,5 @@
 class IHistory {
+  
   Future<int> viewPaymentHistory(String userId) async {
     throw UnimplementedError();
   }

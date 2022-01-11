@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\mobile_store_management\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+            "outputFile": "C:\\Users\\Jacinto\\Downloads\\mobile_store_management\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Randel Reyes\\.gradle\\caches\\transforms-2\\files-2.1\\cc50e38324cbb0927eaddc372e19d728\\jetified-core-1.9.13\\res\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+                    "source": "C:\\Users\\Jacinto\\.gradle\\caches\\transforms-2\\files-2.1\\b0b86b8d28f84cba33a8e5b24198592d\\jetified-core-1.9.13\\res\\values-xhdpi-v4\\values-xhdpi-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

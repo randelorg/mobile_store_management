@@ -1,15 +1,14 @@
 import 'Person_model.dart';
 
 class BorrowerModel extends PersonModel {
+  
   int? borrowerId;
   dynamic balance;
 
   get getBorrowerId => this.borrowerId;
-
   set setBorrowerId(borrowerId) => this.borrowerId = borrowerId;
 
   get getBalance => this.balance;
-
   set setBalance(balance) => this.balance = balance;
 
   BorrowerModel.empty() : super.empty();

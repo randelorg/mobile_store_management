@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mobile_store_management/Backend/Operations/Borrower_operation.dart';
 
 class PaymentInput extends StatefulWidget {
   @override
@@ -9,8 +10,10 @@ class PaymentInput extends StatefulWidget {
 
 class _PaymentInputState extends State<PaymentInput> {
 
-  TextEditingController dateinput = TextEditingController();
-
+  final TextEditingController dateinput = TextEditingController();
+  final TextEditingController payment = TextEditingController();
+  var controller = BorrowerOperation();
+  
   @override
   void initState() {
     dateinput.text = "";
@@ -120,7 +123,8 @@ class _PaymentInputState extends State<PaymentInput> {
             // Input Amount Paid
             Container(      
               padding: EdgeInsets.only(left: 35, right: 35, top: 50),
-              child: TextField(                        
+              child: TextField(
+                controller: payment,                        
                 keyboardType: TextInputType.number,     
                 decoration: InputDecoration(                      
                   hintText: 'Amount Paid',           
@@ -181,7 +185,7 @@ class _PaymentInputState extends State<PaymentInput> {
                   if (pickedDate != null) {
                     print(pickedDate);
                     String formattedDate =
-                        DateFormat('dd-MM-yyyy').format(pickedDate);
+                        DateFormat('yyyy-MM-dd').format(pickedDate);
                     print(formattedDate);
                     setState(() {
                       dateinput.text = formattedDate;
@@ -200,10 +204,7 @@ class _PaymentInputState extends State<PaymentInput> {
               decoration: BoxDecoration(           
                 color: HexColor("#155293"),
                 borderRadius: BorderRadius.circular(80)),
-                child: TextButton(
-                  onPressed: () {
-
-                  }, 
+                child: TextButton(           
                   child: Text(
                    'Pay',
                    style: TextStyle(
@@ -211,7 +212,11 @@ class _PaymentInputState extends State<PaymentInput> {
                      color: Colors.white,
                      fontSize: 25,
                    ),
-                ),
+                ),         
+                onPressed: () {
+                  
+
+                  },
               ),
             ),
           ]))),

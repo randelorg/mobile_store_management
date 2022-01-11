@@ -1,6 +1,7 @@
 import 'Person_model.dart';
 
 class CollectorModel extends PersonModel {
+  
   String? collectorId;
   String? role;
   String? username;

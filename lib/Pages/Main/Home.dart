@@ -48,8 +48,7 @@ class _HomeState extends State<Home> {
 
               // Display Amount Collected
               Container(
-                height: 65,
-                width: 245,
+                height: 65, width: 245,
                 child: Card(
                   elevation: 3,
                   shadowColor: Colors.black,
@@ -119,8 +118,7 @@ class _HomeState extends State<Home> {
               // QR Scanner Button
               Container(
                 margin: EdgeInsets.only(left: 35, right: 35, top: 6),
-                height: 60,
-                width: 175,
+                height: 60, width: 175,
                 decoration: BoxDecoration(
                     color: HexColor("#155293"),
                     borderRadius: BorderRadius.circular(80)),

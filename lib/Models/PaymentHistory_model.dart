@@ -1,24 +1,18 @@
 import 'package:intl/intl.dart';
 
 class PaymentHistoryModel {
-  var _formatter = new DateFormat('yyyy-MM-dd');
-  var _now = new DateTime.now();
-
+  
   int? collectionID;
   String? givenDate;
   dynamic collectionAmount;
 
   get getCollectionID => this.collectionID;
-
   set setCollectionID(int collectionID) => this.collectionID = collectionID;
 
   get getCollectionAmount => this.collectionAmount;
-
-  set setCollectionAmount(double collectionAmount) =>
-      this.collectionAmount = collectionAmount;
+  set setCollectionAmount(double collectionAmount) => this.collectionAmount = collectionAmount;
 
   get getGivenDate => convertDateTimeDisplay(this.givenDate.toString());
-
   set setGivenDate(String givenDate) => this.givenDate = givenDate;
 
   String convertDateTimeDisplay(String date) {

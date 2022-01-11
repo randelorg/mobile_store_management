@@ -57,6 +57,7 @@ class _MakePaymentState extends State<MakePayment> {
                     if (snapshot.data == true) {
                       return Column(
                         children: [
+                          // Display Borrowers Name
                           Container(
                             height: 45,
                             width: 350,
@@ -91,6 +92,7 @@ class _MakePaymentState extends State<MakePayment> {
                               ),
                             ),
                           ),
+                          // Display Amount to be Paid
                           Container(
                             height: 45,
                             width: 350,
@@ -135,7 +137,6 @@ class _MakePaymentState extends State<MakePayment> {
                   );
                 },
               ),
-              // Display Borrowers Name
 
               // Input Amount Paid
               Container(

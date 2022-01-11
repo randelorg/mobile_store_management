@@ -14,7 +14,7 @@ class _ServedBorrowersState extends State<ServedBorrowers> {
     return Dialog(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      insetPadding: EdgeInsets.only(left: 20, right: 20, top: 180, bottom: 200),
+      insetPadding: EdgeInsets.only(left: 15, right: 15, top: 40, bottom: 80),
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
@@ -37,7 +37,7 @@ class _ServedBorrowersState extends State<ServedBorrowers> {
 
                 // Display Page Title
                 Container(
-                  margin: const EdgeInsets.only(left: 4, top: 20),
+                  margin: const EdgeInsets.only(left: 6, top: 20),
                   child: Text(
                     "Served Borrowers",
                     style: TextStyle(

@@ -4,12 +4,12 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:mobile_store_management/Backend/Operations/History_operation.dart';
 import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 
-class PaymentHistory extends StatefulWidget {
+class Payment extends StatefulWidget {
   @override
-  _PaymentHistoryState createState() => _PaymentHistoryState();
+  _PaymentState createState() => _PaymentState();
 }
 
-class _PaymentHistoryState extends State<PaymentHistory> {
+class _PaymentState extends State<Payment> {
   var history = HistoryOperation();
 
   @override
@@ -58,12 +58,12 @@ class _PaymentHistoryState extends State<PaymentHistory> {
                             columnSpacing: 30,
                             horizontalMargin: 15,
                             showCheckboxColumn: false,
-                            rowsPerPage: 8,
+                            rowsPerPage: 10,
                             columns: [
                               DataColumn2(
                                 size: ColumnSize.S,
                                 label: Text(
-                                  'LOANID',
+                                  'COLLECTIONID',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 12,

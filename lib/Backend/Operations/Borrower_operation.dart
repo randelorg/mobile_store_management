@@ -37,7 +37,6 @@ class BorrowerOperation implements IBorrower, IPay {
 
       print('l' + Mapping.borrowerList.length.toString());
     } catch (e) {
-      print('wow');
       print(e);
       return false;
     }

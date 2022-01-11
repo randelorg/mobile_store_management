@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:mobile_store_management/Backend/Session.dart';
 import 'dart:typed_data';
-
 import '../../Backend/Utility/Mapping.dart';
 
 class MyProfile extends StatefulWidget {
@@ -88,7 +86,7 @@ class _MyProfileState extends State<MyProfile> {
                   child: Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 40, right: 102),
+                        padding: EdgeInsets.only(left: 40, right: 103),
                         child: Text(
                           'ID',
                           style: TextStyle(
@@ -204,7 +202,7 @@ class _MyProfileState extends State<MyProfile> {
                   child: Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 40, right: 41),
+                        padding: EdgeInsets.only(left: 40, right: 42),
                         child: Text(
                           'Home Address',
                           style: TextStyle(
@@ -244,12 +242,5 @@ class _MyProfileState extends State<MyProfile> {
       ),
     );
   }
-
-  int _whichUser(String role) {
-    if (role == 'Collector') {
-      return 1;
-    }
-    //if admin user
-    return 0;
-  }
 }
+
