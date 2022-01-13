@@ -7,7 +7,6 @@ import 'dart:convert';
 import 'package:mobile_store_management/Models/Borrower_model.dart';
 
 class BorrowerOperation implements IBorrower, IPay {
-
   @override
   Future<bool> getBorrower(String bid) async {
     try {
@@ -70,14 +69,23 @@ class BorrowerOperation implements IBorrower, IPay {
     //if status code is 202
     return true;
   }
-  
-  
+
   @override
   Future<bool> getBorrowerName(String firstname, String lastname) async {
-    
+    if (firstname == ' ' && lastname == '') return false;
+
+    var brw = json.encode({
+      'firstname': firstname,
+      'lastname': lastname,
+    });
     try {
-      final response = await http.get(
-        Uri.parse('http://10.0.2.2:8090/api/borrower/' + firstname + '/' + lastname),
+      final response = await http.post(
+        Uri.parse('http://10.0.2.2:8090/api/borrower'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: brw,
       );
 
       //if response is empty return false
@@ -100,7 +108,6 @@ class BorrowerOperation implements IBorrower, IPay {
           bwr.getBalance,
         ),
       );
-      // print('l' + Mapping.borrowerList.length.toString());
     } catch (e) {
       print(e);
       return false;
@@ -108,5 +115,4 @@ class BorrowerOperation implements IBorrower, IPay {
     //if status code is 202
     return true;
   }
-
 }
