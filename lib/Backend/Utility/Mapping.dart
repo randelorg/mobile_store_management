@@ -11,7 +11,6 @@ class Mapping {
   static List<CollectorModel> collectorList = [];
   static List<AdminModel> adminList = [];
   static List<ServedBorrowersModel> servedBorrowers = [];
-  //static List<ProductModel> productList = [];
   static List<BorrowerModel> borrowerList = [];
   static List<PaymentHistoryModel> paymentList = [];
   static List<LoanedProductHistoryModel> productHistoryList = [];

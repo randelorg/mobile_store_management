@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mobile_store_management/Backend/Operations/Login_operation.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -8,6 +9,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   bool _isHidden = true;
   var login = LoginOperation();
 
@@ -26,16 +30,18 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        resizeToAvoidBottomInset: false,
-        body: Column(
+      backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
+      body: Form(
+        key: _formKey,
+        child: Column(
           children: <Widget>[
             // Display Logo
             Padding(
-              padding: const EdgeInsets.only(top: 75),
+              padding: const EdgeInsets.only(top: 85),
               child: Center(
                 child: Container(
-                  margin: EdgeInsets.only(bottom: 50),
+                  margin: EdgeInsets.only(bottom: 55),
                   width: 275, height: 250,
                   child: Image.asset('assets/images/logo.jpg'),
                 ),
@@ -49,7 +55,7 @@ class _LoginState extends State<Login> {
                 width: 340, height: 55,
                 decoration: BoxDecoration(
                   color: Colors.blueGrey[50],
-                  borderRadius: BorderRadius.circular(08),
+                  borderRadius: BorderRadius.circular(8),
                   border: Border.all(
                     color: Colors.red.shade50,
                     style: BorderStyle.solid,
@@ -60,8 +66,8 @@ class _LoginState extends State<Login> {
                     isExpanded: true,
                     value: administrator,
                     icon: const Icon(Icons.arrow_drop_down),
-                    iconSize: 24,
-                    elevation: 16,
+                    iconSize: 25,
+                    elevation: 15,
                     style: TextStyle(color: Colors.red),
                     onChanged: (role) {
                       setState(() {
@@ -89,7 +95,7 @@ class _LoginState extends State<Login> {
             // Input Username
             Container(
               padding: EdgeInsets.only(left: 35, right: 35),
-              child: TextField(
+              child: TextFormField(
                   controller: username,
                   decoration: InputDecoration(
                     hintText: 'Username',
@@ -102,13 +108,18 @@ class _LoginState extends State<Login> {
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                       borderSide: BorderSide(color: Colors.black, width: 2),
                     ),
-                  )),
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "* Required Username";
+                    }
+                  }),
             ),
 
             // Input Password
             Container(
               padding: EdgeInsets.only(left: 35, right: 35, top: 10),
-              child: TextField(
+              child: TextFormField(
                   controller: password,
                   obscureText: _isHidden,
                   decoration: InputDecoration(
@@ -119,20 +130,26 @@ class _LoginState extends State<Login> {
                       child: Icon(Icons.visibility),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(color: Colors.red, width: 2),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(color: Colors.black, width: 2),
                     ),
-                  )),
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "* Required Password";
+                    }
+                  }),
             ),
 
             // Login Button
             Container(
-              margin: EdgeInsets.only(left: 35, right: 35, top: 85),
-              height: 60, width: 175,
+              margin: EdgeInsets.only(left: 35, right: 35, top: 80),
+              height: 60,
+              width: 175,
               decoration: BoxDecoration(
                   color: HexColor("#EA1C24"),
                   borderRadius: BorderRadius.circular(80)),
@@ -146,25 +163,38 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 onPressed: () {
-                  login
-                      .mainLogin(administrator.toString(), username.text,
-                          password.text)
-                      .then((value) {
-                    setState(() {
-                      if (value) {
-                        Navigator.pushNamed(context, '/home');
-                      } else {
-                        print("eror");
-                      }
+                  if (_formKey.currentState!.validate()) {
+                    login
+                        .mainLogin(administrator.toString(), username.text,
+                            password.text)
+                        .then((value) {
+                      setState(() {
+                        if (value) {
+                          Navigator.pushNamed(context, '/home');
+                        } else {
+                          showToast();
+                        }
+                      });
                     });
-                  });
+                    return;
+                  }
                 },
               ),
             ),
           ],
+        ),
       ),
     );
   }
+
+  void showToast() => Fluttertoast.showToast(
+        msg: "Wrong Username or Password",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 13
+      );
 
   void _togglePasswordView() {
     setState(() {

@@ -13,29 +13,26 @@ class HistoryOperation implements IHistory {
       final response = await http.get(
           Uri.parse('http://10.0.2.2:8090/api/loanedproducts/' + borrowerId));
 
+      if (response.statusCode == 404) {
+        return -1;
+      }
+
       final parsed =
           await jsonDecode(response.body).cast<Map<String, dynamic>>();
       Mapping.productHistoryList = parsed
           .map<LoanedProductHistoryModel>(
               (json) => LoanedProductHistoryModel.fromJson(json))
           .toList();
-          
-      if (response.statusCode == 404) {
-        return -1;
-      }
 
       return 1;
     } catch (e) {
-      
       print(e.toString());
       return -1;
-      
     }
   }
 
   @override
   Future<int> viewPaymentHistory(String borrowerId) async {
-    print('borrower id is $borrowerId');
     try {
       final response = await http
           .get(Uri.parse('http://10.0.2.2:8090/api/payment/' + borrowerId));

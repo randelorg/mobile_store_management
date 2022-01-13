@@ -32,6 +32,7 @@ dependencies:
   hexcolor: ^2.0.5
   data_table_2: ^2.1.1
   barcode_scan2: ^4.1.4
+  fluttertoast: ^8.0.8
   shared_preferences: ^2.0.8 #for session
   crypto: ^3.0.1 #hashing
 

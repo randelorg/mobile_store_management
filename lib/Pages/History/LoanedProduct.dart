@@ -10,7 +10,9 @@ class LoanedProduct extends StatefulWidget {
 }
 
 class _LoanedProductState extends State<LoanedProduct> {
+  
   var history = HistoryOperation();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,7 +42,7 @@ class _LoanedProductState extends State<LoanedProduct> {
                   padding: const EdgeInsets.all(10),
                   children: [
                     FutureBuilder(
-                      future: history.viewPaymentHistory(
+                      future: history.viewLoanHistory(
                         Mapping.borrowerList.last.getBorrowerId.toString(),
                       ),
                       builder: (context, snapshot) {
@@ -49,15 +51,15 @@ class _LoanedProductState extends State<LoanedProduct> {
                         }
                         if (snapshot.hasData) {
                           return PaginatedDataTable(
-                            columnSpacing: 30,
-                            horizontalMargin: 15,
+                            columnSpacing: 20,
+                            horizontalMargin: 10,
                             showCheckboxColumn: false,
                             rowsPerPage: 10,
-                            columns: [
+                            columns: [                 
                               DataColumn2(
-                                size: ColumnSize.S,
+                                size: ColumnSize.L,
                                 label: Text(
-                                  'LOANID',
+                                  'PRODUCT NAME',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 12,
@@ -65,22 +67,12 @@ class _LoanedProductState extends State<LoanedProduct> {
                                 ),
                               ),
                               DataColumn2(
-                                size: ColumnSize.L,
-                                label: Text(
-                                  'PRODUCT NAME',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 11,
-                                      fontFamily: 'Cairo_SemiBold'),
-                                ),
-                              ),
-                              DataColumn2(
                                 size: ColumnSize.S,
                                 label: Text(
-                                  'DATE ADDED',
+                                  'DATEADDED',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: 11,
+                                      fontSize: 12,
                                       fontFamily: 'Cairo_SemiBold'),
                                 ),
                               ),
@@ -90,14 +82,10 @@ class _LoanedProductState extends State<LoanedProduct> {
                                   'PAYMENT PLAN',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: 11,
+                                      fontSize: 12,
                                       fontFamily: 'Cairo_SemiBold'),
                                 ),
-                              ),
-                               DataColumn(label: Text('PAYMENT \n PLAN')),
-                    DataColumn(label: Text('DATE \n ADDED')),
-                    DataColumn(label: Text('DUE \n DATE')),
-                    DataColumn(label: Text('TERM')),
+                              ),          
                             ],
                             source: _DataSource(context),
                           );
@@ -121,21 +109,11 @@ class _Row {
     this.valueA,
     this.valueB,
     this.valueC,
-    this.valueD,
-    this.valueE,
-    this.valueF,
-    this.valueG,
-    this.valueH,
   );
 
   final String valueA;
   final String valueB;
-  final String valueC; //price
-  final String valueD; //quantity
-  final String valueE;
-  final String valueF;
-  final String valueG;
-  final String valueH;
+  final String valueC; 
 
   bool selected = false;
 }
@@ -162,12 +140,7 @@ class _DataSource extends DataTableSource {
       cells: [
         DataCell(Text(row.valueA)),
         DataCell(Text(row.valueB)),
-        DataCell(Text(row.valueC)),
-        DataCell(Text(row.valueD)),
-        DataCell(Text(row.valueE)),
-        DataCell(Text(row.valueF)),
-        DataCell(Text(row.valueG)),
-        DataCell(Text(row.valueH)),
+        DataCell(Text(row.valueC)),   
       ],
     );
   }
@@ -187,14 +160,9 @@ class _DataSource extends DataTableSource {
         Mapping.productHistoryList.length,
         (index) {
           return _Row(
-            Mapping.productHistoryList[index].getLoanId.toString(),
             Mapping.productHistoryList[index].getProductName.toString(),
-            Mapping.productHistoryList[index].getPrice.toString(),
-            Mapping.productHistoryList[index].getQty.toString(),
-            Mapping.productHistoryList[index].getPaymentPlan.toString(),
             Mapping.productHistoryList[index].getDateAdded.toString(),
-            Mapping.productHistoryList[index].getDueDate.toString(),
-            Mapping.productHistoryList[index].getTerm.toString(),
+            Mapping.productHistoryList[index].getPaymentPlan.toString(),
           );
         },
       );
@@ -202,7 +170,11 @@ class _DataSource extends DataTableSource {
       return List.generate(
         0,
         (index) {
-          return _Row('', '', '', '', '', '', '', '');
+          return _Row(
+            '', 
+            '', 
+            '',
+          );
         },
       );
     }

@@ -7,6 +7,7 @@ import 'dart:convert';
 import 'package:mobile_store_management/Models/Borrower_model.dart';
 
 class BorrowerOperation implements IBorrower, IPay {
+
   @override
   Future<bool> getBorrower(String bid) async {
     try {
@@ -34,13 +35,12 @@ class BorrowerOperation implements IBorrower, IPay {
           bwr.getBalance,
         ),
       );
-
-      print('l' + Mapping.borrowerList.length.toString());
+      // print('l' + Mapping.borrowerList.length.toString());
     } catch (e) {
       print(e);
       return false;
     }
-
+    //if status code is 202
     return true;
   }
 
@@ -67,8 +67,46 @@ class BorrowerOperation implements IBorrower, IPay {
       e.toString();
       return false;
     }
-
     //if status code is 202
     return true;
   }
+  
+  
+  @override
+  Future<bool> getBorrowerName(String firstname, String lastname) async {
+    
+    try {
+      final response = await http.get(
+        Uri.parse('http://10.0.2.2:8090/api/borrower/' + firstname + '/' + lastname),
+      );
+
+      //if response is empty return false
+      if (response.statusCode == 404) {
+        return false;
+      }
+
+      Map<String, dynamic> borrowerMap =
+          jsonDecode(response.body)[0] as Map<String, dynamic>;
+
+      var bwr = BorrowerModel.fromJson(borrowerMap);
+
+      Mapping.borrowerList.add(
+        BorrowerModel.full(
+          bwr.getBorrowerId,
+          bwr.getFirstname,
+          bwr.getLastname,
+          bwr.getMobileNumber,
+          bwr.getHomeAddress,
+          bwr.getBalance,
+        ),
+      );
+      // print('l' + Mapping.borrowerList.length.toString());
+    } catch (e) {
+      print(e);
+      return false;
+    }
+    //if status code is 202
+    return true;
+  }
+
 }
