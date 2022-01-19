@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext a) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.white,

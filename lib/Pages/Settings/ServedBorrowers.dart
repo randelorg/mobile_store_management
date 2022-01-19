@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:data_table_2/data_table_2.dart';
@@ -57,8 +59,10 @@ class _ServedBorrowersState extends State<ServedBorrowers> {
                       padding: const EdgeInsets.all(10),
                       children: [
                         PaginatedDataTable(
-                          columnSpacing: 30,
+                          columnSpacing: 25,
                           horizontalMargin: 15,
+                          showCheckboxColumn: false,
+                          rowsPerPage: 10,
                           columns: [
                             DataColumn2(
                               size: ColumnSize.S,

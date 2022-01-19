@@ -80,7 +80,7 @@ class _MakePaymentState extends State<MakePayment> {
                                         style: TextStyle(
                                           color: Colors.grey[700],
                                           fontSize: 12,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w400,
                                         ),
                                       ),
                                     ),
@@ -116,7 +116,7 @@ class _MakePaymentState extends State<MakePayment> {
                                         style: TextStyle(
                                           color: Colors.grey[700],
                                           fontSize: 12,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w400,
                                         ),
                                       ),
                                     ),

@@ -11,6 +11,7 @@ class PaymentInput extends StatefulWidget {
 }
 
 class _PaymentInputState extends State<PaymentInput> {
+  
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final TextEditingController borrowername = TextEditingController();
@@ -53,7 +54,7 @@ class _PaymentInputState extends State<PaymentInput> {
                 // Input Borrowers Name
                 Container(
                   padding: EdgeInsets.only(left: 35, right: 35, top: 50),
-                  child: TextField(
+                  child: TextFormField(
                     controller: borrowername,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
@@ -73,7 +74,7 @@ class _PaymentInputState extends State<PaymentInput> {
                                 borrower = controller.getBorrowerName(
                                     name[0], name[1]);
                               });
-                            }
+                            } 
                           });
                         },
                       ),
@@ -86,6 +87,11 @@ class _PaymentInputState extends State<PaymentInput> {
                         borderSide: BorderSide(color: Colors.black, width: 2),
                       ),
                     ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "* Required Borrowers Name";
+                      }
+                    },
                   ),
                 ),
 
@@ -111,17 +117,14 @@ class _PaymentInputState extends State<PaymentInput> {
                                 child: Row(
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.only(
-                                        left: 15,
-                                        right: 30,
-                                      ),
+                                      padding: EdgeInsets.only(left: 15, right: 30),
                                       child: Text(
                                         'Borrowers Name',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.grey[700],
                                           fontSize: 12,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w400,
                                         ),
                                       ),
                                     ),
@@ -141,25 +144,21 @@ class _PaymentInputState extends State<PaymentInput> {
 
                             // Display Amount to be Paid
                             Container(
-                              height: 45,
-                              width: 350,
+                              height: 45, width: 350,
                               child: Card(
                                 elevation: 3,
                                 shadowColor: Colors.black,
                                 child: Row(
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.only(
-                                        left: 15,
-                                        right: 3,
-                                      ),
+                                      padding: EdgeInsets.only(left: 15, right: 3),                                    
                                       child: Text(
                                         'Amount to be Paid        ₱',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.grey[700],
                                           fontSize: 12,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w400,
                                         ),
                                       ),
                                     ),
@@ -180,8 +179,16 @@ class _PaymentInputState extends State<PaymentInput> {
                           ],
                         );
                       } else {
-                        return Center(
-                          child: Text('No information'),
+                        return Center(                           
+                          child: Text(                      
+                            'No Borrowers Information',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.grey[500],
+                              fontFamily: 'Cairo_SemiBold',
+                              fontSize: 14,
+                            ),
+                          ),
                         );
                       }
                     }
@@ -314,7 +321,7 @@ class _PaymentInputState extends State<PaymentInput> {
                           (value) {
                             if (value) {
                               print('success');
-                              Navigator.pop(context);
+                              Navigator.pushNamed(context, '/home');
                             }
                           },
                         );

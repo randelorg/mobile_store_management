@@ -9,7 +9,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   bool _isHidden = true;
@@ -42,7 +41,8 @@ class _LoginState extends State<Login> {
               child: Center(
                 child: Container(
                   margin: EdgeInsets.only(bottom: 55),
-                  width: 275, height: 250,
+                  width: 275,
+                  height: 250,
                   child: Image.asset('assets/images/logo.jpg'),
                 ),
               ),
@@ -52,7 +52,8 @@ class _LoginState extends State<Login> {
             Padding(
               padding: EdgeInsets.only(bottom: 10),
               child: Container(
-                width: 340, height: 55,
+                width: 340,
+                height: 55,
                 decoration: BoxDecoration(
                   color: Colors.blueGrey[50],
                   borderRadius: BorderRadius.circular(8),
@@ -162,8 +163,8 @@ class _LoginState extends State<Login> {
                     fontSize: 25,
                   ),
                 ),
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
+                onPressed: () {       
+                  if (_formKey.currentState!.validate()) {   
                     login
                         .mainLogin(administrator.toString(), username.text,
                             password.text)
@@ -188,13 +189,13 @@ class _LoginState extends State<Login> {
   }
 
   void showToast() => Fluttertoast.showToast(
-        msg: "Wrong Username or Password",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 13
-      );
+      msg: "Wrong Username or Password",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 13
+  );
 
   void _togglePasswordView() {
     setState(() {
