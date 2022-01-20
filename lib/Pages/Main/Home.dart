@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 
 import '../Payment/MakePayment.dart';
 
@@ -10,18 +11,18 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Future _scanQR() async {
-    ScanResult qrScanResult = await BarcodeScanner.scan();
-    String qrResult = qrScanResult.rawContent;
+  double _collectedAmount = 0;
 
-    if (qrResult == "") {
-    } else {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => MakePayment(qrResult: qrResult),
-        ),
-      );
-    }
+  void refreshCollected() {
+    setState(() {
+      _collectedAmount = _getTotal().toDouble();
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    refreshCollected();
   }
 
   @override
@@ -36,7 +37,7 @@ class _HomeState extends State<Home> {
               Container(
                 margin: const EdgeInsets.only(top: 145),
                 child: Text(
-                  "COLLECTED AMOUNT",
+                  'Collected Amount',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
@@ -48,7 +49,8 @@ class _HomeState extends State<Home> {
 
               // Display Amount Collected
               Container(
-                height: 65, width: 245,
+                height: 65,
+                width: 245,
                 child: Card(
                   elevation: 3,
                   shadowColor: Colors.black,
@@ -73,7 +75,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       Text(
-                        '60 000',
+                        _collectedAmount.toString(),
                         textAlign: TextAlign.center,
                         softWrap: true,
                         style: TextStyle(
@@ -118,7 +120,8 @@ class _HomeState extends State<Home> {
               // QR Scanner Button
               Container(
                 margin: EdgeInsets.only(left: 35, right: 35, top: 6),
-                height: 60, width: 175,
+                height: 60,
+                width: 175,
                 decoration: BoxDecoration(
                     color: HexColor("#155293"),
                     borderRadius: BorderRadius.circular(80)),
@@ -127,12 +130,14 @@ class _HomeState extends State<Home> {
                       Icons.qr_code_scanner,
                       color: Colors.white,
                     ),
-                    label: Text('SCAN QR CODE',
-                        style: TextStyle(
-                          fontFamily: 'Cairo_Bold',
-                          color: Colors.white,
-                          fontSize: 15,
-                        )),
+                    label: Text(
+                      'SCAN QR CODE',
+                      style: TextStyle(
+                        fontFamily: 'Cairo_Bold',
+                        color: Colors.white,
+                        fontSize: 15,
+                      ),
+                    ),
                     onPressed: _scanQR),
               ),
             ],
@@ -140,5 +145,28 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+
+  Future _scanQR() async {
+    ScanResult qrScanResult = await BarcodeScanner.scan();
+    String qrResult = qrScanResult.rawContent;
+
+    if (qrResult == "") {
+    } else {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => MakePayment(qrResult: qrResult),
+        ),
+      );
+    }
+  }
+
+  num _getTotal() {
+    num total = 0;
+    Mapping.servedBorrowers.forEach((e) {
+      total += e.getAmount;
+    });
+
+    return total;
   }
 }

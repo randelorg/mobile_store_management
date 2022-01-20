@@ -6,12 +6,12 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class HistoryOperation implements IHistory {
-  
   @override
   Future<int> viewLoanHistory(String borrowerId) async {
     try {
-      final response = await http.get(
-          Uri.parse('http://10.0.2.2:8090/api/loanedproducts/' + borrowerId));
+      final response = await http.get(Uri.parse(
+          'https://dellrainapi.herokuapp.com/api/loanedproducts/' +
+              borrowerId));
 
       if (response.statusCode == 404) {
         return -1;
@@ -34,8 +34,8 @@ class HistoryOperation implements IHistory {
   @override
   Future<int> viewPaymentHistory(String borrowerId) async {
     try {
-      final response = await http
-          .get(Uri.parse('http://10.0.2.2:8090/api/payment/' + borrowerId));
+      final response = await http.get(Uri.parse(
+          'https://dellrainapi.herokuapp.com/api/payment/' + borrowerId));
 
       if (response.statusCode == 404) {
         return -1;

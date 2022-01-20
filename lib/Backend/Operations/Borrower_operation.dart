@@ -11,11 +11,11 @@ class BorrowerOperation implements IBorrower, IPay {
   Future<bool> getBorrower(String bid) async {
     try {
       final response = await http.get(
-        Uri.parse('http://10.0.2.2:8090/api/borrower/' + bid),
+        Uri.parse('https://dellrainapi.herokuapp.com/api/borrower/' + bid),
       );
 
       //if response is empty return false
-      if (response.statusCode == 404) {
+      if (response.statusCode == 404) { 
         return false;
       }
 
@@ -53,7 +53,7 @@ class BorrowerOperation implements IBorrower, IPay {
 
     try {
       final response = await http.post(
-        Uri.parse("http://10.0.2.2:8090/api/payment"),
+        Uri.parse("https://dellrainapi.herokuapp.com/api/payment"),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -80,7 +80,7 @@ class BorrowerOperation implements IBorrower, IPay {
     });
     try {
       final response = await http.post(
-        Uri.parse('http://10.0.2.2:8090/api/borrower'),
+        Uri.parse('https://dellrainapi.herokuapp.com/api/borrower'),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'

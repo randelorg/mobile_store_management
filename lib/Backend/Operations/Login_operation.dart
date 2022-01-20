@@ -17,6 +17,7 @@ class LoginOperation implements ILogin {
     Mapping.collectorList.clear();
     Mapping.adminList.clear();
     Mapping.borrowerList.clear();
+    Mapping.servedBorrowers.clear();
   }
 
   @override
@@ -40,7 +41,7 @@ class LoginOperation implements ILogin {
     }
 
     final response = await http.post(
-      Uri.parse('http://10.0.2.2:8090/api/login'),
+      Uri.parse('https://dellrainapi.herokuapp.com/api/login'),
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
