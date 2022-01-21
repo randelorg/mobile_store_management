@@ -166,7 +166,6 @@ class _HomeState extends State<Home> {
     Mapping.servedBorrowers.forEach((e) {
       total += e.getAmount;
     });
-
     return total;
   }
 }

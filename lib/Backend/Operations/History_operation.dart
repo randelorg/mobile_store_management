@@ -7,14 +7,14 @@ import 'dart:convert';
 
 class HistoryOperation implements IHistory {
   @override
-  Future<int> viewLoanHistory(String borrowerId) async {
+  Future<bool> viewLoanHistory(String borrowerId) async {
     try {
       final response = await http.get(Uri.parse(
           'https://dellrainapi.herokuapp.com/api/loanedproducts/' +
               borrowerId));
 
       if (response.statusCode == 404) {
-        return -1;
+        return false;
       }
 
       final parsed =
@@ -24,21 +24,21 @@ class HistoryOperation implements IHistory {
               (json) => LoanedProductHistoryModel.fromJson(json))
           .toList();
 
-      return 1;
+      return true;
     } catch (e) {
       print(e.toString());
-      return -1;
+      return false;
     }
   }
 
   @override
-  Future<int> viewPaymentHistory(String borrowerId) async {
+  Future<bool> viewPaymentHistory(String borrowerId) async {
     try {
       final response = await http.get(Uri.parse(
           'https://dellrainapi.herokuapp.com/api/payment/' + borrowerId));
 
       if (response.statusCode == 404) {
-        return -1;
+        return false;
       }
 
       final parsed =
@@ -48,10 +48,10 @@ class HistoryOperation implements IHistory {
               (json) => PaymentHistoryModel.fromJson(json))
           .toList();
 
-      return 1;
+      return true;
     } catch (e) {
       print(e.toString());
-      return -1;
+      return false;
     }
   }
 }

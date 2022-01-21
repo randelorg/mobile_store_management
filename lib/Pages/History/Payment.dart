@@ -54,45 +54,49 @@ class _PaymentState extends State<Payment> {
                           return Center(child: CircularProgressIndicator());
                         }
                         if (snapshot.hasData) {
-                          return PaginatedDataTable(
-                            columnSpacing: 30,
-                            horizontalMargin: 15,
-                            showCheckboxColumn: false,
-                            rowsPerPage: 10,
-                            columns: [
-                              DataColumn2(
-                                size: ColumnSize.S,
-                                label: Text(
-                                  'COLLECTIONID',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontFamily: 'Cairo_SemiBold'),
+                          if (snapshot.data == true) {
+                            return PaginatedDataTable(
+                              columnSpacing: 30,
+                              horizontalMargin: 15,
+                              showCheckboxColumn: false,
+                              rowsPerPage: 10,
+                              columns: [
+                                DataColumn2(
+                                  size: ColumnSize.S,
+                                  label: Text(
+                                    'COLLECTIONID',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Cairo_SemiBold'),
+                                  ),
                                 ),
-                              ),
-                              DataColumn2(
-                                size: ColumnSize.M,
-                                label: Text(
-                                  'AMOUNT PAID',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontFamily: 'Cairo_SemiBold'),
+                                DataColumn2(
+                                  size: ColumnSize.M,
+                                  label: Text(
+                                    'AMOUNT PAID',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Cairo_SemiBold'),
+                                  ),
                                 ),
-                              ),
-                              DataColumn2(
-                                size: ColumnSize.S,
-                                label: Text(
-                                  'DATE',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontFamily: 'Cairo_SemiBold'),
+                                DataColumn2(
+                                  size: ColumnSize.S,
+                                  label: Text(
+                                    'DATE',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Cairo_SemiBold'),
+                                  ),
                                 ),
-                              ),
-                            ],
-                            source: _DataSource(context),
-                          );
+                              ],
+                              source: _DataSource(context),
+                            );
+                          } else {
+                            return Center(child: Text('No Payment History'));                          
+                          }
                         }
                         return Center(child: Text('No Data For this Borrower'));
                       },
@@ -132,12 +136,11 @@ class _DataSource extends DataTableSource {
   int _selectedCount = 0;
   List<_Row> _payHistory = [];
 
-
   @override
   DataRow? getRow(int index) {
     assert(index >= 0);
-    if (index >= _payHistory .length) return null;
-    final row = _payHistory [index];
+    if (index >= _payHistory.length) return null;
+    final row = _payHistory[index];
     return DataRow.byIndex(
       index: index,
       selected: row.selected,
@@ -175,8 +178,8 @@ class _DataSource extends DataTableSource {
         0,
         (index) {
           return _Row(
-            '', 
-            '', 
+            '',
+            '',
             '',
           );
         },
@@ -184,7 +187,3 @@ class _DataSource extends DataTableSource {
     }
   }
 }
-
-
-
-
