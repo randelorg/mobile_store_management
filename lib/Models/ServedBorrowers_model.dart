@@ -5,7 +5,7 @@ class ServedBorrowersModel {
   dynamic amount;
 
   get getBorrowerId => this.borrowerId;
-  set setBorrowerId(int borrowerId) => this.borrowerId = borrowerId;
+  set setBorrowerId(borrowerId) => this.borrowerId = borrowerId;
 
   get getName => this.name;
   set setName(name) => this.name = name;
@@ -21,3 +21,4 @@ class ServedBorrowersModel {
     this.amount = amount;
   }
 }
+

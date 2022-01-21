@@ -103,10 +103,32 @@ class _PaymentState extends State<Payment> {
                               source: _DataSource(context),
                             );
                           } else {
-                            return Center(child: Text('No Payment History'));
+                            return Container(                             
+                              margin: const EdgeInsets.only(top: 250, bottom: 250),                         
+                              child: Text(      
+                               'No Payment History',
+                               textAlign: TextAlign.center,            
+                               style: TextStyle(
+                                 color: Colors.grey[500],
+                                 fontFamily: 'Cairo_SemiBold',
+                                 fontSize: 14,
+                               ),
+                              ),
+                            );
                           }
                         }
-                        return Center(child: Text('No Data For this Borrower'));
+                        return Container(
+                          margin: const EdgeInsets.only(top: 250, bottom: 250),
+                          child: Text(                
+                            'No Payment History for this Borrower',
+                            textAlign: TextAlign.center,            
+                            style: TextStyle(
+                              color: Colors.grey[500],
+                              fontFamily: 'Cairo_SemiBold',
+                              fontSize: 14,
+                            ),
+                          ),         
+                        ); 
                       },
                     ),
                   ],

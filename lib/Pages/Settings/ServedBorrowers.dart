@@ -1,5 +1,4 @@
 // ignore_for_file: unused_local_variable
-
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:data_table_2/data_table_2.dart';
@@ -154,6 +153,7 @@ class _DataSource extends DataTableSource {
 }
 
 List _paymentsHistory(BuildContext context) {
+  
   List<_Row> _servedBorrowers;
 
   try {
@@ -163,7 +163,7 @@ List _paymentsHistory(BuildContext context) {
         return _Row(
           Mapping.servedBorrowers[index].getBorrowerId.toString(),
           Mapping.servedBorrowers[index].getName.toString(),
-          Mapping.servedBorrowers[index].getAmount.toString(),
+          Mapping.servedBorrowers[index].getAmount.toStringAsFixed(2),
         );
       },
     );

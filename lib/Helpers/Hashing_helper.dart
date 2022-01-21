@@ -4,6 +4,7 @@ import 'package:crypto/crypto.dart';
 import '../Backend/Interfaces/IHash.dart';
 
 class Hashing implements IHash {
+  
   String _encryptedWord = 'Unkown';
 
   get encryptedWord => this._encryptedWord;

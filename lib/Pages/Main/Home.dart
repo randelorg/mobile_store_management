@@ -11,6 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   double _collectedAmount = 0;
 
   void refreshCollected() {
@@ -26,7 +27,7 @@ class _HomeState extends State<Home> {
   }
 
   @override
-  Widget build(BuildContext a) {
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.white,
@@ -49,8 +50,7 @@ class _HomeState extends State<Home> {
 
               // Display Amount Collected
               Container(
-                height: 65,
-                width: 245,
+                height: 65, width: 245,
                 child: Card(
                   elevation: 3,
                   shadowColor: Colors.black,
@@ -63,19 +63,19 @@ class _HomeState extends State<Home> {
                   child: Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 25, right: 10),
+                        padding: EdgeInsets.only(left: 30, right: 15),
                         child: Text(
                           '₱',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
                       Text(
-                        _collectedAmount.toString(),
+                        _collectedAmount.toStringAsFixed(2),
                         textAlign: TextAlign.center,
                         softWrap: true,
                         style: TextStyle(

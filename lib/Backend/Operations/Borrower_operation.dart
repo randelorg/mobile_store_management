@@ -7,6 +7,8 @@ import 'dart:convert';
 import 'package:mobile_store_management/Models/Borrower_model.dart';
 
 class BorrowerOperation implements IBorrower, IPay {
+
+  //QR Code Scanner
   @override
   Future<bool> getBorrower(String bid) async {
     try {
@@ -34,7 +36,7 @@ class BorrowerOperation implements IBorrower, IPay {
           bwr.getBalance,
         ),
       );
-      // print('l' + Mapping.borrowerList.length.toString());
+      //print('l' + Mapping.borrowerList.length.toString());
     } catch (e) {
       print(e);
       return false;
@@ -43,6 +45,7 @@ class BorrowerOperation implements IBorrower, IPay {
     return true;
   }
 
+  //Make Payment
   @override
   Future<bool> makePayment(int id, double payment, String date) async {
     var paymentLoad = json.encode({
@@ -70,6 +73,7 @@ class BorrowerOperation implements IBorrower, IPay {
     return true;
   }
 
+  //Search Borrowers Name
   @override
   Future<bool> getBorrowerName(String firstname, String lastname) async {
     if (firstname == ' ' && lastname == '') return false;
