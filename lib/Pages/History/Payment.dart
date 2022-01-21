@@ -17,6 +17,14 @@ class _PaymentState extends State<Payment> {
     super.initState();
   }
 
+  String getId() {
+    if (Mapping.borrowerList.length == 0) {
+      return "";
+    } else {
+      return Mapping.borrowerList.last.getBorrowerId.toString();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,9 +54,7 @@ class _PaymentState extends State<Payment> {
                   padding: const EdgeInsets.all(10),
                   children: [
                     FutureBuilder(
-                      future: history.viewPaymentHistory(
-                        Mapping.borrowerList.last.getBorrowerId.toString(),
-                      ),
+                      future: history.viewPaymentHistory(getId()),
                       builder: (context, snapshot) {
                         if (!snapshot.hasData) {
                           return Center(child: CircularProgressIndicator());
@@ -67,8 +73,9 @@ class _PaymentState extends State<Payment> {
                                     'COLLECTIONID',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        fontSize: 12,
-                                        fontFamily: 'Cairo_SemiBold'),
+                                      fontSize: 12,
+                                      fontFamily: 'Cairo_SemiBold',
+                                    ),
                                   ),
                                 ),
                                 DataColumn2(
@@ -77,8 +84,9 @@ class _PaymentState extends State<Payment> {
                                     'AMOUNT PAID',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        fontSize: 12,
-                                        fontFamily: 'Cairo_SemiBold'),
+                                      fontSize: 12,
+                                      fontFamily: 'Cairo_SemiBold',
+                                    ),
                                   ),
                                 ),
                                 DataColumn2(
@@ -95,7 +103,7 @@ class _PaymentState extends State<Payment> {
                               source: _DataSource(context),
                             );
                           } else {
-                            return Center(child: Text('No Payment History'));                          
+                            return Center(child: Text('No Payment History'));
                           }
                         }
                         return Center(child: Text('No Data For this Borrower'));

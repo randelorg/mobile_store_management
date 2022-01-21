@@ -10,8 +10,15 @@ class LoanedProduct extends StatefulWidget {
 }
 
 class _LoanedProductState extends State<LoanedProduct> {
-  
   var history = HistoryOperation();
+
+  String getId() {
+    if (Mapping.borrowerList.length == 0) {
+      return "";
+    } else {
+      return Mapping.borrowerList.last.getBorrowerId.toString();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +29,14 @@ class _LoanedProductState extends State<LoanedProduct> {
           children: <Widget>[
             // Display Page Title
             Container(
-              margin: const EdgeInsets.only(left: 40, right:40, top: 100),
-              child: Text(    
+              margin: const EdgeInsets.only(left: 40, right: 40, top: 100),
+              child: Text(
                 "Loaned Product History",
-                 style: TextStyle(          
-                   fontFamily: 'Cairo_Bold',
-                    color: HexColor("#155293"),
-                    fontSize: 30,      
-                 ),
+                style: TextStyle(
+                  fontFamily: 'Cairo_Bold',
+                  color: HexColor("#155293"),
+                  fontSize: 30,
+                ),
               ),
             ),
 
@@ -42,53 +49,58 @@ class _LoanedProductState extends State<LoanedProduct> {
                   padding: const EdgeInsets.all(10),
                   children: [
                     FutureBuilder(
-                      future: history.viewLoanHistory(
-                        Mapping.borrowerList.last.getBorrowerId.toString(),
-                      ),
+                      future: history.viewLoanHistory(getId()),
                       builder: (context, snapshot) {
                         if (!snapshot.hasData) {
                           return Center(child: CircularProgressIndicator());
                         }
                         if (snapshot.hasData) {
-                          return PaginatedDataTable(
-                            columnSpacing: 20,
-                            horizontalMargin: 10,
-                            showCheckboxColumn: false,
-                            rowsPerPage: 10,
-                            columns: [                 
-                              DataColumn2(
-                                size: ColumnSize.L,
-                                label: Text(
-                                  'PRODUCT NAME',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
+                          if (snapshot.data == true) {
+                            return PaginatedDataTable(
+                              columnSpacing: 20,
+                              horizontalMargin: 10,
+                              showCheckboxColumn: false,
+                              rowsPerPage: 10,
+                              columns: [
+                                DataColumn2(
+                                  size: ColumnSize.L,
+                                  label: Text(
+                                    'PRODUCT NAME',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
                                       fontSize: 12,
-                                      fontFamily: 'Cairo_SemiBold'),
+                                      fontFamily: 'Cairo_SemiBold',
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              DataColumn2(
-                                size: ColumnSize.S,
-                                label: Text(
-                                  'DATEADDED',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontFamily: 'Cairo_SemiBold'),
+                                DataColumn2(
+                                  size: ColumnSize.S,
+                                  label: Text(
+                                    'DATEADDED',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Cairo_SemiBold'),
+                                  ),
                                 ),
-                              ),
-                              DataColumn2(                    
-                                size: ColumnSize.S,
-                                label: Text(
-                                  'PAYMENT PLAN',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontFamily: 'Cairo_SemiBold'),
+                                DataColumn2(
+                                  size: ColumnSize.S,
+                                  label: Text(
+                                    'PAYMENT PLAN',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Cairo_SemiBold'),
+                                  ),
                                 ),
-                              ),          
-                            ],
-                            source: _DataSource(context),
-                          );
+                              ],
+                              source: _DataSource(context),
+                            );
+                          } else {
+                            return Center(
+                              child: Text("No Loan History"),
+                            );
+                          }
                         }
                         return Center(child: Text('No Data For this Borrower'));
                       },
@@ -113,7 +125,7 @@ class _Row {
 
   final String valueA;
   final String valueB;
-  final String valueC; 
+  final String valueC;
 
   bool selected = false;
 }
@@ -140,7 +152,7 @@ class _DataSource extends DataTableSource {
       cells: [
         DataCell(Text(row.valueA)),
         DataCell(Text(row.valueB)),
-        DataCell(Text(row.valueC)),   
+        DataCell(Text(row.valueC)),
       ],
     );
   }
@@ -171,8 +183,8 @@ class _DataSource extends DataTableSource {
         0,
         (index) {
           return _Row(
-            '', 
-            '', 
+            '',
+            '',
             '',
           );
         },

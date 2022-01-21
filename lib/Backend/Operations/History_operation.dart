@@ -8,6 +8,7 @@ import 'dart:convert';
 class HistoryOperation implements IHistory {
   @override
   Future<bool> viewLoanHistory(String borrowerId) async {
+    if (borrowerId == "") return false;
     try {
       final response = await http.get(Uri.parse(
           'https://dellrainapi.herokuapp.com/api/loanedproducts/' +
@@ -33,6 +34,7 @@ class HistoryOperation implements IHistory {
 
   @override
   Future<bool> viewPaymentHistory(String borrowerId) async {
+    if (borrowerId == "") return false;
     try {
       final response = await http.get(Uri.parse(
           'https://dellrainapi.herokuapp.com/api/payment/' + borrowerId));
