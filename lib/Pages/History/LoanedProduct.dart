@@ -10,6 +10,7 @@ class LoanedProduct extends StatefulWidget {
 }
 
 class _LoanedProductState extends State<LoanedProduct> {
+  
   var history = HistoryOperation();
 
   String getId() {
@@ -23,11 +24,12 @@ class _LoanedProductState extends State<LoanedProduct> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Column(
           children: <Widget>[
-            // Display Page Title
+            //Display Page Title
             Container(
               margin: const EdgeInsets.only(left: 40, right: 40, top: 100),
               child: Text(
@@ -40,7 +42,7 @@ class _LoanedProductState extends State<LoanedProduct> {
               ),
             ),
 
-            // Display Data Table
+            //Display Data Table
             Expanded(
               child: Padding(
                 padding: EdgeInsets.all(5),
@@ -157,9 +159,7 @@ class _DataSource extends DataTableSource {
   }
 
   final BuildContext context;
-
   int _selectedCount = 0;
-
   List<_Row> _productsHistory = [];
 
   @override

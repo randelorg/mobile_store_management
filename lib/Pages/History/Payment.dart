@@ -12,6 +12,11 @@ class Payment extends StatefulWidget {
 class _PaymentState extends State<Payment> {
   var history = HistoryOperation();
 
+  List<_Row> _history = [];
+
+  int? sortColumnIndex;
+  bool isAscending = false;
+
   @override
   void initState() {
     super.initState();
@@ -25,14 +30,30 @@ class _PaymentState extends State<Payment> {
     }
   }
 
+  void onSort(int columnIndex, bool ascending) {
+    if (columnIndex == 0) {
+      _history.sort((a, b) => compareString(ascending, a.valueA, b.valueA));
+      print(_history.length.toString());
+    }
+
+    setState(() {
+      this.sortColumnIndex = columnIndex;
+      this.isAscending = ascending;
+    });
+  }
+
+  int compareString(bool ascending, String value1, String value2) =>
+      ascending ? value1.compareTo(value2) : value2.compareTo(value1);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Column(
           children: <Widget>[
-            // Display Page Title
+            //Display Page Title
             Container(
               margin: const EdgeInsets.only(left: 40, right: 40, top: 100),
               child: Text(
@@ -45,7 +66,7 @@ class _PaymentState extends State<Payment> {
               ),
             ),
 
-            // Display Data Table
+            //Display Data Table
             Expanded(
               child: Padding(
                 padding: EdgeInsets.all(5),
@@ -66,6 +87,8 @@ class _PaymentState extends State<Payment> {
                               horizontalMargin: 15,
                               showCheckboxColumn: false,
                               rowsPerPage: 10,
+                              sortAscending: isAscending,
+                              sortColumnIndex: sortColumnIndex,
                               columns: [
                                 DataColumn2(
                                   size: ColumnSize.S,
@@ -77,6 +100,7 @@ class _PaymentState extends State<Payment> {
                                       fontFamily: 'Cairo_SemiBold',
                                     ),
                                   ),
+                                  onSort: onSort,
                                 ),
                                 DataColumn2(
                                   size: ColumnSize.M,
@@ -103,32 +127,33 @@ class _PaymentState extends State<Payment> {
                               source: _DataSource(context),
                             );
                           } else {
-                            return Container(                             
-                              margin: const EdgeInsets.only(top: 250, bottom: 250),                         
-                              child: Text(      
-                               'No Payment History',
-                               textAlign: TextAlign.center,            
-                               style: TextStyle(
-                                 color: Colors.grey[500],
-                                 fontFamily: 'Cairo_SemiBold',
-                                 fontSize: 14,
-                               ),
+                            return Container(
+                              margin:
+                                  const EdgeInsets.only(top: 250, bottom: 250),
+                              child: Text(
+                                'No Payment History',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.grey[500],
+                                  fontFamily: 'Cairo_SemiBold',
+                                  fontSize: 14,
+                                ),
                               ),
                             );
                           }
                         }
                         return Container(
                           margin: const EdgeInsets.only(top: 250, bottom: 250),
-                          child: Text(                
+                          child: Text(
                             'No Payment History for this Borrower',
-                            textAlign: TextAlign.center,            
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.grey[500],
                               fontFamily: 'Cairo_SemiBold',
                               fontSize: 14,
                             ),
-                          ),         
-                        ); 
+                          ),
+                        );
                       },
                     ),
                   ],

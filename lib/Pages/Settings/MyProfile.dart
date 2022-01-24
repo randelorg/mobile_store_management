@@ -17,8 +17,8 @@ class _MyProfileState extends State<MyProfile> {
   void initState() {
     super.initState();
 
-    //if user is a collector
     try {
+      //if user is a collector
       if (Mapping.userRole  == 'Collector') {
         picture = Mapping.collectorList[0].getUserImage.cast<int>();
         id = Mapping.collectorList[0].getCollectorId;
@@ -52,7 +52,7 @@ class _MyProfileState extends State<MyProfile> {
           Container(
             child: Column(
               children: [
-                // Close Button
+                //Close Button
                 Align(
                   alignment: Alignment.topRight,
                   child: IconButton(
@@ -66,7 +66,7 @@ class _MyProfileState extends State<MyProfile> {
                   ),
                 ),
 
-                // Display Page Title
+                //Display Page Title
                 Container(
                   margin:
                       const EdgeInsets.only(top: 150, bottom: 2, right: 225),
@@ -79,7 +79,7 @@ class _MyProfileState extends State<MyProfile> {
                   ),
                 ),
 
-                // Display ID
+                //Display ID
                 Card(
                   elevation: 3,
                   shadowColor: Colors.black,
@@ -108,7 +108,7 @@ class _MyProfileState extends State<MyProfile> {
                   ),
                 ),
 
-                // Display Role
+                //Display Role
                 Card(
                   elevation: 3,
                   shadowColor: Colors.black,
@@ -137,7 +137,7 @@ class _MyProfileState extends State<MyProfile> {
                   ),
                 ),
 
-                // Display Full Name
+                //Display Full Name
                 Card(
                   elevation: 3,
                   shadowColor: Colors.black,
@@ -166,7 +166,7 @@ class _MyProfileState extends State<MyProfile> {
                   ),
                 ),
 
-                // Display Mobile Number
+                //Display Mobile Number
                 Card(
                   elevation: 3,
                   shadowColor: Colors.black,
@@ -195,7 +195,7 @@ class _MyProfileState extends State<MyProfile> {
                   ),
                 ),
 
-                // Display Home Address
+                //Display Home Address
                 Card(
                   elevation: 3,
                   shadowColor: Colors.black,
@@ -227,7 +227,7 @@ class _MyProfileState extends State<MyProfile> {
             ),
           ),
 
-          // Display Profile Picture
+          //Display Profile Picture
           Positioned(
             top: 50,
             child: CircleAvatar(

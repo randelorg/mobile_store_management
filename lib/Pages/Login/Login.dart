@@ -36,7 +36,7 @@ class _LoginState extends State<Login> {
         key: _formKey,
         child: Column(
           children: <Widget>[
-            // Display Logo
+            //Display Logo
             Padding(
               padding: const EdgeInsets.only(top: 85),
               child: Center(
@@ -49,7 +49,7 @@ class _LoginState extends State<Login> {
               ),
             ),
 
-            // Drop Menu
+            //Drop Menu
             Padding(
               padding: EdgeInsets.only(bottom: 10),
               child: Container(
@@ -94,7 +94,7 @@ class _LoginState extends State<Login> {
               ),
             ),
 
-            // Input Username
+            //Input Username
             Container(
               padding: EdgeInsets.only(left: 35, right: 35),
               child: TextFormField(
@@ -118,7 +118,7 @@ class _LoginState extends State<Login> {
                   }),
             ),
 
-            // Input Password
+            //Input Password
             Container(
               padding: EdgeInsets.only(left: 35, right: 35, top: 10),
               child: TextFormField(
@@ -147,7 +147,7 @@ class _LoginState extends State<Login> {
                   }),
             ),
 
-            // Login Button
+            //Login Button
             Container(
               margin: EdgeInsets.only(left: 35, right: 35, top: 80),
               height: 60,
@@ -172,7 +172,7 @@ class _LoginState extends State<Login> {
                         .then((value) {
                       setState(() {
                         if (value) {
-                          Navigator.pushNamed(context, '/home');
+                          Navigator.pushNamed(context, '/main');
                         } else {
                           showToast();
                         }

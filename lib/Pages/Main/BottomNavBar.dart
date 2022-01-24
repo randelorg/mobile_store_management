@@ -20,7 +20,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(   
-      // This method will be called on press of the back button
+      //This method will be called on press of the back button
       onWillPop: () async {
         if (navigationQueue.isEmpty) return true;
         setState(() {
@@ -47,10 +47,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
           onTap: (value) {   
             navigationQueue.addLast(screenIndex);
             setState(() => screenIndex = value);
-            print(value);
+            //print(value);
           },
 
-          // Display Bottom Navigation Bar
+          //Display Bottom Navigation Bar
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.payment), label: 'PaymentInput'),
@@ -66,15 +66,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget getBody(int index) {
     switch (index) {
       case 0:
-        return Home(); // Return Home
+        return Home(); //Return Home
       case 1:
-        return PaymentInput(); // Return Payment Input 
+        return PaymentInput(); //Return Payment Input 
       case 2:
-        return Payment(); // Return Payment History  
+        return Payment(); //Return Payment History  
       case 3:
-        return LoanedProduct(); // Return Loaned Product History
+        return LoanedProduct(); //Return Loaned Product History
       case 4:
-      return Settings(); // Return Settings           
+      return Settings(); //Return Settings           
     }
     return widget;
   }

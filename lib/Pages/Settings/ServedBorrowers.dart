@@ -22,7 +22,7 @@ class _ServedBorrowersState extends State<ServedBorrowers> {
           Container(
             child: Column(
               children: [
-                // Close Button
+                //Close Button
                 Align(
                   alignment: Alignment.topRight,
                   child: IconButton(
@@ -36,7 +36,7 @@ class _ServedBorrowersState extends State<ServedBorrowers> {
                   ),
                 ),
 
-                // Display Page Title
+                //Display Page Title
                 Container(
                   margin: const EdgeInsets.only(left: 6, top: 20),
                   child: Text(
@@ -49,7 +49,7 @@ class _ServedBorrowersState extends State<ServedBorrowers> {
                   ),
                 ),
 
-                // Display Data Table
+                //Display Data Table
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.all(5),

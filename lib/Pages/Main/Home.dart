@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 
+import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 import '../Payment/MakePayment.dart';
 
 class Home extends StatefulWidget {
@@ -29,12 +29,13 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Center(
           child: Column(
             children: <Widget>[
-              // Display Amount Collected Text
+              //Display Amount Collected Text
               Container(
                 margin: const EdgeInsets.only(top: 145),
                 child: Text(
@@ -48,7 +49,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
 
-              // Display Amount Collected
+              //Display Amount Collected
               Container(
                 height: 65, width: 245,
                 child: Card(
@@ -90,7 +91,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
 
-              // Display Make Payment
+              //Display Make Payment
               Container(
                 margin: const EdgeInsets.only(left: 40, right: 40, top: 230),
                 child: Text(
@@ -103,7 +104,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
 
-              // Display Instruction
+              //Display Instruction
               Container(
                 margin: const EdgeInsets.only(left: 40, right: 40),
                 child: Text(
@@ -117,7 +118,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
 
-              // QR Scanner Button
+              //QR Scanner Button
               Container(
                 margin: EdgeInsets.only(left: 35, right: 35, top: 6),
                 height: 60,
@@ -148,6 +149,7 @@ class _HomeState extends State<Home> {
   }
 
   Future _scanQR() async {
+
     ScanResult qrScanResult = await BarcodeScanner.scan();
     String qrResult = qrScanResult.rawContent;
 

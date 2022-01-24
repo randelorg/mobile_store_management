@@ -8,6 +8,7 @@ import 'package:mobile_store_management/Models/Admin_model.dart';
 import 'package:mobile_store_management/Models/Collector_model.dart';
 
 class LoginOperation implements ILogin {
+  
   var hash = Hashing();
 
   @override
@@ -87,7 +88,6 @@ class LoginOperation implements ILogin {
               admin.getUserImage,
             ),
           );
-
           await setSession(admin.toString(), true, role);
           break;
 

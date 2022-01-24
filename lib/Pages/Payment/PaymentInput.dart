@@ -29,6 +29,7 @@ class _PaymentInputState extends State<PaymentInput> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
@@ -37,7 +38,7 @@ class _PaymentInputState extends State<PaymentInput> {
           child: Center(
             child: Column(
               children: <Widget>[
-                // Display Page Title
+                //Display Page Title
                 Container(
                   margin: const EdgeInsets.only(left: 40, right: 40, top: 100),
                   child: Text(
@@ -50,7 +51,7 @@ class _PaymentInputState extends State<PaymentInput> {
                   ),
                 ),
 
-                // Input Borrowers Name
+                //Input Borrowers Name
                 Container(
                   padding: EdgeInsets.only(left: 35, right: 35, top: 50),
                   child: TextFormField(
@@ -106,7 +107,7 @@ class _PaymentInputState extends State<PaymentInput> {
                       if (snapshot.data == true) {
                         return Column(
                           children: [
-                            // Display Borrowers Name
+                            //Display Borrowers Name
                             Container(
                               height: 45,
                               width: 350,
@@ -141,7 +142,7 @@ class _PaymentInputState extends State<PaymentInput> {
                               ),
                             ),
 
-                            // Display Amount to be Paid
+                            //Display Amount to be Paid
                             Container(
                               height: 45, width: 350,
                               child: Card(
@@ -197,7 +198,7 @@ class _PaymentInputState extends State<PaymentInput> {
                   },
                 ),
 
-                // Input Amount Paid
+                //Input Amount Paid
                 Container(
                   padding: EdgeInsets.only(left: 35, right: 35, top: 50),
                   child: TextFormField(
@@ -223,7 +224,7 @@ class _PaymentInputState extends State<PaymentInput> {
                   ),
                 ),
 
-                // Input Date Today
+                //Input Date Today
                 Container(
                   padding:
                       EdgeInsets.only(left: 35, right: 35, top: 15, bottom: 50),
@@ -252,18 +253,18 @@ class _PaymentInputState extends State<PaymentInput> {
                       DateTime? pickedDate = await showDatePicker(
                         context: context,
                         initialDate: DateTime.now(),
-                        firstDate: DateTime(2021),
-                        lastDate: DateTime(2031),
+                        firstDate: DateTime(2022),
+                        lastDate: DateTime(2032),
                         builder: (context, child) {
                           return Theme(
                             data: Theme.of(context).copyWith(
                               colorScheme: ColorScheme.light(
-                                primary: Colors.red, // Background Color
-                                onPrimary: Colors.white, // Text Color
+                                primary: Colors.red, //Background Color
+                                onPrimary: Colors.white, //Text Color
                               ),
                               textButtonTheme: TextButtonThemeData(
                                 style: TextButton.styleFrom(
-                                  primary: Colors.black, // Button Text Color
+                                  primary: Colors.black, //Button Text Color
                                 ),
                               ),
                             ),
@@ -286,7 +287,7 @@ class _PaymentInputState extends State<PaymentInput> {
                   ),
                 ),
 
-                // Pay Button
+                //Pay Button
                 Container(
                   margin: const EdgeInsets.only(top: 50),
                   height: 60,
@@ -320,7 +321,7 @@ class _PaymentInputState extends State<PaymentInput> {
                           (value) {
                             if (value) {
                               print('success');
-                              Navigator.pushNamed(context, '/home');
+                              Navigator.pushNamed(context, '/main');
                             }
                           },
                         );

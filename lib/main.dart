@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'Pages/Login/Login.dart';
 import 'Pages/Main/BottomNavBar.dart';
 
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => Login(),
-        '/home': (context) => BottomNavBar(),
+        '/main': (context) => BottomNavBar(),
         '/logout': (context) => Login(),
       },
     );

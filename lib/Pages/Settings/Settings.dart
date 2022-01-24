@@ -13,6 +13,7 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  
   List<int> picture = [];
 
   @override
@@ -39,7 +40,7 @@ class _SettingsState extends State<Settings> {
         padding: EdgeInsets.only(left: 15, right: 15, top: 80),
         child: ListView(
           children: <Widget>[
-            // Display Profile Picture
+            //Display Profile Picture
             Center(
               child: Stack(
                 children: <Widget>[
@@ -53,7 +54,7 @@ class _SettingsState extends State<Settings> {
               ),
             ),
 
-            // Display Page Title
+            //Display Page Title
             Container(
               margin: const EdgeInsets.only(top: 50),
               child: Text(
@@ -65,7 +66,7 @@ class _SettingsState extends State<Settings> {
               ),
             ),
 
-            // Display Served Borrowers
+            //Display Served Borrowers
             ExpansionTile(
               textColor: HexColor("#EA1C24"),
               iconColor: HexColor("#155293"),
@@ -101,7 +102,7 @@ class _SettingsState extends State<Settings> {
               ],
             ),
 
-            // Display Account
+            //Display Account
             ExpansionTile(
               textColor: HexColor("#EA1C24"),
               iconColor: HexColor("#155293"),

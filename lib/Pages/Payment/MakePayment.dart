@@ -6,6 +6,7 @@ import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 import 'package:mobile_store_management/Models/ServedBorrowers_model.dart';
 
 class MakePayment extends StatefulWidget {
+  
   final String? qrResult;
   MakePayment({required this.qrResult});
 
@@ -14,8 +15,8 @@ class MakePayment extends StatefulWidget {
 }
 
 class _MakePaymentState extends State<MakePayment> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController dateinput = TextEditingController();
   final TextEditingController payment = TextEditingController();
   var controller = BorrowerOperation();
@@ -29,14 +30,15 @@ class _MakePaymentState extends State<MakePayment> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
           backgroundColor: Colors.white,
           resizeToAvoidBottomInset: false,
           body: Form(
             key: _formKey,
             child: Center(
-                child: Column(children: <Widget>[
-              // Display Page Title
+              child: Column(children: <Widget>[
+              //Display Page Title
               Container(
                 margin: const EdgeInsets.only(
                     left: 40, right: 40, top: 100, bottom: 60),
@@ -59,7 +61,7 @@ class _MakePaymentState extends State<MakePayment> {
                     if (snapshot.data == true) {
                       return Column(
                         children: [
-                          // Display Borrowers Name
+                          //Display Borrowers Name
                           Container(
                             height: 45,
                             width: 350,
@@ -95,7 +97,7 @@ class _MakePaymentState extends State<MakePayment> {
                             ),
                           ),
 
-                          // Display Amount to be Paid
+                          //Display Amount to be Paid
                           Container(
                             height: 45,
                             width: 350,
@@ -141,7 +143,7 @@ class _MakePaymentState extends State<MakePayment> {
                 },
               ),
 
-              // Input Amount Paid
+              //Input Amount Paid
               Container(
                 padding: EdgeInsets.only(left: 35, right: 35, top: 50),
                 child: TextFormField(
@@ -166,7 +168,7 @@ class _MakePaymentState extends State<MakePayment> {
                     }),
               ),
 
-              // Input Date Today
+              //Input Date Today
               Container(
                 padding:
                     EdgeInsets.only(left: 35, right: 35, top: 15, bottom: 50),
@@ -195,18 +197,18 @@ class _MakePaymentState extends State<MakePayment> {
                     DateTime? pickedDate = await showDatePicker(
                       context: context,
                       initialDate: DateTime.now(),
-                      firstDate: DateTime(2021),
-                      lastDate: DateTime(2031),
+                      firstDate: DateTime(2022),
+                      lastDate: DateTime(2032),
                       builder: (context, child) {
                         return Theme(
                           data: Theme.of(context).copyWith(
                             colorScheme: ColorScheme.light(
-                              primary: Colors.red, // Background Color
-                              onPrimary: Colors.white, // Text Color
+                              primary: Colors.red, //Background Color
+                              onPrimary: Colors.white, //Text Color
                             ),
                             textButtonTheme: TextButtonThemeData(
                               style: TextButton.styleFrom(
-                                primary: Colors.black, // Button Text Color
+                                primary: Colors.black, //Button Text Color
                               ),
                             ),
                           ),
@@ -229,7 +231,7 @@ class _MakePaymentState extends State<MakePayment> {
                 ),
               ),
 
-              // Pay Button
+              //Pay Button
               Container(
                 margin: const EdgeInsets.only(top: 50),
                 height: 60,

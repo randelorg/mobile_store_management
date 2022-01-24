@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mobile_store_management/Backend/Operations/Login_operation.dart';
 
-import '../Login/Login.dart';
-
 class Logout extends StatefulWidget {
   @override
   _LogoutState createState() => _LogoutState();
 }
 
 class _LogoutState extends State<Logout> {
+
   var logout = LoginOperation();
 
   @override
@@ -42,12 +41,7 @@ class _LogoutState extends State<Logout> {
           ),
           onPressed: () {
             logout.logout();
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => Login(),
-              ),
-            );
+            Navigator.pushNamed(context, '/logout');
           },
         ),
       ],
