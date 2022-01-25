@@ -12,38 +12,22 @@ class Payment extends StatefulWidget {
 class _PaymentState extends State<Payment> {
   var history = HistoryOperation();
 
-  List<_Row> _history = [];
+  List<_Row> _paymenthistory = [];
 
   int? sortColumnIndex;
-  bool isAscending = false;
+  bool _sortAscending = false;
 
   @override
   void initState() {
     super.initState();
+    checkLength();
   }
 
-  String getId() {
-    if (Mapping.borrowerList.length == 0) {
-      return "";
-    } else {
-      return Mapping.borrowerList.last.getBorrowerId.toString();
+  void checkLength() {
+    if (Mapping.borrowerList.length > 0) {
+      _paymenthistory = _paymentsHistory();
     }
   }
-
-  void onSort(int columnIndex, bool ascending) {
-    if (columnIndex == 0) {
-      _history.sort((a, b) => compareString(ascending, a.valueA, b.valueA));
-      print(_history.length.toString());
-    }
-
-    setState(() {
-      this.sortColumnIndex = columnIndex;
-      this.isAscending = ascending;
-    });
-  }
-
-  int compareString(bool ascending, String value1, String value2) =>
-      ascending ? value1.compareTo(value2) : value2.compareTo(value1);
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +71,8 @@ class _PaymentState extends State<Payment> {
                               horizontalMargin: 15,
                               showCheckboxColumn: false,
                               rowsPerPage: 10,
-                              sortAscending: isAscending,
-                              sortColumnIndex: sortColumnIndex,
+                              sortColumnIndex: 0,
+                              sortAscending: _sortAscending,
                               columns: [
                                 DataColumn2(
                                   size: ColumnSize.S,
@@ -100,7 +84,19 @@ class _PaymentState extends State<Payment> {
                                       fontFamily: 'Cairo_SemiBold',
                                     ),
                                   ),
-                                  onSort: onSort,
+                                  onSort: (index, sortAscending) {
+                                    setState(() {
+                                      _sortAscending = sortAscending;
+                                      if (sortAscending) {
+                                        _paymenthistory.sort((a, b) =>
+                                            a.getValueA.compareTo(b.getValueA));
+                                      } else {
+                                        _paymenthistory.sort((a, b) => b
+                                            .getValueA
+                                            .compareTo((a.getValueA)));
+                                      }
+                                    });
+                                  },
                                 ),
                                 DataColumn2(
                                   size: ColumnSize.M,
@@ -119,12 +115,13 @@ class _PaymentState extends State<Payment> {
                                     'DATE',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        fontSize: 12,
-                                        fontFamily: 'Cairo_SemiBold'),
+                                      fontSize: 12,
+                                      fontFamily: 'Cairo_SemiBold',
+                                    ),
                                   ),
                                 ),
                               ],
-                              source: _DataSource(context),
+                              source: _DataSource(context, _paymenthistory),
                             );
                           } else {
                             return Container(
@@ -165,6 +162,14 @@ class _PaymentState extends State<Payment> {
       ),
     );
   }
+
+  String getId() {
+    if (Mapping.borrowerList.length == 0) {
+      return "";
+    } else {
+      return Mapping.borrowerList.last.getBorrowerId.toString();
+    }
+  }
 }
 
 class _Row {
@@ -178,13 +183,14 @@ class _Row {
   final String valueB;
   final String valueC;
 
+  get getValueA => int.parse(this.valueA);
+  get getValueB => this.valueB;
+
   bool selected = false;
 }
 
 class _DataSource extends DataTableSource {
-  _DataSource(this.context) {
-    _payHistory = _paymentsHistory();
-  }
+  _DataSource(this.context, this._payHistory);
 
   final BuildContext context;
 
@@ -215,30 +221,30 @@ class _DataSource extends DataTableSource {
 
   @override
   int get selectedRowCount => _selectedCount;
+}
 
-  List<_Row> _paymentsHistory() {
-    try {
-      return List.generate(
-        Mapping.paymentList.length,
-        (index) {
-          return _Row(
-            Mapping.paymentList[index].getCollectionID.toString(),
-            Mapping.paymentList[index].getCollectionAmount.toString(),
-            Mapping.paymentList[index].getGivenDate.toString(),
-          );
-        },
-      );
-    } catch (e) {
-      return List.generate(
-        0,
-        (index) {
-          return _Row(
-            '',
-            '',
-            '',
-          );
-        },
-      );
-    }
+List<_Row> _paymentsHistory() {
+  try {
+    return List.generate(
+      Mapping.paymentList.length,
+      (index) {
+        return _Row(
+          Mapping.paymentList[index].getCollectionID.toString(),
+          Mapping.paymentList[index].getCollectionAmount.toString(),
+          Mapping.paymentList[index].getGivenDate.toString(),
+        );
+      },
+    );
+  } catch (e) {
+    return List.generate(
+      0,
+      (index) {
+        return _Row(
+          '',
+          '',
+          '',
+        );
+      },
+    );
   }
 }
