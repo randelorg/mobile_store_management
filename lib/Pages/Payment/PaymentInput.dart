@@ -11,7 +11,6 @@ class PaymentInput extends StatefulWidget {
 }
 
 class _PaymentInputState extends State<PaymentInput> {
-  
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController borrowername = TextEditingController();
   final TextEditingController dateinput = TextEditingController();
@@ -74,7 +73,7 @@ class _PaymentInputState extends State<PaymentInput> {
                                 borrower = controller.getBorrowerName(
                                     name[0], name[1]);
                               });
-                            } 
+                            }
                           });
                         },
                       ),
@@ -117,7 +116,8 @@ class _PaymentInputState extends State<PaymentInput> {
                                 child: Row(
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.only(left: 15, right: 30),
+                                      padding:
+                                          EdgeInsets.only(left: 15, right: 30),
                                       child: Text(
                                         'Borrowers Name',
                                         textAlign: TextAlign.center,
@@ -144,14 +144,16 @@ class _PaymentInputState extends State<PaymentInput> {
 
                             //Display Amount to be Paid
                             Container(
-                              height: 45, width: 350,
+                              height: 45,
+                              width: 350,
                               child: Card(
                                 elevation: 3,
                                 shadowColor: Colors.black,
                                 child: Row(
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.only(left: 15, right: 3),                                    
+                                      padding:
+                                          EdgeInsets.only(left: 15, right: 3),
                                       child: Text(
                                         'Amount to be Paid        ₱',
                                         textAlign: TextAlign.center,
@@ -179,8 +181,8 @@ class _PaymentInputState extends State<PaymentInput> {
                           ],
                         );
                       } else {
-                        return Center(                           
-                          child: Text(                      
+                        return Center(
+                          child: Text(
                             'No Borrowers Information',
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -321,7 +323,6 @@ class _PaymentInputState extends State<PaymentInput> {
                           (value) {
                             if (value) {
                               print('success');
-                              Navigator.pushNamed(context, '/main');
                             }
                           },
                         );

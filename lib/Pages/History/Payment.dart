@@ -16,16 +16,27 @@ class _PaymentState extends State<Payment> {
 
   int? sortColumnIndex;
   bool _sortAscending = false;
+  late Future<bool> _future;
 
   @override
   void initState() {
     super.initState();
-    checkLength();
+    setState(() {
+      _future = history.viewPaymentHistory(getId());
+      _paymenthistory = _paymentsHistory();
+    });
   }
 
-  void checkLength() {
-    if (Mapping.borrowerList.length > 0) {
-      _paymenthistory = _paymentsHistory();
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  String getId() {
+    if (Mapping.borrowerList.length == 0) {
+      return "";
+    } else {
+      return Mapping.borrowerList.last.getBorrowerId.toString();
     }
   }
 
@@ -59,7 +70,7 @@ class _PaymentState extends State<Payment> {
                   padding: const EdgeInsets.all(10),
                   children: [
                     FutureBuilder(
-                      future: history.viewPaymentHistory(getId()),
+                      future: _future,
                       builder: (context, snapshot) {
                         if (!snapshot.hasData) {
                           return Center(child: CircularProgressIndicator());
@@ -161,14 +172,6 @@ class _PaymentState extends State<Payment> {
         ),
       ),
     );
-  }
-
-  String getId() {
-    if (Mapping.borrowerList.length == 0) {
-      return "";
-    } else {
-      return Mapping.borrowerList.last.getBorrowerId.toString();
-    }
   }
 }
 

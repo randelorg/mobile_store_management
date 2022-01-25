@@ -10,7 +10,6 @@ class LoanedProduct extends StatefulWidget {
 }
 
 class _LoanedProductState extends State<LoanedProduct> {
-  
   var history = HistoryOperation();
 
   String getId() {
@@ -99,32 +98,32 @@ class _LoanedProductState extends State<LoanedProduct> {
                               source: _DataSource(context),
                             );
                           } else {
-                            return Container(                                
-                              margin: const EdgeInsets.only(top: 250, bottom: 250),                         
-                              child: Text(                 
-                               'No Loan History',
-                               textAlign: TextAlign.center,            
-                               style: TextStyle(
-                                 color: Colors.grey[500],
-                                 fontFamily: 'Cairo_SemiBold',
-                                 fontSize: 14,
-                               ),
+                            return Container(
+                              margin:
+                                  const EdgeInsets.only(top: 250, bottom: 250),
+                              child: Text(
+                                'No Loan History',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.grey[500],
+                                  fontFamily: 'Cairo_SemiBold',
+                                  fontSize: 14,
+                                ),
                               ),
                             );
-                          
                           }
                         }
-                        return Container(          
+                        return Container(
                           margin: const EdgeInsets.only(top: 250, bottom: 250),
-                          child: Text(                
+                          child: Text(
                             'No Loan History for this Borrower',
-                            textAlign: TextAlign.center,            
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.grey[500],
                               fontFamily: 'Cairo_SemiBold',
                               fontSize: 14,
                             ),
-                          ),         
+                          ),
                         );
                       },
                     ),

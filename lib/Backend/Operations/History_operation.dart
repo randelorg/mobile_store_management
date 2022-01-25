@@ -6,7 +6,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class HistoryOperation implements IHistory {
-
   //Get Loan History
   @override
   Future<bool> viewLoanHistory(String borrowerId) async {
