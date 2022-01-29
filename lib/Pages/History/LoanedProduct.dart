@@ -10,7 +10,27 @@ class LoanedProduct extends StatefulWidget {
 }
 
 class _LoanedProductState extends State<LoanedProduct> {
+
   var history = HistoryOperation();
+  List<_Row> _loanHistory = [];
+  late Future<bool> _future;
+
+  int? sortColumnIndex;
+  bool _sortAscending = false;
+  
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      _future = history.viewLoanHistory(getId());
+      _loanHistory = _productsHistory();
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   String getId() {
     if (Mapping.borrowerList.length == 0) {
@@ -50,7 +70,7 @@ class _LoanedProductState extends State<LoanedProduct> {
                   padding: const EdgeInsets.all(10),
                   children: [
                     FutureBuilder(
-                      future: history.viewLoanHistory(getId()),
+                      future: _future,
                       builder: (context, snapshot) {
                         if (!snapshot.hasData) {
                           return Center(child: CircularProgressIndicator());
@@ -59,9 +79,11 @@ class _LoanedProductState extends State<LoanedProduct> {
                           if (snapshot.data == true) {
                             return PaginatedDataTable(
                               columnSpacing: 20,
-                              horizontalMargin: 10,
+                              horizontalMargin: 8,
                               showCheckboxColumn: false,
                               rowsPerPage: 10,
+                              sortColumnIndex: 0,
+                              sortAscending: _sortAscending,
                               columns: [
                                 DataColumn2(
                                   size: ColumnSize.L,
@@ -73,6 +95,18 @@ class _LoanedProductState extends State<LoanedProduct> {
                                       fontFamily: 'Cairo_SemiBold',
                                     ),
                                   ),
+                                  onSort: (index, sortAscending) {
+                                    setState(() {
+                                      _sortAscending = sortAscending;
+                                      if (sortAscending) {
+                                        _loanHistory.sort((a, b) =>
+                                            a.getValueA.compareTo(b.getValueA));
+                                      } else {
+                                        _loanHistory.sort((a, b) => 
+                                        b.getValueA.compareTo((a.getValueA)));
+                                      }
+                                    });
+                                  },
                                 ),
                                 DataColumn2(
                                   size: ColumnSize.S,
@@ -95,7 +129,7 @@ class _LoanedProductState extends State<LoanedProduct> {
                                   ),
                                 ),
                               ],
-                              source: _DataSource(context),
+                              source: _DataSource(context,_loanHistory),
                             );
                           } else {
                             return Container(
@@ -149,13 +183,13 @@ class _Row {
   final String valueB;
   final String valueC;
 
+  get getValueA => this.valueA;
+
   bool selected = false;
 }
 
 class _DataSource extends DataTableSource {
-  _DataSource(this.context) {
-    _productsHistory = _products();
-  }
+  _DataSource(this.context, this._productsHistory);
 
   final BuildContext context;
   int _selectedCount = 0;
@@ -185,30 +219,30 @@ class _DataSource extends DataTableSource {
 
   @override
   int get selectedRowCount => _selectedCount;
+}
 
-  List<_Row> _products() {
-    try {
-      return List.generate(
-        Mapping.productHistoryList.length,
-        (index) {
-          return _Row(
-            Mapping.productHistoryList[index].getProductName.toString(),
-            Mapping.productHistoryList[index].getDateAdded.toString(),
-            Mapping.productHistoryList[index].getPaymentPlan.toString(),
-          );
-        },
-      );
-    } catch (e) {
-      return List.generate(
-        0,
-        (index) {
-          return _Row(
-            '',
-            '',
-            '',
-          );
-        },
-      );
-    }
+List<_Row> _productsHistory() {
+  try {
+    return List.generate(
+      Mapping.productHistoryList.length,
+      (index) {
+        return _Row(
+          Mapping.productHistoryList[index].getProductName.toString(),
+          Mapping.productHistoryList[index].getDateAdded.toString(),
+          Mapping.productHistoryList[index].getPaymentPlan.toString(),
+        );
+      },
+    );
+  } catch (e) {
+    return List.generate(
+      0,
+      (index) {
+        return _Row(
+          '',
+          '',
+          '',
+        );
+      },
+    );
   }
 }

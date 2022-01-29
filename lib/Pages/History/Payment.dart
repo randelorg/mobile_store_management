@@ -10,20 +10,20 @@ class Payment extends StatefulWidget {
 }
 
 class _PaymentState extends State<Payment> {
-  var history = HistoryOperation();
 
-  List<_Row> _paymenthistory = [];
+  var history = HistoryOperation();
+  List<_Row> _paymentHistory = [];
+  late Future<bool> _future;
 
   int? sortColumnIndex;
   bool _sortAscending = false;
-  late Future<bool> _future;
-
+  
   @override
   void initState() {
     super.initState();
     setState(() {
       _future = history.viewPaymentHistory(getId());
-      _paymenthistory = _paymentsHistory();
+      _paymentHistory = _paymentsHistory();
     });
   }
 
@@ -99,12 +99,11 @@ class _PaymentState extends State<Payment> {
                                     setState(() {
                                       _sortAscending = sortAscending;
                                       if (sortAscending) {
-                                        _paymenthistory.sort((a, b) =>
+                                        _paymentHistory.sort((a, b) =>
                                             a.getValueA.compareTo(b.getValueA));
                                       } else {
-                                        _paymenthistory.sort((a, b) => b
-                                            .getValueA
-                                            .compareTo((a.getValueA)));
+                                        _paymentHistory.sort((a, b) => 
+                                        b.getValueA.compareTo((a.getValueA)));
                                       }
                                     });
                                   },
@@ -132,7 +131,7 @@ class _PaymentState extends State<Payment> {
                                   ),
                                 ),
                               ],
-                              source: _DataSource(context, _paymenthistory),
+                              source: _DataSource(context, _paymentHistory),
                             );
                           } else {
                             return Container(
@@ -187,7 +186,6 @@ class _Row {
   final String valueC;
 
   get getValueA => int.parse(this.valueA);
-  get getValueB => this.valueB;
 
   bool selected = false;
 }

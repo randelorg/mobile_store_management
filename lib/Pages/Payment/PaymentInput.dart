@@ -11,10 +11,12 @@ class PaymentInput extends StatefulWidget {
 }
 
 class _PaymentInputState extends State<PaymentInput> {
+  
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController borrowername = TextEditingController();
   final TextEditingController dateinput = TextEditingController();
   final TextEditingController payment = TextEditingController();
+  
   var controller = BorrowerOperation();
   late Future borrower;
 
@@ -323,6 +325,7 @@ class _PaymentInputState extends State<PaymentInput> {
                           (value) {
                             if (value) {
                               print('success');
+                              Navigator.pushNamed(context, '/main');
                             }
                           },
                         );

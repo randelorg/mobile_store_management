@@ -14,9 +14,11 @@ class MakePayment extends StatefulWidget {
 }
 
 class _MakePaymentState extends State<MakePayment> {
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController dateinput = TextEditingController();
   final TextEditingController payment = TextEditingController();
+  
   var controller = BorrowerOperation();
 
   @override
@@ -24,7 +26,7 @@ class _MakePaymentState extends State<MakePayment> {
     dateinput.text = "";
     super.initState();
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -264,7 +266,7 @@ class _MakePaymentState extends State<MakePayment> {
                           (value) {
                             if (value) {
                               print('success');
-                              Navigator.pop(context);
+                              Navigator.pushNamed(context, '/main');
                             }
                           },
                         );

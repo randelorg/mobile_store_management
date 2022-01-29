@@ -10,6 +10,24 @@ class ServedBorrowers extends StatefulWidget {
 }
 
 class _ServedBorrowersState extends State<ServedBorrowers> {
+
+  List<_Row> _servedBorrowers = [];
+  int? sortColumnIndex;
+  bool _sortAscending = false;
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      _servedBorrowers = _borrowerlist();
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -62,6 +80,8 @@ class _ServedBorrowersState extends State<ServedBorrowers> {
                           horizontalMargin: 15,
                           showCheckboxColumn: false,
                           rowsPerPage: 10,
+                          sortColumnIndex: 0,
+                          sortAscending: _sortAscending,
                           columns: [
                             DataColumn2(
                               size: ColumnSize.S,
@@ -70,6 +90,18 @@ class _ServedBorrowersState extends State<ServedBorrowers> {
                                   style: TextStyle(
                                       fontSize: 12,
                                       fontFamily: 'Cairo_SemiBold')),
+                                      onSort: (index, sortAscending) {
+                                    setState(() {
+                                      _sortAscending = sortAscending;
+                                      if (sortAscending) {
+                                        _servedBorrowers.sort((a, b) =>
+                                            a.getValueA.compareTo(b.getValueA));
+                                      } else {
+                                        _servedBorrowers.sort((a, b) => 
+                                        b.getValueA.compareTo((a.getValueA)));
+                                      }
+                                    });
+                                  },
                             ),
                             DataColumn2(
                               size: ColumnSize.L,
@@ -88,7 +120,7 @@ class _ServedBorrowersState extends State<ServedBorrowers> {
                                       fontFamily: 'Cairo_SemiBold')),
                             ),
                           ],
-                          source: _DataSource(context),
+                          source: _DataSource(context,_servedBorrowers),
                         ),
                       ],
                     ),
@@ -114,14 +146,15 @@ class _Row {
   final String valueB;
   final String valueC;
 
+  get getValueA => int.parse(this.valueA);
+
   bool selected = false;
 }
 
 class _DataSource extends DataTableSource {
-  _DataSource(this.context) {
-    _paymentsHistory(context);
-  }
-
+  var _paymentsHistory;
+  
+  _DataSource(this.context, this._paymentsHistory);
   final BuildContext context;
 
   int _selectedCount = 0;
@@ -129,8 +162,8 @@ class _DataSource extends DataTableSource {
   @override
   DataRow? getRow(int index) {
     assert(index >= 0);
-    if (index >= _paymentsHistory(context).length) return null;
-    final row = _paymentsHistory(context)[index];
+    if (index >= _paymentsHistory.length) return null;
+    final row = _paymentsHistory[index];
     return DataRow.byIndex(
       index: index,
       selected: row.selected,
@@ -143,7 +176,7 @@ class _DataSource extends DataTableSource {
   }
 
   @override
-  int get rowCount => _paymentsHistory(context).length;
+  int get rowCount => _paymentsHistory.length;
 
   @override
   bool get isRowCountApproximate => false;
@@ -152,12 +185,9 @@ class _DataSource extends DataTableSource {
   int get selectedRowCount => _selectedCount;
 }
 
-List _paymentsHistory(BuildContext context) {
-  
-  List<_Row> _servedBorrowers;
-
+List<_Row> _borrowerlist() {
   try {
-    return _servedBorrowers = List.generate(
+    return List.generate(
       Mapping.servedBorrowers.length,
       (index) {
         return _Row(
@@ -168,7 +198,7 @@ List _paymentsHistory(BuildContext context) {
       },
     );
   } catch (e) {
-    return _servedBorrowers = List.generate(
+    return List.generate(
       0,
       (index) {
         return _Row(

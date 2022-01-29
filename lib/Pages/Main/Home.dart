@@ -64,7 +64,7 @@ class _HomeState extends State<Home> {
                   child: Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 30, right: 15),
+                        padding: EdgeInsets.only(left: 25, right: 10),
                         child: Text(
                           '₱',
                           textAlign: TextAlign.center,
