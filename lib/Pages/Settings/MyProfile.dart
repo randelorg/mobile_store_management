@@ -9,9 +9,8 @@ class MyProfile extends StatefulWidget {
 }
 
 class _MyProfileState extends State<MyProfile> {
-  
   List<int> picture = [];
-  String? id, role, name, number, address;
+  String? id, role, name, username, number, address;
   String? whatRole;
 
   @override
@@ -20,11 +19,12 @@ class _MyProfileState extends State<MyProfile> {
 
     try {
       //if user is a collector
-      if (Mapping.userRole  == 'Collector') {
+      if (Mapping.userRole == 'Collector') {
         picture = Mapping.collectorList[0].getUserImage.cast<int>();
         id = Mapping.collectorList[0].getCollectorId;
         role = Mapping.collectorList[0].getRole;
         name = Mapping.collectorList[0].toString();
+        username = Mapping.collectorList[0].getUsername;
         number = Mapping.collectorList[0].getMobileNumber;
         address = Mapping.collectorList[0].getHomeAddress;
       } else {
@@ -33,6 +33,7 @@ class _MyProfileState extends State<MyProfile> {
         id = Mapping.adminList[0].getAdminId;
         role = 'Administrator';
         name = Mapping.adminList[0].toString();
+        username = Mapping.adminList[0].getUsername;
         number = Mapping.adminList[0].getMobileNumber;
         address = Mapping.adminList[0].getHomeAddress;
       }
@@ -46,7 +47,7 @@ class _MyProfileState extends State<MyProfile> {
     return Dialog(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      insetPadding: EdgeInsets.only(left: 20, right: 20, top: 180, bottom: 180),
+      insetPadding: EdgeInsets.only(left: 20, right: 20, top: 162, bottom: 162),
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
@@ -70,7 +71,7 @@ class _MyProfileState extends State<MyProfile> {
                 //Display Page Title
                 Container(
                   margin:
-                      const EdgeInsets.only(top: 150, bottom: 2, right: 225),
+                      const EdgeInsets.only(top: 155, right: 225),
                   child: Text(
                     "My Profile",
                     style: TextStyle(
@@ -167,6 +168,35 @@ class _MyProfileState extends State<MyProfile> {
                   ),
                 ),
 
+                //Display Username
+                Card(
+                  elevation: 3,
+                  shadowColor: Colors.black,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 40, right: 65),
+                        child: Text(
+                          'Username',
+                          style: TextStyle(
+                            color: Colors.grey[700],
+                            fontFamily: 'Cairo_SemiBold',
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        username.toString(),
+                        softWrap: true,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: 'Cairo_SemiBold',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
                 //Display Mobile Number
                 Card(
                   elevation: 3,
@@ -232,7 +262,7 @@ class _MyProfileState extends State<MyProfile> {
           Positioned(
             top: 50,
             child: CircleAvatar(
-              radius: 70,
+              radius: 72,
               child: ClipOval(
                 child: Image.memory(Uint8List.fromList(picture),
                     fit: BoxFit.fill, height: 200, width: 200),
@@ -244,4 +274,3 @@ class _MyProfileState extends State<MyProfile> {
     );
   }
 }
-

@@ -15,16 +15,21 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   
   List<int> picture = [];
-
+  bool _isEmployee = true;
+  String? fullName;
+  
   @override
   void initState() {
     super.initState();
     try {
       if (Mapping.userRole == 'Collector') {
         picture = Mapping.collectorList[0].getUserImage.cast<int>();
+        fullName = Mapping.collectorList[0].toString();
       } else {
         //if user is admin
         picture = Mapping.adminList[0].getUserImage.cast<int>();
+        fullName = Mapping.adminList[0].toString();
+        _isEmployee = false;
       }
     } catch (e) {
       print(e);
@@ -45,24 +50,100 @@ class _SettingsState extends State<Settings> {
               child: Stack(
                 children: <Widget>[
                   CircleAvatar(
-                      radius: 70,
+                      radius: 75,
                       child: ClipOval(
                         child: Image.memory(Uint8List.fromList(picture),
-                            fit: BoxFit.fill, height: 200, width: 200),
+                            fit: BoxFit.fill, height: 250, width: 250),
                       )),
                 ],
               ),
             ),
 
+            //Display Fullname
+            Container(
+              child: Text(
+                fullName.toString().toUpperCase(),
+                 textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'Cairo_Bold',
+                    fontSize: 24),
+              ),
+            ),
+
+            //Display Time-in and Time-out
+            Visibility(
+              maintainSize: false,
+              maintainAnimation: true,
+              maintainState: true,
+              visible: this._isEmployee,
+              child: Container(
+                margin: const EdgeInsets.only(left: 75),
+                child: Row(
+                  children: [               
+                    Card(    
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(80),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 7, left: 7),                   
+                        child: TextButton.icon(
+                         icon: Icon(                     
+                           Icons.check_circle,         
+                           color: Colors.green,
+                         ),
+                          label: Text(
+                            'Time-in',
+                            style: TextStyle(
+                              fontFamily: 'Cairo_SemiBold',
+                              color: HexColor("#155293"),
+                              fontSize: 12,
+                            ),
+                            softWrap: true,
+                          ),
+                          onPressed:(){}
+                        ),
+                      ),
+                    ),
+                    Card(    
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(80),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 7, left: 7),                   
+                        child: TextButton.icon(
+                         icon: Icon(                     
+                           Icons.cancel,         
+                           color: Colors.red,
+                         ),
+                          label: Text(
+                            'Time-out',
+                            style: TextStyle(
+                              fontFamily: 'Cairo_SemiBold',
+                              color: HexColor("#155293"),
+                              fontSize: 12,
+                            ),
+                            softWrap: true,
+                          ),
+                          onPressed:(){}
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          
             //Display Page Title
             Container(
-              margin: const EdgeInsets.only(top: 50),
+              margin: const EdgeInsets.only(left: 3, top: 30),
               child: Text(
                 "Settings",
                 style: TextStyle(
                     color: HexColor("#155293"),
                     fontFamily: 'Cairo_Bold',
-                    fontSize: 25),
+                    fontSize: 22),
               ),
             ),
 
