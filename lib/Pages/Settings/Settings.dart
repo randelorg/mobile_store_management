@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:intl/intl.dart';
 import 'dart:typed_data';
 
+import '../../Backend/Operations/Employee_operation.dart';
 import '../../Backend/Utility/Mapping.dart';
 import '../Settings/ServedBorrowers.dart';
 import '../Settings/MyProfile.dart';
@@ -13,11 +16,24 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  
+  var emp = EmployeeOperation();
+
   List<int> picture = [];
-  bool _isEmployee = true;
   String? fullName;
+
+  bool _isEmployee = true;
+  bool _timein = false;
+  bool _timeout = false;
+
   
+
+  String _getTodayDate() {
+    var _formatter = new DateFormat('yyyy-MM-dd hh:mm:ss a');
+    var _now = new DateTime.now();
+    String formattedDate = _formatter.format(_now);
+    return formattedDate;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -25,6 +41,8 @@ class _SettingsState extends State<Settings> {
       if (Mapping.userRole == 'Collector') {
         picture = Mapping.collectorList[0].getUserImage.cast<int>();
         fullName = Mapping.collectorList[0].toString();
+        _timein = true;
+        _timeout = false;
       } else {
         //if user is admin
         picture = Mapping.adminList[0].getUserImage.cast<int>();
@@ -34,6 +52,30 @@ class _SettingsState extends State<Settings> {
     } catch (e) {
       print(e);
     }
+  }
+
+  void timeIn(String id, String date) {
+    emp.timeIn(id, date).then(
+          (value) => Fluttertoast.showToast(
+              msg: "Success Time-in: $date",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              backgroundColor: Colors.green[600],
+              textColor: Colors.white,
+              fontSize: 13),
+        );
+  }
+
+  void timeOut(String id, String date) {
+    emp.timeOut(id, date).then(
+          (value) => Fluttertoast.showToast(
+              msg: "Success Time-out: $date",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              backgroundColor: Colors.red[600],
+              textColor: Colors.white,
+              fontSize: 13),
+        );
   }
 
   @override
@@ -63,10 +105,8 @@ class _SettingsState extends State<Settings> {
             Container(
               child: Text(
                 fullName.toString().toUpperCase(),
-                 textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontFamily: 'Cairo_Bold',
-                    fontSize: 24),
+                textAlign: TextAlign.center,
+                style: TextStyle(fontFamily: 'Cairo_Bold', fontSize: 24),
               ),
             ),
 
@@ -79,54 +119,77 @@ class _SettingsState extends State<Settings> {
               child: Container(
                 margin: const EdgeInsets.only(left: 75),
                 child: Row(
-                  children: [               
-                    Card(    
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(80),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(right: 7, left: 7),                   
-                        child: TextButton.icon(
-                         icon: Icon(                     
-                           Icons.check_circle,         
-                           color: Colors.green,
-                         ),
-                          label: Text(
-                            'Time-in',
-                            style: TextStyle(
-                              fontFamily: 'Cairo_SemiBold',
-                              color: HexColor("#155293"),
-                              fontSize: 12,
-                            ),
-                            softWrap: true,
-                          ),
-                          onPressed:(){}
+                  children: [
+                    Visibility(
+                      maintainSize: false,
+                      maintainAnimation: true,
+                      maintainState: true,
+                      visible: this._timein,
+                      child: Card(
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(80)),
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 7, left: 7),
+                          child: TextButton.icon(
+                              icon: Icon(
+                                Icons.check_circle,
+                                color: Colors.green,
+                              ),
+                              label: Text(
+                                'Time-in',
+                                style: TextStyle(
+                                  fontFamily: 'Cairo_SemiBold',
+                                  color: HexColor("#155293"),
+                                  fontSize: 12,
+                                ),
+                                softWrap: true,
+                              ),
+                              onPressed: () {
+                                timeIn(
+                                  Mapping.collectorList[0].getCollectorId,
+                                  _getTodayDate(),
+                                );
+                                //set the time in button to invisible
+                                setState(() {
+                                  _timein = false;
+                                  _timeout = true;
+                                });
+                              }),
                         ),
                       ),
                     ),
-                    Card(    
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(80),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(right: 7, left: 7),                   
-                        child: TextButton.icon(
-                         icon: Icon(                     
-                           Icons.cancel,         
-                           color: Colors.red,
-                         ),
-                          label: Text(
-                            'Time-out',
-                            style: TextStyle(
-                              fontFamily: 'Cairo_SemiBold',
-                              color: HexColor("#155293"),
-                              fontSize: 12,
-                            ),
-                            softWrap: true,
-                          ),
-                          onPressed:(){}
+                    Visibility(
+                      maintainSize: false,
+                      maintainAnimation: true,
+                      maintainState: true,
+                      visible: this._timeout,
+                      child: Card(
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(80)),
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 7, left: 7),
+                          child: TextButton.icon(
+                              icon: Icon(
+                                Icons.cancel,
+                                color: Colors.red,
+                              ),
+                              label: Text(
+                                'Time-out',
+                                style: TextStyle(
+                                  fontFamily: 'Cairo_SemiBold',
+                                  color: HexColor("#155293"),
+                                  fontSize: 12,
+                                ),
+                                softWrap: true,
+                              ),
+                              onPressed: () {
+                                timeOut(
+                                  Mapping.collectorList[0].getCollectorId,
+                                  _getTodayDate(),
+                                );                            
+                              }),
                         ),
                       ),
                     ),
@@ -134,7 +197,7 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
             ),
-          
+
             //Display Page Title
             Container(
               margin: const EdgeInsets.only(left: 3, top: 30),

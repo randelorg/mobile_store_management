@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Jacinto\\Downloads\\mobile_store_management\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Jacinto\\.gradle\\caches\\transforms-2\\files-2.1\\f419bf2442c9ba50831eeba89000c9a9\\appcompat-1.1.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "C:\\Users\\Jacinto\\.gradle\\caches\\transforms-2\\files-2.1\\1729610d030977dce8856d24bcddf4c4\\appcompat-1.1.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Jacinto\\.gradle\\caches\\transforms-2\\files-2.1\\b0b86b8d28f84cba33a8e5b24198592d\\jetified-core-1.9.13\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "C:\\Users\\Jacinto\\.gradle\\caches\\transforms-2\\files-2.1\\628b2f54e61ba7f086da041ad77ba953\\jetified-core-1.9.13\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

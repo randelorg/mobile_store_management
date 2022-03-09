@@ -70,6 +70,7 @@ class CollectorModel extends PersonModel {
     this.username = username;
     this.password = password;
   }
+ 
 
   factory CollectorModel.fromJson(Map<String, dynamic> json) {
     return CollectorModel.fullJson(
