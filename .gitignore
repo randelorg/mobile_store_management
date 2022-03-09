@@ -1,5 +1,29 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
 # Flutter/Dart/Pub related
+**/doc/api/
 .dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+
+# Visual Studio Code related
+.vscode/
+.vscode-test/
+.vscode-test-workspace/
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -11,3 +35,9 @@
 **/android/**/GeneratedPluginRegistrant.java
 **/android/key.properties
 *.jks
+
+# Web related
+**/web/**/lib/generated_plugin_registrant.dart
+
+# Service account files
+svc-keyfile.json
