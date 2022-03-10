@@ -30,4 +30,25 @@ class Session {
       prefs.remove('isLoggedin');
     });
   }
+
+  //for clockins
+  static Future<bool> getTimeIn() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('timeIn') ?? true;
+  }
+
+  static Future<bool> getTimeOut() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('timeOut') ?? false;
+  }
+
+  static Future<bool> setTimeIn(bool timeIn) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.setBool('timeIn', timeIn);
+  }
+
+  static Future<bool> setTimeOut(bool timeOut) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.setBool('timeOut', timeOut);
+  }
 }

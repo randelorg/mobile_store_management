@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:mobile_store_management/Backend/Operations/Login_operation.dart';
+import 'package:mobile_store_management/Backend/Session.dart';
 
 class Logout extends StatefulWidget {
   @override
@@ -8,7 +9,6 @@ class Logout extends StatefulWidget {
 }
 
 class _LogoutState extends State<Logout> {
-
   var logout = LoginOperation();
 
   @override
@@ -40,6 +40,10 @@ class _LogoutState extends State<Logout> {
             ),
           ),
           onPressed: () {
+            //change to default view clockin and clockout
+            Session.setTimeIn(true);
+            Session.setTimeOut(false);
+            //logout
             logout.logout();
             Navigator.pushNamed(context, '/logout');
           },

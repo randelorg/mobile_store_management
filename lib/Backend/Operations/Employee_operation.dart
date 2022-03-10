@@ -3,8 +3,7 @@ import 'package:intl/intl.dart';
 import 'dart:convert';
 import 'package:mobile_store_management/Backend/Interfaces/IEmployee.dart';
 
-class EmployeeOperation implements IEmployee  {
-
+class EmployeeOperation implements IEmployee {
   var _formatter = new DateFormat('yyyy-MM-dd');
   var _now = new DateTime.now();
 
@@ -12,9 +11,11 @@ class EmployeeOperation implements IEmployee  {
     String formattedDate = _formatter.format(_now);
     return formattedDate;
   }
- 
+
   //for DTR
   Future<bool> timeIn(String id, final String date) async {
+    print('1 $date');
+
     var updateRequestLoad = json.encode({
       'id': id,
       'timeIn': date,
@@ -62,7 +63,7 @@ class EmployeeOperation implements IEmployee  {
         },
         body: adminUpdateLoad,
       );
-      
+
       //if response is empty return false
       if (response.statusCode == 404) {
         return false;
