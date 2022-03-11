@@ -4,7 +4,6 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
 import 'package:mobile_store_management/Backend/Session.dart';
 import 'dart:typed_data';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../../Backend/Operations/Employee_operation.dart';
 import '../../Backend/Utility/Mapping.dart';
 import '../Settings/ServedBorrowers.dart';
@@ -17,6 +16,7 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+
   var emp = EmployeeOperation();
   List<int> picture = [];
   String? fullName;
@@ -27,7 +27,6 @@ class _SettingsState extends State<Settings> {
     var _formatter = new DateFormat('yyyy-MM-dd hh:mm:ss a');
     var _now = new DateTime.now();
     String formattedDate = _formatter.format(_now);
-    print(formattedDate);
     return formattedDate;
   }
 
@@ -113,7 +112,7 @@ class _SettingsState extends State<Settings> {
               maintainState: true,
               visible: this._isEmployee,
               child: Container(
-                margin: const EdgeInsets.only(left: 75),
+                padding: const EdgeInsets.only(left: 125),
                 child: Row(
                   children: [
                     FutureBuilder(
@@ -126,7 +125,7 @@ class _SettingsState extends State<Settings> {
                             maintainState: true,
                             visible: snapshot.data == true,
                             child: Card(
-                              elevation: 2,
+                              elevation: 3,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(80)),
                               child: Padding(
@@ -137,7 +136,7 @@ class _SettingsState extends State<Settings> {
                                       color: Colors.green,
                                     ),
                                     label: Text(
-                                      'Time-in',
+                                      ' Time-in',
                                       style: TextStyle(
                                         fontFamily: 'Cairo_SemiBold',
                                         color: HexColor("#155293"),
@@ -179,7 +178,7 @@ class _SettingsState extends State<Settings> {
                             maintainState: true,
                             visible: snapshot.data == true,
                             child: Card(
-                              elevation: 2,
+                              elevation: 3,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(80)),
                               child: Padding(
@@ -220,7 +219,7 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
             ),
-
+            
             //Display Page Title
             Container(
               margin: const EdgeInsets.only(left: 3, top: 30),

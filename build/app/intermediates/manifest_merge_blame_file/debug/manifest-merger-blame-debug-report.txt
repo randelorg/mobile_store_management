@@ -12,40 +12,40 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:5:4-66
-14-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:5:21-63
+14-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:5:4-66
+14-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:5:21-63
 15    <uses-permission android:name="android.permission.CAMERA" />
-15-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:4:4-64
-15-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:4:21-61
+15-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:4:4-64
+15-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:4:21-61
 16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-16-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:6:4-78
-16-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:6:21-75
+16-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:6:4-78
+16-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:6:21-75
 17
 18    <application
-18-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:8:4-46:19
+18-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:8:4-46:19
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.6.0] C:\Users\rende\.gradle\caches\transforms-2\files-2.1\122df2e57d294d1a53db26bbc3b813c1\core-1.6.0\AndroidManifest.xml:24:18-86
+19-->[androidx.core:core:1.6.0] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\122df2e57d294d1a53db26bbc3b813c1\core-1.6.0\AndroidManifest.xml:24:18-86
 20        android:debuggable="true"
 21        android:icon="@mipmap/ic_launcher"
-21-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:10:9-43
+21-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:10:9-43
 22        android:label="Dellrains Store Management System" >
-22-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:9:9-58
+22-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:9:9-58
 23        <activity
-23-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:11:9-40:20
+23-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:11:9-40:20
 24            android:name="com.example.mobile_store_management.MainActivity"
-24-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:13:13-41
+24-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:13:13-41
 25            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-25-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:16:13-163
+25-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:16:13-163
 26            android:exported="true"
-26-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:12:13-36
+26-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:12:13-36
 27            android:hardwareAccelerated="true"
-27-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:17:13-47
+27-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:17:13-47
 28            android:launchMode="singleTop"
-28-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:14:13-43
+28-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:14:13-43
 29            android:theme="@style/LaunchTheme"
-29-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:15:13-47
+29-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:15:13-47
 30            android:windowSoftInputMode="adjustResize" >
-30-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:18:13-55
+30-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:18:13-55
 31
 32            <!--
 33                 Specifies an Android theme to apply to this Activity as soon as
@@ -54,11 +54,11 @@
 36                 to determine the Window background behind the Flutter UI.
 37            -->
 38            <meta-data
-38-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:23:13-26:17
+38-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:23:13-26:17
 39                android:name="io.flutter.embedding.android.NormalTheme"
-39-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:24:15-70
+39-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:24:15-70
 40                android:resource="@style/NormalTheme" />
-40-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:25:15-52
+40-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:25:15-52
 41            <!--
 42                 Displays an Android View that continues showing the launch screen
 43                 Drawable until Flutter paints its first frame, then this splash
@@ -67,21 +67,21 @@
 46                 Flutter's first frame.
 47            -->
 48            <meta-data
-48-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:32:13-35:17
+48-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:32:13-35:17
 49                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-49-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:33:15-79
+49-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:33:15-79
 50                android:resource="@drawable/launch_background" />
-50-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:34:15-61
+50-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:34:15-61
 51
 52            <intent-filter>
-52-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:36:13-39:29
+52-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:36:13-39:29
 53                <action android:name="android.intent.action.MAIN" />
-53-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:37:17-68
-53-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:37:25-66
+53-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:37:17-68
+53-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:37:25-66
 54
 55                <category android:name="android.intent.category.LAUNCHER" />
-55-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:38:17-76
-55-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:38:27-74
+55-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:38:17-76
+55-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:38:27-74
 56            </intent-filter>
 57        </activity>
 58        <!--
@@ -89,28 +89,28 @@
 60             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 61        -->
 62        <meta-data
-62-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:43:9-45:33
+62-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:43:9-45:33
 63            android:name="flutterEmbedding"
-63-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:44:13-44
+63-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:44:13-44
 64            android:value="2" />
-64-->D:\mobile_store_management\android\app\src\main\AndroidManifest.xml:45:13-30
+64-->C:\Users\Jacinto\Downloads\mobile_store_management\android\app\src\main\AndroidManifest.xml:45:13-30
 65
 66        <activity android:name="de.mintware.barcode_scan.BarcodeScannerActivity" />
-66-->[:barcode_scan2] D:\mobile_store_management\build\barcode_scan2\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-84
-66-->[:barcode_scan2] D:\mobile_store_management\build\barcode_scan2\intermediates\library_manifest\debug\AndroidManifest.xml:10:19-81
+66-->[:barcode_scan2] C:\Users\Jacinto\Downloads\mobile_store_management\build\barcode_scan2\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-84
+66-->[:barcode_scan2] C:\Users\Jacinto\Downloads\mobile_store_management\build\barcode_scan2\intermediates\library_manifest\debug\AndroidManifest.xml:10:19-81
 67
 68        <uses-library
-68-->[androidx.window:window:1.0.0-beta04] C:\Users\rende\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+68-->[androidx.window:window:1.0.0-beta04] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
 69            android:name="androidx.window.extensions"
-69-->[androidx.window:window:1.0.0-beta04] C:\Users\rende\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+69-->[androidx.window:window:1.0.0-beta04] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
 70            android:required="false" />
-70-->[androidx.window:window:1.0.0-beta04] C:\Users\rende\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+70-->[androidx.window:window:1.0.0-beta04] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
 71        <uses-library
-71-->[androidx.window:window:1.0.0-beta04] C:\Users\rende\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+71-->[androidx.window:window:1.0.0-beta04] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
 72            android:name="androidx.window.sidecar"
-72-->[androidx.window:window:1.0.0-beta04] C:\Users\rende\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+72-->[androidx.window:window:1.0.0-beta04] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
 73            android:required="false" />
-73-->[androidx.window:window:1.0.0-beta04] C:\Users\rende\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+73-->[androidx.window:window:1.0.0-beta04] C:\Users\Jacinto\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
 74    </application>
 75
 76</manifest>
