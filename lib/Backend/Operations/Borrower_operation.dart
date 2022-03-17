@@ -1,6 +1,7 @@
 import 'package:mobile_store_management/Backend/Interfaces/IBorrower.dart';
 import 'package:mobile_store_management/Backend/Interfaces/IPay.dart';
 import 'package:http/http.dart' as http;
+import 'package:mobile_store_management/Backend/Utility/ApiUrl.dart';
 import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 import 'dart:convert';
 
@@ -13,7 +14,7 @@ class BorrowerOperation implements IBorrower, IPay {
   Future<bool> getBorrower(String bid) async {
     try {
       final response = await http.get(
-        Uri.parse('https://dellrainapi.herokuapp.com/api/borrower/' + bid),
+        Uri.parse(Url.url + "api/borrower/" + bid),
       );
 
       //if response is empty return false
@@ -56,7 +57,7 @@ class BorrowerOperation implements IBorrower, IPay {
 
     try {
       final response = await http.post(
-        Uri.parse("https://dellrainapi.herokuapp.com/api/payment"),
+        Uri.parse(Url.url + "api/payment"),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -84,7 +85,7 @@ class BorrowerOperation implements IBorrower, IPay {
     });
     try {
       final response = await http.post(
-        Uri.parse('https://dellrainapi.herokuapp.com/api/borrower'),
+        Uri.parse(Url.url + "api/borrower"),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'

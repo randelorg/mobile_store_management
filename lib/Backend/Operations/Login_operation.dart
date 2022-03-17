@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:mobile_store_management/Backend/Interfaces/ILogin.dart';
 import 'package:mobile_store_management/Backend/Session.dart';
+import 'package:mobile_store_management/Backend/Utility/ApiUrl.dart';
 import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 import 'package:mobile_store_management/Helpers/Hashing_helper.dart';
 import 'package:mobile_store_management/Models/Admin_model.dart';
@@ -42,7 +43,7 @@ class LoginOperation implements ILogin {
     }
 
     final response = await http.post(
-      Uri.parse('https://dellrainapi.herokuapp.com/api/login'),
+      Uri.parse(Url.url + "api/login"),
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'

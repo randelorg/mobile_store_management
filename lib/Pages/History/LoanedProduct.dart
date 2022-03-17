@@ -3,8 +3,10 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:mobile_store_management/Backend/Operations/History_operation.dart';
 import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
+import '../../Models/LoanedProductHistory_model.dart';
 
 class LoanedProduct extends StatefulWidget {
+
   @override
   _LoanedProductState createState() => _LoanedProductState();
 }
@@ -12,24 +14,13 @@ class LoanedProduct extends StatefulWidget {
 class _LoanedProductState extends State<LoanedProduct> {
 
   var history = HistoryOperation();
-  List<_Row> _loanHistory = [];
-  late Future<bool> _future;
-
-  int? sortColumnIndex;
-  bool _sortAscending = false;
+  late Future<List<LoanedProductHistoryModel>> _productHistory;
+  var _sortAscending = true;
   
   @override
   void initState() {
     super.initState();
-    setState(() {
-      _future = history.viewLoanHistory(getId());
-      _loanHistory = _productsHistory();
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
+    this._productHistory = history.viewLoanHistory(getId());
   }
 
   String getId() {
@@ -69,14 +60,18 @@ class _LoanedProductState extends State<LoanedProduct> {
                   scrollDirection: Axis.vertical,
                   padding: const EdgeInsets.all(10),
                   children: [
-                    FutureBuilder(
-                      future: _future,
+                    FutureBuilder<List<LoanedProductHistoryModel>>(
+                      future: this._productHistory,
                       builder: (context, snapshot) {
                         if (!snapshot.hasData) {
-                          return Center(child: CircularProgressIndicator());
+                          return Center(
+                            child: CircularProgressIndicator(
+                              semanticsLabel: 'Fetching borrowers',
+                            ),
+                          );
                         }
                         if (snapshot.hasData) {
-                          if (snapshot.data == true) {
+                          if (snapshot.data!.isNotEmpty) {
                             return PaginatedDataTable(
                               columnSpacing: 20,
                               horizontalMargin: 8,
@@ -99,11 +94,9 @@ class _LoanedProductState extends State<LoanedProduct> {
                                     setState(() {
                                       _sortAscending = sortAscending;
                                       if (sortAscending) {
-                                        _loanHistory.sort((a, b) =>
-                                            a.getValueA.compareTo(b.getValueA));
+                                       snapshot.data!.sort((a, b) => a.getProductName.compareTo(b.getProductName));
                                       } else {
-                                        _loanHistory.sort((a, b) => 
-                                        b.getValueA.compareTo((a.getValueA)));
+                                        snapshot.data!.sort((a, b) => b.getProductName.compareTo(a.getProductName));
                                       }
                                     });
                                   },
@@ -129,7 +122,7 @@ class _LoanedProductState extends State<LoanedProduct> {
                                   ),
                                 ),
                               ],
-                              source: _DataSource(context,_loanHistory),
+                              source: _DataSource(context),
                             );
                           } else {
                             return Container(
@@ -183,23 +176,23 @@ class _Row {
   final String valueB;
   final String valueC;
 
-  get getValueA => this.valueA;
-
   bool selected = false;
 }
 
 class _DataSource extends DataTableSource {
-  _DataSource(this.context, this._productsHistory);
+  _DataSource(this.context) {
+    _loanHistory = _productsHistory();
+  }
 
   final BuildContext context;
   int _selectedCount = 0;
-  List<_Row> _productsHistory = [];
+  List<_Row> _loanHistory = [];
 
   @override
   DataRow? getRow(int index) {
     assert(index >= 0);
-    if (index >= _productsHistory.length) return null;
-    final row = _productsHistory[index];
+    if (index >= _loanHistory.length) return null;
+    final row = _loanHistory[index];
     return DataRow.byIndex(
       index: index,
       selected: row.selected,
@@ -212,37 +205,37 @@ class _DataSource extends DataTableSource {
   }
 
   @override
-  int get rowCount => _productsHistory.length;
+  int get rowCount => _loanHistory.length;
 
   @override
   bool get isRowCountApproximate => false;
 
   @override
   int get selectedRowCount => _selectedCount;
-}
 
-List<_Row> _productsHistory() {
-  try {
-    return List.generate(
-      Mapping.productHistoryList.length,
-      (index) {
-        return _Row(
-          Mapping.productHistoryList[index].getProductName.toString(),
-          Mapping.productHistoryList[index].getDateAdded.toString(),
-          Mapping.productHistoryList[index].getPaymentPlan.toString(),
-        );
-      },
-    );
-  } catch (e) {
-    return List.generate(
-      0,
-      (index) {
-        return _Row(
-          '',
-          '',
-          '',
-        );
-      },
-    );
+  List<_Row> _productsHistory() {
+    try {
+      return List.generate(
+        Mapping.productHistoryList.length,
+        (index) {
+          return _Row(
+            Mapping.productHistoryList[index].getProductName.toString(),
+            Mapping.productHistoryList[index].getDateAdded.toString(),
+            Mapping.productHistoryList[index].getPaymentPlan.toString(),
+          );
+        },
+      );
+    } catch (e) {
+      return List.generate(
+        0,
+        (index) {
+          return _Row(
+            '',
+            '',
+            '',
+          );
+        },
+      );
+    }
   }
 }

@@ -3,43 +3,28 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:mobile_store_management/Backend/Operations/History_operation.dart';
 import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
+import '../../Models/PaymentHistory_model.dart';
 
 class Payment extends StatefulWidget {
+  final String? id, borrowerName;
+  Payment({this.id, this.borrowerName});
+
   @override
   _PaymentState createState() => _PaymentState();
 }
 
 class _PaymentState extends State<Payment> {
-
-  var history = HistoryOperation();
-  List<_Row> _paymentHistory = [];
-  late Future<bool> _future;
-
-  int? sortColumnIndex;
-  bool _sortAscending = false;
   
+  var history = HistoryOperation();
+  late Future<List<PaymentHistoryModel>> _paymentHistory;
+  var _sortAscending = true;
+
   @override
   void initState() {
     super.initState();
-    setState(() {
-      _future = history.viewPaymentHistory(getId());
-      _paymentHistory = _paymentsHistory();
-    });
+    this._paymentHistory = history.viewPaymentHistory(widget.id.toString());
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  String getId() {
-    if (Mapping.borrowerList.length == 0) {
-      return "";
-    } else {
-      return Mapping.borrowerList.last.getBorrowerId.toString();
-    }
-  }
-
+                                                                                            
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -69,14 +54,18 @@ class _PaymentState extends State<Payment> {
                   scrollDirection: Axis.vertical,
                   padding: const EdgeInsets.all(10),
                   children: [
-                    FutureBuilder(
-                      future: _future,
+                    FutureBuilder<List<PaymentHistoryModel>>(
+                      future: this._paymentHistory,
                       builder: (context, snapshot) {
                         if (!snapshot.hasData) {
-                          return Center(child: CircularProgressIndicator());
+                          return Center(
+                            child: CircularProgressIndicator(
+                              semanticsLabel: 'Fetching borrowers',
+                            ),
+                          );
                         }
                         if (snapshot.hasData) {
-                          if (snapshot.data == true) {
+                          if (snapshot.data!.isNotEmpty) {
                             return PaginatedDataTable(
                               columnSpacing: 30,
                               horizontalMargin: 15,
@@ -99,11 +88,9 @@ class _PaymentState extends State<Payment> {
                                     setState(() {
                                       _sortAscending = sortAscending;
                                       if (sortAscending) {
-                                        _paymentHistory.sort((a, b) =>
-                                            a.getValueA.compareTo(b.getValueA));
+                                       snapshot.data!.sort((a, b) => a.getCollectionID.compareTo(b.getCollectionID));
                                       } else {
-                                        _paymentHistory.sort((a, b) => 
-                                        b.getValueA.compareTo((a.getValueA)));
+                                        snapshot.data!.sort((a, b) => b.getCollectionID.compareTo(a.getCollectionID));
                                       }
                                     });
                                   },
@@ -131,7 +118,7 @@ class _PaymentState extends State<Payment> {
                                   ),
                                 ),
                               ],
-                              source: _DataSource(context, _paymentHistory),
+                              source: _DataSource(context),
                             );
                           } else {
                             return Container(
@@ -185,13 +172,13 @@ class _Row {
   final String valueB;
   final String valueC;
 
-  get getValueA => int.parse(this.valueA);
-
   bool selected = false;
 }
 
 class _DataSource extends DataTableSource {
-  _DataSource(this.context, this._payHistory);
+  _DataSource(this.context) {
+    _payHistory = _paymentsHistory();
+  }
 
   final BuildContext context;
 
@@ -222,30 +209,30 @@ class _DataSource extends DataTableSource {
 
   @override
   int get selectedRowCount => _selectedCount;
-}
 
-List<_Row> _paymentsHistory() {
-  try {
-    return List.generate(
-      Mapping.paymentList.length,
-      (index) {
-        return _Row(
-          Mapping.paymentList[index].getCollectionID.toString(),
-          Mapping.paymentList[index].getCollectionAmount.toString(),
-          Mapping.paymentList[index].getGivenDate.toString(),
-        );
-      },
-    );
-  } catch (e) {
-    return List.generate(
-      0,
-      (index) {
-        return _Row(
-          '',
-          '',
-          '',
-        );
-      },
-    );
+  List<_Row> _paymentsHistory() {
+    try {
+      return List.generate(
+        Mapping.paymentList.length,
+        (index) {
+          return _Row(
+            Mapping.paymentList[index].getCollectionID.toString(),
+            Mapping.paymentList[index].getCollectionAmount.toString(),
+            Mapping.paymentList[index].getGivenDate.toString(),
+          );
+        },
+      );
+    } catch (e) {
+      return List.generate(
+        0,
+        (index) {
+          return _Row(
+            '',
+            '',
+            '',
+          );
+        },
+      );
+    }
   }
 }
