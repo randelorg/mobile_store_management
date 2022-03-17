@@ -72,10 +72,9 @@ class _MakePaymentState extends State<MakePayment> {
                                 child: Row(
                                   children: [
                                     Padding(
-                                      padding:
-                                          EdgeInsets.only(left: 15, right: 30),
+                                      padding: EdgeInsets.only(left: 15, right: 35),
                                       child: Text(
-                                        'Borrowers Name',
+                                        'Borrower Name',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.grey[700],
@@ -236,17 +235,17 @@ class _MakePaymentState extends State<MakePayment> {
                 Container(
                   margin: const EdgeInsets.only(top: 50),
                   height: 60,
-                  width: 175,
+                  width: 150,
                   decoration: BoxDecoration(
                       color: HexColor("#155293"),
                       borderRadius: BorderRadius.circular(80)),
                   child: TextButton(
                     child: Text(
-                      'Pay',
+                      'PAY',
                       style: TextStyle(
                         fontFamily: 'Cairo_Bold',
                         color: Colors.white,
-                        fontSize: 25,
+                        fontSize: 22,
                       ),
                     ),
                     onPressed: () {

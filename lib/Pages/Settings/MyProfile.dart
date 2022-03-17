@@ -139,35 +139,6 @@ class _MyProfileState extends State<MyProfile> {
                   ),
                 ),
 
-                //Display Full Name
-                Card(
-                  elevation: 3,
-                  shadowColor: Colors.black,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 40, right: 65),
-                        child: Text(
-                          'Full Name',
-                          style: TextStyle(
-                            color: Colors.grey[700],
-                            fontFamily: 'Cairo_SemiBold',
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        name.toString(),
-                        softWrap: true,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Cairo_SemiBold',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
                 //Display Username
                 Card(
                   elevation: 3,
@@ -187,6 +158,35 @@ class _MyProfileState extends State<MyProfile> {
                       ),
                       Text(
                         username.toString(),
+                        softWrap: true,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: 'Cairo_SemiBold',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                //Display Full Name
+                Card(
+                  elevation: 3,
+                  shadowColor: Colors.black,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 40, right: 65),
+                        child: Text(
+                          'Full Name',
+                          style: TextStyle(
+                            color: Colors.grey[700],
+                            fontFamily: 'Cairo_SemiBold',
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        name.toString(),
                         softWrap: true,
                         style: TextStyle(
                           fontSize: 14,

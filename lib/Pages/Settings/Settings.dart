@@ -222,7 +222,7 @@ class _SettingsState extends State<Settings> {
             
             //Display Page Title
             Container(
-              margin: const EdgeInsets.only(left: 3, top: 30),
+              margin: const EdgeInsets.only(left: 5, top: 25),
               child: Text(
                 "Settings",
                 style: TextStyle(

@@ -12,8 +12,7 @@ class ServedBorrowers extends StatefulWidget {
 class _ServedBorrowersState extends State<ServedBorrowers> {
 
   List<_Row> _servedBorrowers = [];
-  int? sortColumnIndex;
-  bool _sortAscending = false;
+  var _sortAscending = false;
 
   @override
   void initState() {
@@ -73,44 +72,42 @@ class _ServedBorrowersState extends State<ServedBorrowers> {
                     padding: EdgeInsets.all(5),
                     child: ListView(
                       scrollDirection: Axis.vertical,
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(5),
                       children: [
                         PaginatedDataTable(
                           columnSpacing: 25,
                           horizontalMargin: 15,
                           showCheckboxColumn: false,
-                          rowsPerPage: 10,
-                          sortColumnIndex: 0,
+                          rowsPerPage: 20,
+                          sortColumnIndex: 1,
                           sortAscending: _sortAscending,
                           columns: [
                             DataColumn2(
                               size: ColumnSize.S,
-                              label: Text('BID',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontFamily: 'Cairo_SemiBold')),
-                                      onSort: (index, sortAscending) {
-                                    setState(() {
-                                      _sortAscending = sortAscending;
-                                      if (sortAscending) {
-                                        _servedBorrowers.sort((a, b) =>
-                                            a.getValueA.compareTo(b.getValueA));
-                                      } else {
-                                        _servedBorrowers.sort((a, b) => 
-                                        b.getValueA.compareTo((a.getValueA)));
-                                      }
-                                    });
-                                  },
+                              label: Text('BORROWER ID',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontFamily: 'Cairo_SemiBold')),
                             ),
                             DataColumn2(
-                              size: ColumnSize.L,
+                              size: ColumnSize.M,
                               label: Text('NAME',
-                                  textAlign: TextAlign.center,
+                              textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 12,
                                       fontFamily: 'Cairo_SemiBold')),
-                            ),
+                                      onSort: (index, sortAscending) {                                                                    
+                                        setState(() {
+                                          _sortAscending = sortAscending;
+                                         if (sortAscending) {                                       
+                                           _servedBorrowers.sort((a, b) => a.getValueA.compareTo(b.getValueA));
+                                         } else {
+                                          _servedBorrowers.sort((a, b) =>b.getValueA.compareTo((a.getValueA)));
+                                         }
+                                      });
+                                    },
+                             ),
                             DataColumn2(
                               size: ColumnSize.S,
                               label: Text('AMOUNT',
@@ -120,7 +117,7 @@ class _ServedBorrowersState extends State<ServedBorrowers> {
                                       fontFamily: 'Cairo_SemiBold')),
                             ),
                           ],
-                          source: _DataSource(context,_servedBorrowers),
+                          source: _DataSource(context, _servedBorrowers),
                         ),
                       ],
                     ),
@@ -153,7 +150,7 @@ class _Row {
 
 class _DataSource extends DataTableSource {
   var _paymentsHistory;
-  
+
   _DataSource(this.context, this._paymentsHistory);
   final BuildContext context;
 

@@ -11,6 +11,7 @@ class LoanedProductHistory extends StatefulWidget {
 }
 
 class _LoanedProductHistoryState extends State<LoanedProductHistory> {
+
   var history = HistoryOperation();
   late Future<List<LoanedProductHistoryModel>> _productHistory;
   var _sortAscending = true;
@@ -19,6 +20,11 @@ class _LoanedProductHistoryState extends State<LoanedProductHistory> {
   void initState() {
     super.initState();
     this._productHistory = history.viewLoanHistory(Mapping.getId());
+  }
+  
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -48,7 +54,7 @@ class _LoanedProductHistoryState extends State<LoanedProductHistory> {
                 padding: EdgeInsets.all(5),
                 child: ListView(
                   scrollDirection: Axis.vertical,
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5),
                   children: [
                     FutureBuilder<List<LoanedProductHistoryModel>>(
                       future: this._productHistory,
@@ -66,14 +72,14 @@ class _LoanedProductHistoryState extends State<LoanedProductHistory> {
                               columnSpacing: 20,
                               horizontalMargin: 8,
                               showCheckboxColumn: false,
-                              rowsPerPage: 10,
+                              rowsPerPage: 20,
                               sortColumnIndex: 0,
                               sortAscending: _sortAscending,
                               columns: [
                                 DataColumn2(
-                                  size: ColumnSize.L,
+                                  size: ColumnSize.S,
                                   label: Text(
-                                    'PRODUCT NAME',
+                                    'LOAN ID',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontSize: 12,
@@ -85,20 +91,20 @@ class _LoanedProductHistoryState extends State<LoanedProductHistory> {
                                       _sortAscending = sortAscending;
                                       if (sortAscending) {
                                         snapshot.data!.sort((a, b) => a
-                                            .getProductName
-                                            .compareTo(b.getProductName));
+                                            .getLoanId
+                                            .compareTo(b.getLoanId));
                                       } else {
                                         snapshot.data!.sort((a, b) => b
-                                            .getProductName
-                                            .compareTo(a.getProductName));
+                                            .getLoanId
+                                            .compareTo(a.getLoanId));
                                       }
                                     });
-                                  },
+                                  },                        
                                 ),
                                 DataColumn2(
-                                  size: ColumnSize.S,
+                                  size: ColumnSize.M,
                                   label: Text(
-                                    'DATEADDED',
+                                    'PRODUCT NAME',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontSize: 12,
@@ -113,7 +119,7 @@ class _LoanedProductHistoryState extends State<LoanedProductHistory> {
                                     style: TextStyle(
                                         fontSize: 12,
                                         fontFamily: 'Cairo_SemiBold'),
-                                  ),
+                                  ), 
                                 ),
                               ],
                               source: _DataSource(context),
@@ -213,8 +219,8 @@ class _DataSource extends DataTableSource {
         Mapping.productHistoryList.length,
         (index) {
           return _Row(
+            Mapping.productHistoryList[index].getLoanId.toString(),
             Mapping.productHistoryList[index].getProductName.toString(),
-            Mapping.productHistoryList[index].getDateAdded.toString(),
             Mapping.productHistoryList[index].getPaymentPlan.toString(),
           );
         },

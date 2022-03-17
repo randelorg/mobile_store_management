@@ -58,12 +58,16 @@ class _PaymentInputState extends State<PaymentInput> {
                     controller: borrowername,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
-                      hintText: 'Borrowers Name',
+                      hintText: 'Borrower Name',
                       prefixIcon: Icon(Icons.person_rounded, color: Colors.red),
                       suffixIcon: IconButton(
                         iconSize: 25,
                         icon: Icon(Icons.search, color: Colors.grey),
                         onPressed: () {
+                          if (borrowername.text.isEmpty) {
+                            return;
+                          }
+
                           String fullname = borrowername.text.trim();
                           List<String> name = fullname.split(" ");
                           controller
@@ -89,7 +93,7 @@ class _PaymentInputState extends State<PaymentInput> {
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "* Required Borrowers Name";
+                        return "* Required Borrower Name";
                       }
                     },
                   ),
@@ -118,9 +122,9 @@ class _PaymentInputState extends State<PaymentInput> {
                                   children: [
                                     Padding(
                                       padding:
-                                          EdgeInsets.only(left: 15, right: 30),
+                                          EdgeInsets.only(left: 15, right: 35),
                                       child: Text(
-                                        'Borrowers Name',
+                                        'Borrower Name',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.grey[700],
@@ -294,17 +298,17 @@ class _PaymentInputState extends State<PaymentInput> {
                 Container(
                   margin: const EdgeInsets.only(top: 50),
                   height: 60,
-                  width: 175,
+                  width: 150,
                   decoration: BoxDecoration(
                       color: HexColor("#155293"),
                       borderRadius: BorderRadius.circular(80)),
                   child: TextButton(
                     child: Text(
-                      'Pay',
+                      'PAY',
                       style: TextStyle(
                         fontFamily: 'Cairo_Bold',
                         color: Colors.white,
-                        fontSize: 25,
+                        fontSize: 22,
                       ),
                     ),
                     onPressed: () {

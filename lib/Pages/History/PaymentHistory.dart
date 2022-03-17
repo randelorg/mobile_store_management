@@ -6,14 +6,12 @@ import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 import '../../Models/PaymentHistory_model.dart';
 
 class PaymentHistory extends StatefulWidget {
-  final String? id, borrowerName;
-  PaymentHistory({this.id, this.borrowerName});
-
   @override
   _PaymentHistoryState createState() => _PaymentHistoryState();
 }
 
 class _PaymentHistoryState extends State<PaymentHistory> {
+  
   var history = HistoryOperation();
   late Future<List<PaymentHistoryModel>> _paymentHistory;
   var _sortAscending = true;
@@ -22,6 +20,11 @@ class _PaymentHistoryState extends State<PaymentHistory> {
   void initState() {
     super.initState();
     this._paymentHistory = history.viewPaymentHistory(Mapping.getId());
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -51,7 +54,7 @@ class _PaymentHistoryState extends State<PaymentHistory> {
                 padding: EdgeInsets.all(5),
                 child: ListView(
                   scrollDirection: Axis.vertical,
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5),
                   children: [
                     FutureBuilder<List<PaymentHistoryModel>>(
                       future: this._paymentHistory,
@@ -69,14 +72,14 @@ class _PaymentHistoryState extends State<PaymentHistory> {
                               columnSpacing: 30,
                               horizontalMargin: 15,
                               showCheckboxColumn: false,
-                              rowsPerPage: 10,
+                              rowsPerPage: 20,
                               sortColumnIndex: 0,
                               sortAscending: _sortAscending,
                               columns: [
                                 DataColumn2(
                                   size: ColumnSize.S,
                                   label: Text(
-                                    'COLLECTIONID',
+                                    'COLLECTION ID',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontSize: 12,
@@ -99,7 +102,7 @@ class _PaymentHistoryState extends State<PaymentHistory> {
                                   },
                                 ),
                                 DataColumn2(
-                                  size: ColumnSize.M,
+                                  size: ColumnSize.S,
                                   label: Text(
                                     'AMOUNT PAID',
                                     textAlign: TextAlign.center,
