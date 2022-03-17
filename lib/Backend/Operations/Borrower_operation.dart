@@ -8,7 +8,6 @@ import 'dart:convert';
 import 'package:mobile_store_management/Models/Borrower_model.dart';
 
 class BorrowerOperation implements IBorrower, IPay {
-
   //QR Code Scanner
   @override
   Future<bool> getBorrower(String bid) async {
@@ -18,7 +17,7 @@ class BorrowerOperation implements IBorrower, IPay {
       );
 
       //if response is empty return false
-      if (response.statusCode == 404) { 
+      if (response.statusCode == 404) {
         return false;
       }
 
@@ -57,7 +56,7 @@ class BorrowerOperation implements IBorrower, IPay {
 
     try {
       final response = await http.post(
-        Uri.parse(Url.url + "api/payment"),
+        Uri.parse("${Url.url}api/payment"),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -77,7 +76,7 @@ class BorrowerOperation implements IBorrower, IPay {
   //Search Borrowers Name
   @override
   Future<bool> getBorrowerName(String firstname, String lastname) async {
-    if (firstname == ' ' && lastname == '') return false;
+    if (firstname.isEmpty && lastname.isEmpty) return false;
 
     var brw = json.encode({
       'firstname': firstname,
@@ -85,7 +84,7 @@ class BorrowerOperation implements IBorrower, IPay {
     });
     try {
       final response = await http.post(
-        Uri.parse(Url.url + "api/borrower"),
+        Uri.parse("${Url.url}api/borrower"),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'

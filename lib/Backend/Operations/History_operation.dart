@@ -7,13 +7,15 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class HistoryOperation implements IHistory {
-
   //Get Loan History
   @override
-  Future<List<LoanedProductHistoryModel>>viewLoanHistory(String borrowerId) async {
+  Future<List<LoanedProductHistoryModel>> viewLoanHistory(
+      String borrowerId) async {
     if (borrowerId == "") return [];
     try {
-      final response = await http.get(Uri.parse(Url.url + "api/loanedproducts/" + borrowerId));
+      final response = await http.get(
+        Uri.parse("${Url.url}api/loanedproducts/$borrowerId"),
+      );
 
       final parsed =
           await jsonDecode(response.body).cast<Map<String, dynamic>>();
@@ -25,7 +27,6 @@ class HistoryOperation implements IHistory {
       if (response.statusCode == 404) {
         return [];
       }
-
     } catch (e) {
       print(e.toString());
       return [];
@@ -35,10 +36,13 @@ class HistoryOperation implements IHistory {
 
   //Get Payment History
   @override
-  Future<List<PaymentHistoryModel>>viewPaymentHistory(String borrowerId) async {
+  Future<List<PaymentHistoryModel>> viewPaymentHistory(
+      String borrowerId) async {
     if (borrowerId == "") return [];
     try {
-      final response = await http.get(Uri.parse(Url.url + "api/payment/" + borrowerId));
+      final response = await http.get(
+        Uri.parse("${Url.url}api/payment/$borrowerId"),
+      );
 
       final parsed =
           await jsonDecode(response.body).cast<Map<String, dynamic>>();
@@ -49,8 +53,7 @@ class HistoryOperation implements IHistory {
 
       if (response.statusCode == 404) {
         return [];
-      }   
-        
+      }
     } catch (e) {
       print(e.toString());
       return [];

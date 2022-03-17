@@ -6,17 +6,15 @@ import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 import '../../Models/LoanedProductHistory_model.dart';
 
 class LoanedProduct extends StatefulWidget {
-
   @override
   _LoanedProductState createState() => _LoanedProductState();
 }
 
 class _LoanedProductState extends State<LoanedProduct> {
-
   var history = HistoryOperation();
   late Future<List<LoanedProductHistoryModel>> _productHistory;
   var _sortAscending = true;
-  
+
   @override
   void initState() {
     super.initState();
@@ -24,7 +22,7 @@ class _LoanedProductState extends State<LoanedProduct> {
   }
 
   String getId() {
-    if (Mapping.borrowerList.length == 0) {
+    if (Mapping.borrowerList.isEmpty) {
       return "";
     } else {
       return Mapping.borrowerList.last.getBorrowerId.toString();
@@ -94,9 +92,13 @@ class _LoanedProductState extends State<LoanedProduct> {
                                     setState(() {
                                       _sortAscending = sortAscending;
                                       if (sortAscending) {
-                                       snapshot.data!.sort((a, b) => a.getProductName.compareTo(b.getProductName));
+                                        snapshot.data!.sort((a, b) => a
+                                            .getProductName
+                                            .compareTo(b.getProductName));
                                       } else {
-                                        snapshot.data!.sort((a, b) => b.getProductName.compareTo(a.getProductName));
+                                        snapshot.data!.sort((a, b) => b
+                                            .getProductName
+                                            .compareTo(a.getProductName));
                                       }
                                     });
                                   },
