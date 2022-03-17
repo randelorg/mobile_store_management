@@ -5,12 +5,12 @@ import 'package:mobile_store_management/Backend/Operations/History_operation.dar
 import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 import '../../Models/LoanedProductHistory_model.dart';
 
-class LoanedProduct extends StatefulWidget {
+class LoanedProductHistory extends StatefulWidget {
   @override
-  _LoanedProductState createState() => _LoanedProductState();
+  _LoanedProductHistoryState createState() => _LoanedProductHistoryState();
 }
 
-class _LoanedProductState extends State<LoanedProduct> {
+class _LoanedProductHistoryState extends State<LoanedProductHistory> {
   var history = HistoryOperation();
   late Future<List<LoanedProductHistoryModel>> _productHistory;
   var _sortAscending = true;
@@ -18,15 +18,7 @@ class _LoanedProductState extends State<LoanedProduct> {
   @override
   void initState() {
     super.initState();
-    this._productHistory = history.viewLoanHistory(getId());
-  }
-
-  String getId() {
-    if (Mapping.borrowerList.isEmpty) {
-      return "";
-    } else {
-      return Mapping.borrowerList.last.getBorrowerId.toString();
-    }
+    this._productHistory = history.viewLoanHistory(Mapping.getId());
   }
 
   @override

@@ -5,16 +5,15 @@ import 'package:mobile_store_management/Backend/Operations/History_operation.dar
 import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 import '../../Models/PaymentHistory_model.dart';
 
-class Payment extends StatefulWidget {
+class PaymentHistory extends StatefulWidget {
   final String? id, borrowerName;
-  Payment({this.id, this.borrowerName});
+  PaymentHistory({this.id, this.borrowerName});
 
   @override
-  _PaymentState createState() => _PaymentState();
+  _PaymentHistoryState createState() => _PaymentHistoryState();
 }
 
-class _PaymentState extends State<Payment> {
-  
+class _PaymentHistoryState extends State<PaymentHistory> {
   var history = HistoryOperation();
   late Future<List<PaymentHistoryModel>> _paymentHistory;
   var _sortAscending = true;
@@ -22,9 +21,9 @@ class _PaymentState extends State<Payment> {
   @override
   void initState() {
     super.initState();
-    this._paymentHistory = history.viewPaymentHistory(widget.id.toString());
+    this._paymentHistory = history.viewPaymentHistory(Mapping.getId());
   }
-                                                                                            
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -88,9 +87,13 @@ class _PaymentState extends State<Payment> {
                                     setState(() {
                                       _sortAscending = sortAscending;
                                       if (sortAscending) {
-                                       snapshot.data!.sort((a, b) => a.getCollectionID.compareTo(b.getCollectionID));
+                                        snapshot.data!.sort((a, b) => a
+                                            .getCollectionID
+                                            .compareTo(b.getCollectionID));
                                       } else {
-                                        snapshot.data!.sort((a, b) => b.getCollectionID.compareTo(a.getCollectionID));
+                                        snapshot.data!.sort((a, b) => b
+                                            .getCollectionID
+                                            .compareTo(a.getCollectionID));
                                       }
                                     });
                                   },

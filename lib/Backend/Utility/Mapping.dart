@@ -14,4 +14,12 @@ class Mapping {
   static List<BorrowerModel> borrowerList = [];
   static List<PaymentHistoryModel> paymentList = [];
   static List<LoanedProductHistoryModel> productHistoryList = [];
+
+  static String getId() {
+    if (Mapping.borrowerList.isEmpty) {
+      return "";
+    } else {
+      return Mapping.borrowerList.last.getBorrowerId.toString();
+    }
+  }
 }
