@@ -28,7 +28,7 @@ class LoginOperation implements ILogin {
     var entity;
 
     switch (role) {
-      case 'Administrator':
+      case 'Manager':
         entity = json
             .encode({"Username": username, "Password": hash.encrypt(password)});
         break;
@@ -72,7 +72,7 @@ class LoginOperation implements ILogin {
     Mapping.userRole = role;
     try {
       switch (role.replaceAll(' ', '')) {
-        case 'Administrator':
+        case 'Manager':
           Map<String, dynamic> adminMap =
               jsonDecode(response.body)[0] as Map<String, dynamic>;
 

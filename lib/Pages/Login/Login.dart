@@ -18,7 +18,7 @@ class _LoginState extends State<Login> {
   final username = TextEditingController();
   final password = TextEditingController();
 
-  String administrator = 'Administrator';
+  String manager = 'Manager';
   String collector = 'Collector';
   String? loginRole;
 
@@ -66,17 +66,17 @@ class _LoginState extends State<Login> {
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
                     isExpanded: true,
-                    value: administrator,
+                    value: manager,
                     icon: const Icon(Icons.arrow_drop_down),
                     iconSize: 25,
                     elevation: 15,
                     style: TextStyle(color: Colors.red),
                     onChanged: (role) {
                       setState(() {
-                        administrator = role!;
+                        manager = role!;
                       });
                     },
-                    items: <String>['Administrator', 'Collector']
+                    items: <String>['Manager', 'Collector']
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
@@ -166,7 +166,7 @@ class _LoginState extends State<Login> {
                 onPressed: () {       
                   if (_formKey.currentState!.validate()) {   
                     login
-                        .mainLogin(administrator.toString(), username.text,
+                        .mainLogin(manager.toString(), username.text,
                             password.text)
                         .then((value) {
                       setState(() {
