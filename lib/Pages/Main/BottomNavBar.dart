@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:collection';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../Main/Home.dart';
 import '../Payment/PaymentInput.dart';
@@ -54,8 +55,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.payment), label: 'PaymentInput'),
-            BottomNavigationBarItem(icon: Icon(Icons.history), label: 'PaymentHistory'),
-            BottomNavigationBarItem(icon: Icon(Icons.shopping_basket), label: 'LoanedProductHistory'),
+            BottomNavigationBarItem(icon: Icon(MdiIcons.creditCardClockOutline), label: 'PaymentHistory'),
+            BottomNavigationBarItem(icon: Icon(MdiIcons.clipboardTextClockOutline), label: 'LoanedProductHistory'),
             BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
           ],
         ),

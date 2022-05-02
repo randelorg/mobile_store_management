@@ -57,7 +57,7 @@ class _LoginState extends State<Login> {
                 height: 55,
                 decoration: BoxDecoration(
                   color: Colors.blueGrey[50],
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(15),
                   border: Border.all(
                     color: Colors.red.shade50,
                     style: BorderStyle.solid,
@@ -70,7 +70,7 @@ class _LoginState extends State<Login> {
                     icon: const Icon(Icons.arrow_drop_down),
                     iconSize: 25,
                     elevation: 15,
-                    style: TextStyle(color: Colors.red),
+                    style: TextStyle(color: HexColor("#155293")),
                     onChanged: (role) {
                       setState(() {
                         manager = role!;
@@ -101,14 +101,16 @@ class _LoginState extends State<Login> {
                   controller: username,
                   decoration: InputDecoration(
                     hintText: 'Username',
-                    prefixIcon: Icon(Icons.person_rounded, color: Colors.red),
+                    filled: true,
+                    fillColor: Colors.blueGrey[50],
+                    prefixIcon: Icon(Icons.person_rounded, color: Colors.black38),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                      borderSide: BorderSide(color: Colors.red, width: 2),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderSide: BorderSide(color: Colors.blueGrey.shade50),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                      borderSide: BorderSide(color: Colors.black, width: 2),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderSide: BorderSide(color: Colors.blueGrey.shade50),
                     ),
                   ),
                   validator: (value) {
@@ -126,18 +128,20 @@ class _LoginState extends State<Login> {
                   obscureText: _isHidden,
                   decoration: InputDecoration(
                     hintText: 'Password',
-                    prefixIcon: Icon(Icons.vpn_key_rounded, color: Colors.red),
+                    filled: true,
+                    fillColor: Colors.blueGrey[50],
+                    prefixIcon: Icon(Icons.vpn_key_rounded, color: Colors.black38),
                     suffix: InkWell(
                       onTap: _togglePasswordView,
                       child: Icon(Icons.visibility),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: Colors.red, width: 2),
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: Colors.blueGrey.shade50),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: Colors.black, width: 2),
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: Colors.blueGrey.shade50),
                     ),
                   ),
                   validator: (value) {

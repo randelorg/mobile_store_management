@@ -151,14 +151,16 @@ class _MakePaymentState extends State<MakePayment> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hintText: 'Amount Paid',
-                        prefixIcon: Icon(Icons.payment, color: Colors.red),
+                        filled: true,
+                        fillColor: Colors.blueGrey[50],
+                        prefixIcon: Icon(Icons.payment, color: Colors.black38),
                         enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8)),
-                          borderSide: BorderSide(color: Colors.red, width: 2),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          borderSide: BorderSide(color: Colors.blueGrey.shade50),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8)),
-                          borderSide: BorderSide(color: Colors.black, width: 2),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          borderSide: BorderSide(color: Colors.blueGrey.shade50),
                         ),
                       ),
                       validator: (value) {
@@ -170,21 +172,22 @@ class _MakePaymentState extends State<MakePayment> {
 
                 //Input Date Today
                 Container(
-                  padding:
-                      EdgeInsets.only(left: 35, right: 35, top: 15, bottom: 50),
+                  padding: EdgeInsets.only(left: 35, right: 35, top: 15, bottom: 50),
                   child: TextFormField(
                     controller: dateinput,
                     keyboardType: TextInputType.datetime,
                     decoration: InputDecoration(
                       hintText: 'Date Today',
-                      prefixIcon: Icon(Icons.calendar_today, color: Colors.red),
+                      filled: true,
+                      fillColor: Colors.blueGrey[50],
+                      prefixIcon: Icon(Icons.calendar_today, color: Colors.black38),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        borderSide: BorderSide(color: Colors.red, width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                         borderSide: BorderSide(color: Colors.blueGrey.shade50),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        borderSide: BorderSide(color: Colors.black, width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        borderSide: BorderSide(color: Colors.blueGrey.shade50),
                       ),
                     ),
                     validator: (value) {

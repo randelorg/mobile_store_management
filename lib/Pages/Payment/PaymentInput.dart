@@ -59,7 +59,9 @@ class _PaymentInputState extends State<PaymentInput> {
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
                       hintText: 'Borrower Name',
-                      prefixIcon: Icon(Icons.person_rounded, color: Colors.red),
+                      filled: true,
+                      fillColor: Colors.blueGrey[50],
+                      prefixIcon: Icon(Icons.person_rounded, color: Colors.black38),
                       suffixIcon: IconButton(
                         iconSize: 25,
                         icon: Icon(Icons.search, color: Colors.grey),
@@ -83,12 +85,12 @@ class _PaymentInputState extends State<PaymentInput> {
                         },
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        borderSide: BorderSide(color: Colors.red, width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        borderSide: BorderSide(color: Colors.blueGrey.shade50),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        borderSide: BorderSide(color: Colors.black, width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        borderSide: BorderSide(color: Colors.blueGrey.shade50),
                       ),
                     ),
                     validator: (value) {
@@ -213,14 +215,16 @@ class _PaymentInputState extends State<PaymentInput> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintText: 'Amount Paid',
-                      prefixIcon: Icon(Icons.payment, color: Colors.red),
+                      filled: true,
+                      fillColor: Colors.blueGrey[50],
+                      prefixIcon: Icon(Icons.payment, color: Colors.black38),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        borderSide: BorderSide(color: Colors.red, width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        borderSide: BorderSide(color: Colors.blueGrey.shade50),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        borderSide: BorderSide(color: Colors.black, width: 2),
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        borderSide: BorderSide(color: Colors.blueGrey.shade50),
                       ),
                     ),
                     validator: (value) {
@@ -240,14 +244,16 @@ class _PaymentInputState extends State<PaymentInput> {
                     keyboardType: TextInputType.datetime,
                     decoration: InputDecoration(
                       hintText: 'Date Today',
-                      prefixIcon: Icon(Icons.calendar_today, color: Colors.red),
+                      filled: true,
+                      fillColor: Colors.blueGrey[50],
+                      prefixIcon: Icon(Icons.calendar_today, color: Colors.black38),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8)),
-                        borderSide: BorderSide(color: Colors.red, width: 2),
+                        borderSide: BorderSide(color: Colors.blueGrey.shade50),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8)),
-                        borderSide: BorderSide(color: Colors.black, width: 2),
+                        borderSide: BorderSide(color: Colors.blueGrey.shade50),
                       ),
                     ),
                     validator: (value) {
