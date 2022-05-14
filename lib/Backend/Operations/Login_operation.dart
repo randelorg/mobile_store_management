@@ -2,11 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:mobile_store_management/Backend/Interfaces/ILogin.dart';
 import 'package:mobile_store_management/Backend/Session.dart';
-import 'package:mobile_store_management/Backend/Utility/ApiUrl.dart';
 import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 import 'package:mobile_store_management/Helpers/Hashing_helper.dart';
 import 'package:mobile_store_management/Models/Admin_model.dart';
 import 'package:mobile_store_management/Models/Collector_model.dart';
+
+import '../../Environment/Environment.dart';
 
 class LoginOperation implements ILogin {
   
@@ -25,7 +26,7 @@ class LoginOperation implements ILogin {
   @override
   Future<bool> mainLogin(String role, String username, String password) async {
     //holds the json body
-    var entity;
+    var entity, response;
 
     switch (role) {
       case 'Manager':
@@ -42,14 +43,10 @@ class LoginOperation implements ILogin {
       default:
     }
 
-    final response = await http.post(
-      Uri.parse(Url.url + "api/login"),
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: entity,
-    );
+    await Environment.methodPost("http://10.0.2.2:8090/api/login", entity)
+        .then((value) {
+      response = value;
+    });
 
     //if response is empty return false
     if (response.statusCode == 404) {

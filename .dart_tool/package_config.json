@@ -104,6 +104,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_dotenv",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_dotenv-5.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_native_splash",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_native_splash-1.3.3",
       "packageUri": "lib/",
@@ -410,7 +416,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-05-02T10:20:19.446171Z",
+  "generated": "2022-05-14T08:44:10.057546Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }

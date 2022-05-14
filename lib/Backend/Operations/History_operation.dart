@@ -1,9 +1,8 @@
 import 'package:mobile_store_management/Backend/Interfaces/IHistory.dart';
-import 'package:mobile_store_management/Backend/Utility/ApiUrl.dart';
 import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
+import 'package:mobile_store_management/Environment/Environment.dart';
 import 'package:mobile_store_management/Models/LoanedProductHistory_model.dart';
 import 'package:mobile_store_management/Models/PaymentHistory_model.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class HistoryOperation implements IHistory {
@@ -12,10 +11,13 @@ class HistoryOperation implements IHistory {
   Future<List<LoanedProductHistoryModel>> viewLoanHistory(
       String borrowerId) async {
     if (borrowerId == "") return [];
+    var response;
     try {
-      final response = await http.get(
-        Uri.parse("${Url.url}api/loanedproducts/$borrowerId"),
-      );
+      await Environment.methodGet(
+              "${Environment.apiUrl}/api/loanedproducts/$borrowerId")
+          .then((value) {
+        response = value;
+      });
 
       final parsed =
           await jsonDecode(response.body).cast<Map<String, dynamic>>();
@@ -39,11 +41,14 @@ class HistoryOperation implements IHistory {
   Future<List<PaymentHistoryModel>> viewPaymentHistory(
       String borrowerId) async {
     if (borrowerId == "") return [];
+     var response;
     try {
-      final response = await http.get(
-        Uri.parse("${Url.url}api/payment/$borrowerId"),
-      );
-
+      await Environment.methodGet(
+              "${Environment.apiUrl}/api/payment/$borrowerId")
+          .then((value) {
+        response = value;
+      });
+      
       final parsed =
           await jsonDecode(response.body).cast<Map<String, dynamic>>();
       Mapping.paymentList = parsed

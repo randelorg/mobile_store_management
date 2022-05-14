@@ -17,15 +17,14 @@
 .packages
 .pub-cache/
 .pub/
-build/
+/build/
 windows/
-idea/
+android/
+ios/
 .idea/
-test/
-
 
 # Visual Studio Code related
-vscode/
+.vscode/
 .vscode-test/
 .vscode-test-workspace/
 
@@ -45,3 +44,6 @@ vscode/
 
 # Service account files
 svc-keyfile.json
+
+#environment variables
+.env

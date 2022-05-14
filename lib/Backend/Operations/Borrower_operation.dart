@@ -1,8 +1,7 @@
 import 'package:mobile_store_management/Backend/Interfaces/IBorrower.dart';
 import 'package:mobile_store_management/Backend/Interfaces/IPay.dart';
-import 'package:http/http.dart' as http;
-import 'package:mobile_store_management/Backend/Utility/ApiUrl.dart';
 import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
+import 'package:mobile_store_management/Environment/Environment.dart';
 import 'dart:convert';
 
 import 'package:mobile_store_management/Models/Borrower_model.dart';
@@ -11,11 +10,13 @@ class BorrowerOperation implements IBorrower, IPay {
   //QR Code Scanner
   @override
   Future<bool> getBorrower(String bid) async {
+    var response;
     try {
-      final response = await http.get(
-        Uri.parse(Url.url + "api/borrower/" + bid),
-      );
-
+      await Environment.methodGet("${Environment.apiUrl}/api/borrower/"+ bid)
+          .then((value) {
+        response = value;
+      });
+      
       //if response is empty return false
       if (response.statusCode == 404) {
         return false;
@@ -48,6 +49,7 @@ class BorrowerOperation implements IBorrower, IPay {
   //Make Payment
   @override
   Future<bool> makePayment(int id, double payment, String date) async {
+    var response;
     var paymentLoad = json.encode({
       'BorrowerID': id,
       'CollectionAmount': payment,
@@ -55,14 +57,11 @@ class BorrowerOperation implements IBorrower, IPay {
     });
 
     try {
-      final response = await http.post(
-        Uri.parse("${Url.url}api/payment"),
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: paymentLoad,
-      );
+      await Environment.methodPost(
+        "${Environment.apiUrl}/api/payment", paymentLoad)
+          .then((value) {
+        response = value;
+      });
 
       if (response.statusCode == 404) return false;
     } catch (e) {
@@ -77,20 +76,16 @@ class BorrowerOperation implements IBorrower, IPay {
   @override
   Future<bool> getBorrowerName(String firstname, String lastname) async {
     if (firstname.isEmpty && lastname.isEmpty) return false;
-
+    var response;
     var brw = json.encode({
       'firstname': firstname,
       'lastname': lastname,
     });
     try {
-      final response = await http.post(
-        Uri.parse("${Url.url}api/borrower"),
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: brw,
-      );
+      await Environment.methodPost("${Environment.apiUrl}/api/borrower", brw)
+          .then((value) {
+        response = value;
+      });
 
       //if response is empty return false
       if (response.statusCode == 404) {
