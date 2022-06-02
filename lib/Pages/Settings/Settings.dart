@@ -234,8 +234,8 @@ class _SettingsState extends State<Settings> {
 
             //Display Served Borrowers
             ExpansionTile(
-              textColor: HexColor("#EA1C24"),
-              iconColor: HexColor("#155293"),
+              textColor: HexColor("#155293"),
+              iconColor: HexColor("#f22613"),
               leading: Padding(
                 padding: EdgeInsets.only(left: 5),
                 child: Icon(Icons.groups),
@@ -270,8 +270,8 @@ class _SettingsState extends State<Settings> {
 
             //Display Account
             ExpansionTile(
-              textColor: HexColor("#EA1C24"),
-              iconColor: HexColor("#155293"),
+              textColor: HexColor("#155293"),
+              iconColor: HexColor("#f22613"),
               leading: Padding(
                 padding: EdgeInsets.only(left: 5),
                 child: Icon(Icons.settings),

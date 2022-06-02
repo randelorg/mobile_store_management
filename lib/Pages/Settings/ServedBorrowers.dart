@@ -167,7 +167,7 @@ class _DataSource extends DataTableSource {
       cells: [
         DataCell(Text(row.valueA)),
         DataCell(Text(row.valueB)),
-        DataCell(Text(row.valueC)),
+        DataCell(Text ('₱ ' + (row.valueC))),
       ],
     );
   }

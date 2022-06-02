@@ -9,9 +9,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  
+
   bool _isHidden = true;
   var login = LoginOperation();
 
@@ -103,7 +102,8 @@ class _LoginState extends State<Login> {
                     hintText: 'Username',
                     filled: true,
                     fillColor: Colors.blueGrey[50],
-                    prefixIcon: Icon(Icons.person_rounded, color: Colors.black38),
+                    prefixIcon:
+                        Icon(Icons.person_rounded, color: Colors.black38),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide: BorderSide(color: Colors.blueGrey.shade50),
@@ -133,14 +133,14 @@ class _LoginState extends State<Login> {
                     prefixIcon: Icon(Icons.vpn_key_rounded, color: Colors.black38),
                     suffix: InkWell(
                       onTap: _togglePasswordView,
-                      child: Icon(Icons.visibility),
+                      child: Icon(Icons.visibility, size: 22),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide: BorderSide(color: Colors.blueGrey.shade50),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
                       borderSide: BorderSide(color: Colors.blueGrey.shade50),
                     ),
                   ),
@@ -154,9 +154,10 @@ class _LoginState extends State<Login> {
             //Login Button
             Container(
               margin: EdgeInsets.only(left: 35, right: 35, top: 80),
-              height: 60, width: 175,
+              height: 60,
+              width: 175,
               decoration: BoxDecoration(
-                  color: HexColor("#EA1C24"),
+                  color: HexColor("#f22613"),
                   borderRadius: BorderRadius.circular(80)),
               child: TextButton(
                 child: Text(
@@ -164,20 +165,21 @@ class _LoginState extends State<Login> {
                   style: TextStyle(
                     fontFamily: 'Cairo_Bold',
                     color: Colors.white,
-                    fontSize: 25,
+                    fontSize: 24,
                   ),
                 ),
-                onPressed: () {       
-                  if (_formKey.currentState!.validate()) {   
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
                     login
-                        .mainLogin(manager.toString(), username.text,
-                            password.text)
+                        .mainLogin(
+                            manager.toString(), username.text, password.text)
                         .then((value) {
                       setState(() {
                         if (value) {
                           Navigator.pushNamed(context, '/main');
+                          showSuccess();
                         } else {
-                          showToast();
+                          showError();
                         }
                       });
                     });
@@ -192,14 +194,21 @@ class _LoginState extends State<Login> {
     );
   }
 
-  void showToast() => Fluttertoast.showToast(
-      msg: "Wrong Username or Password",
+  void showSuccess() => Fluttertoast.showToast(
+      msg: "You are successfully logged in",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: Colors.green,
+      textColor: Colors.white,
+      fontSize: 13);
+
+  void showError() => Fluttertoast.showToast(
+      msg: "Login failed wrong user credentials",
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
       backgroundColor: Colors.red,
       textColor: Colors.white,
-      fontSize: 13
-  );
+      fontSize: 13);
 
   void _togglePasswordView() {
     setState(() {

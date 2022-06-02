@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:collection';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-
 import '../Main/Home.dart';
 import '../Payment/PaymentInput.dart';
 import '../History/PaymentHistory.dart';
@@ -40,7 +39,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           showUnselectedLabels: false,
           backgroundColor: Colors.white,
           selectedItemColor: Colors.red,
-          unselectedItemColor: Colors.black,         
+          unselectedItemColor: Colors.black87,         
           type: BottomNavigationBarType.fixed,   
 
           currentIndex: this.screenIndex,
@@ -48,7 +47,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
           onTap: (value) {   
             navigationQueue.addLast(screenIndex);
             setState(() => screenIndex = value);
-            //print(value);
           },
 
           //Display Bottom Navigation Bar

@@ -314,7 +314,7 @@ class _PaymentInputState extends State<PaymentInput> {
                       style: TextStyle(
                         fontFamily: 'Cairo_Bold',
                         color: Colors.white,
-                        fontSize: 22,
+                        fontSize: 20,
                       ),
                     ),
                     onPressed: () {
@@ -333,7 +333,6 @@ class _PaymentInputState extends State<PaymentInput> {
                             .then(
                           (value) {
                             if (value) {
-                              print('success');
                               Navigator.pushNamed(context, '/main');
                             }
                           },

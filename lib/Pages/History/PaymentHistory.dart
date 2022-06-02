@@ -6,12 +6,13 @@ import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 import '../../Models/PaymentHistory_model.dart';
 
 class PaymentHistory extends StatefulWidget {
+ 
   @override
   _PaymentHistoryState createState() => _PaymentHistoryState();
 }
 
 class _PaymentHistoryState extends State<PaymentHistory> {
-  
+
   var history = HistoryOperation();
   late Future<List<PaymentHistoryModel>> _paymentHistory;
   var _sortAscending = true;
@@ -47,7 +48,7 @@ class _PaymentHistoryState extends State<PaymentHistory> {
                 ),
               ),
             ),
-
+            
             //Display Data Table
             Expanded(
               child: Padding(
@@ -201,7 +202,7 @@ class _DataSource extends DataTableSource {
       selected: row.selected,
       cells: [
         DataCell(Text(row.valueA)),
-        DataCell(Text(row.valueB)),
+        DataCell(Text ('₱ ' + (row.valueB))),
         DataCell(Text(row.valueC)),
       ],
     );

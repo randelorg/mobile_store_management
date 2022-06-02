@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:hexcolor/hexcolor.dart';
-
 import 'package:mobile_store_management/Backend/Utility/Mapping.dart';
 import '../Payment/MakePayment.dart';
 
@@ -43,7 +42,7 @@ class _HomeState extends State<Home> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 15,
+                    fontSize: 14,
                     fontFamily: 'Cairo_SemiBold',
                   ),
                 ),
@@ -60,7 +59,9 @@ class _HomeState extends State<Home> {
                       const Radius.circular(80),
                     ),
                   ),
-                  color: HexColor("#EA1C24"),
+                  color: HexColor("#f22613"),
+                   
+
                   child: Row(
                     children: [
                       Padding(

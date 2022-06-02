@@ -10,7 +10,7 @@ class MyProfile extends StatefulWidget {
 
 class _MyProfileState extends State<MyProfile> {
   List<int> picture = [];
-  String? id, role, name, username, number, address;
+  String? id, role, name, username;
   String? whatRole;
 
   @override
@@ -25,8 +25,6 @@ class _MyProfileState extends State<MyProfile> {
         role = Mapping.collectorList[0].getRole;
         name = Mapping.collectorList[0].toString();
         username = Mapping.collectorList[0].getUsername;
-        number = Mapping.collectorList[0].getMobileNumber;
-        address = Mapping.collectorList[0].getHomeAddress;
       } else {
         //if user is admin
         picture = Mapping.adminList[0].getUserImage.cast<int>();
@@ -34,8 +32,6 @@ class _MyProfileState extends State<MyProfile> {
         role = 'Administrator';
         name = Mapping.adminList[0].toString();
         username = Mapping.adminList[0].getUsername;
-        number = Mapping.adminList[0].getMobileNumber;
-        address = Mapping.adminList[0].getHomeAddress;
       }
     } catch (e) {
       print(e);
@@ -47,7 +43,7 @@ class _MyProfileState extends State<MyProfile> {
     return Dialog(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      insetPadding: EdgeInsets.only(left: 20, right: 20, top: 162, bottom: 162),
+      insetPadding: EdgeInsets.only(left: 20, right: 20, top: 170, bottom: 200),
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
@@ -71,7 +67,7 @@ class _MyProfileState extends State<MyProfile> {
                 //Display Page Title
                 Container(
                   margin:
-                      const EdgeInsets.only(top: 155, right: 225),
+                      const EdgeInsets.only(top: 160, right: 225),
                   child: Text(
                     "My Profile",
                     style: TextStyle(
@@ -187,64 +183,6 @@ class _MyProfileState extends State<MyProfile> {
                       ),
                       Text(
                         name.toString(),
-                        softWrap: true,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Cairo_SemiBold',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                //Display Mobile Number
-                Card(
-                  elevation: 3,
-                  shadowColor: Colors.black,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 40, right: 39),
-                        child: Text(
-                          'Mobile Number',
-                          style: TextStyle(
-                            color: Colors.grey[700],
-                            fontFamily: 'Cairo_SemiBold',
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        number.toString(),
-                        softWrap: true,
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'Cairo_SemiBold',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                //Display Home Address
-                Card(
-                  elevation: 3,
-                  shadowColor: Colors.black,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 40, right: 42),
-                        child: Text(
-                          'Home Address',
-                          style: TextStyle(
-                            color: Colors.grey[700],
-                            fontFamily: 'Cairo_SemiBold',
-                            fontSize: 12,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        address.toString(),
                         softWrap: true,
                         style: TextStyle(
                           fontSize: 14,

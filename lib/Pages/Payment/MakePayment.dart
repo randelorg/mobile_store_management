@@ -248,7 +248,7 @@ class _MakePaymentState extends State<MakePayment> {
                       style: TextStyle(
                         fontFamily: 'Cairo_Bold',
                         color: Colors.white,
-                        fontSize: 22,
+                        fontSize: 20,
                       ),
                     ),
                     onPressed: () {
@@ -267,7 +267,6 @@ class _MakePaymentState extends State<MakePayment> {
                             .then(
                           (value) {
                             if (value) {
-                              print('success');
                               Navigator.pushNamed(context, '/main');
                             }
                           },
